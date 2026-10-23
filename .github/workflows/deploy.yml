@@ -1,0 +1,69 @@
+# Baut die Website und lädt sie per FTPS zu All-Inkl hoch.
+#
+# Benötigte Secrets (Repo → Settings → Secrets and variables → Actions):
+#   FTP_SERVER     z. B. w0123456.kasserver.com
+#   FTP_USERNAME   FTP-Benutzer aus dem All-Inkl-KAS
+#   FTP_PASSWORD   Passwort des FTP-Benutzers
+# Optional:
+#   FTP_SERVER_DIR Zielordner auf dem Server, Standard "/" (muss mit "/" enden)
+
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: out/
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - name: Prüfen, ob FTP-Zugangsdaten hinterlegt sind
+        if: env.FTP_SERVER == ''
+        run: echo "::warning::FTP-Secrets fehlen – Upload übersprungen. Siehe README."
+
+      - uses: actions/download-artifact@v4
+        if: env.FTP_SERVER != ''
+        with:
+          name: website
+          path: out/
+
+      - name: Per FTPS zu All-Inkl hochladen
+        if: env.FTP_SERVER != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}

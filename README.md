@@ -16,6 +16,26 @@ stehen zentral in `src/lib/site.ts`.
 
 ## Veröffentlichen bei All-Inkl
 
+### Automatisch über GitHub (empfohlen)
+
+Jeder Push auf `main` startet `.github/workflows/deploy.yml`: Die Seite wird gebaut und per
+FTPS zu All-Inkl hochgeladen. Dafür einmalig im Repo unter
+**Settings → Secrets and variables → Actions → New repository secret** anlegen:
+
+| Secret           | Wert                                                       |
+| ---------------- | ---------------------------------------------------------- |
+| `FTP_SERVER`     | FTP-Server aus dem KAS, z. B. `w0123456.kasserver.com`     |
+| `FTP_USERNAME`   | FTP-Benutzername                                           |
+| `FTP_PASSWORD`   | FTP-Passwort                                               |
+| `FTP_SERVER_DIR` | optional: Zielordner der Domain, z. B. `/story-base.de/`   |
+
+Empfehlung: Im KAS unter „FTP“ einen eigenen FTP-Benutzer anlegen, der nur auf den Ordner
+der Domain zugreifen darf. Der Upload überträgt nur geänderte Dateien und löscht keine
+fremden Dateien auf dem Server. Manuell starten: Tab „Actions“ → „Build & Deploy“ →
+„Run workflow“.
+
+### Manuell per FTP
+
 1. `npm run build` – erzeugt den Ordner `out/`.
 2. Im KAS bzw. per FTP den **Inhalt** von `out/` in das Verzeichnis der Domain
    `story-base.de` hochladen (inklusive der versteckten Datei `.htaccess`).
