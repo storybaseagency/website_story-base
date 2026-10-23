@@ -30,8 +30,8 @@ FTPS zu All-Inkl hochgeladen. Dafür einmalig im Repo unter
 | `FTP_SERVER_DIR` | optional: Zielordner der Domain, z. B. `/story-base.de/`   |
 
 Empfehlung: Im KAS unter „FTP“ einen eigenen FTP-Benutzer anlegen, der nur auf den Ordner
-der Domain zugreifen darf. Der Upload überträgt nur geänderte Dateien und löscht keine
-fremden Dateien auf dem Server. Manuell starten: Tab „Actions“ → „Build & Deploy“ →
+der Domain zugreifen darf. Der Upload (lftp, FTPS) überschreibt die Dateien der Website und
+löscht keine anderen Dateien auf dem Server. Manuell starten: Tab „Actions“ → „Build & Deploy“ →
 „Run workflow“.
 
 ### Manuell per FTP

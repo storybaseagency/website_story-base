@@ -1,4 +1,4 @@
-# Baut die Website und lädt sie per FTPS zu All-Inkl hoch.
+# Baut die Website und lädt sie per FTPS (lftp) zu All-Inkl hoch.
 #
 # Benötigte Secrets (Repo → Settings → Secrets and variables → Actions):
 #   FTP_SERVER     z. B. w0123456.kasserver.com
@@ -23,9 +23,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -34,7 +34,7 @@ jobs:
       - run: npm run lint
       - run: npm run build
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: website
           path: out/
@@ -51,19 +51,32 @@ jobs:
         if: env.FTP_SERVER == ''
         run: echo "::warning::FTP-Secrets fehlen – Upload übersprungen. Siehe README."
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         if: env.FTP_SERVER != ''
         with:
           name: website
           path: out/
 
+      - name: lftp installieren
+        if: env.FTP_SERVER != ''
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      # lftp statt FTP-Deploy-Action: All-Inkl verlangt bei FTPS die Wiederaufnahme
+      # der TLS-Sitzung auf der Datenverbindung, sonst bricht sie ab (ECONNRESET).
       - name: Per FTPS zu All-Inkl hochladen
         if: env.FTP_SERVER != ''
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./out/
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
+        env:
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR || '/' }}
+        run: |
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate true;
+            set ftp:passive-mode true;
+            set net:max-retries 3;
+            set net:timeout 30;
+            open --env-password -u \"$FTP_USERNAME\" \"$FTP_SERVER\";
+            mirror --reverse --verbose --parallel=4 --no-perms out/ \"$FTP_SERVER_DIR\";
+          "
