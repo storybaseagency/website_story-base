@@ -5,13 +5,18 @@ import { InstagramIcon, LinkedInIcon } from "./icons";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-ink-950">
+    <footer className="border-t border-white/10 bg-ink-950 text-white">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
           <img src="/images/logo.webp" alt="" width={32} height={32} className="size-8" />
-          <p className="text-sm text-white/60">
-            © {new Date().getFullYear()} {site.legalName}
-          </p>
+          <div className="text-sm text-white/60">
+            <p>
+              © {new Date().getFullYear()} {site.legalName}
+            </p>
+            <p>
+              Agentur für Praxismarketing · {site.address.street}, {site.address.zip} {site.address.city}
+            </p>
+          </div>
         </div>
 
         <nav aria-label="Rechtliches" className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
@@ -21,7 +26,7 @@ export function Footer() {
           <Link href="/datenschutz/" className="text-white/70 hover:text-white">
             Datenschutz
           </Link>
-          <CookieSettingsButton className="text-white/70 hover:text-white" />
+          <CookieSettingsButton className="cursor-pointer text-white/70 hover:text-white" />
         </nav>
 
         <div className="flex items-center gap-3">

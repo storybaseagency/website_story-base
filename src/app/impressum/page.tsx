@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
+import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,13 +11,17 @@ export const metadata: Metadata = {
 export default function Impressum() {
   return (
     <LegalPage title="Impressum">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema("Impressum", "/impressum/")) }}
+      />
       <h2>Angaben gemäß § 5 DDG</h2>
       <p>
         {site.legalName}
         <br />
-        {site.legalAddress.street}
+        {site.address.street}
         <br />
-        {site.legalAddress.zip} {site.legalAddress.city}
+        {site.address.zip} {site.address.city}
         <br />
         Deutschland
       </p>

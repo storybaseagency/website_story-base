@@ -1,31 +1,32 @@
-// Zentrale Stammdaten der Website. Änderungen hier wirken auf alle Seiten.
+// Zentrale Stammdaten der Website. Änderungen hier wirken auf alle Seiten,
+// die strukturierten Daten (JSON-LD) und llms.txt.
 
 export const site = {
   name: "Story Base Agency",
+  shortName: "Story Base",
   legalName: "Story Base Agency UG (haftungsbeschränkt)",
   url: "https://story-base.de",
+  // Positionierungssatz – überall identisch verwenden (Website, Google-Profil, LinkedIn, Instagram)
+  positioning:
+    "Story Base ist die Video- und Ads-Agentur für Privat- und Selbstzahlerpraxen – mit dem AI-Ready Growth System gewinnen Praxen planbar Privatpatienten und Fachkräfte.",
+  title: "Marketing für Arztpraxen | Video & Ads | Story Base Berlin",
   description:
-    "Berliner Social-Media-Agentur aus Spandau. Strategie, Content-Produktion und Umsetzung aus einer Hand – mit dem AI-Ready Growth System.",
+    "Mehr Privatpatienten und Fachkräfte für Ihre Praxis: Praxisvideos, Social Media und Ads aus einer Hand – mit dem AI-Ready Growth System. Studio in Berlin-Spandau.",
   phone: {
     display: "0160 / 7534434",
     international: "+49 160 7534434",
     href: "tel:+491607534434",
   },
   email: "info@story-base.de",
-  // Adresse des Büros (Kontaktbereich der bisherigen Website)
-  office: {
+  address: {
     street: "Pichelsdorfer Straße 129",
     zip: "13595",
     city: "Berlin",
     district: "Spandau",
+    region: "Berlin",
+    country: "DE",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Pichelsdorfer+Stra%C3%9Fe+129%2C+13595+Berlin",
-  },
-  // Anschrift laut bisherigem Impressum
-  legalAddress: {
-    street: "Pichelsdorfer Straße 59",
-    zip: "13595",
-    city: "Berlin",
   },
   managingDirector: "Jan Bruchwalski",
   register: {
@@ -43,8 +44,9 @@ export const site = {
 } as const;
 
 export const navigation = [
-  { href: "/#about", label: "Über uns" },
-  { href: "/#mehrwert", label: "Ihr Mehrwert" },
+  { href: "/#system", label: "Leistungen" },
+  { href: "/#ziele", label: "Für Praxen" },
   { href: "/#ablauf", label: "Ablauf" },
-  { href: "/#contact", label: "Kontakt" },
+  { href: "/#about", label: "Über uns" },
+  { href: "/#faq", label: "FAQ" },
 ] as const;

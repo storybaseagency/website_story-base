@@ -1,15 +1,82 @@
 @import "tailwindcss";
 
+/* Story Base Design System – Tokens */
 @theme {
   --color-ink-950: #07080d;
   --color-ink-900: #0d1018;
   --color-ink-800: #141927;
   --color-ink-700: #1d2436;
+  --color-ink-600: #3a4256;
+  --color-ink-500: #5b6275;
+  --color-ink-400: #8a909e;
+  --color-ink-300: #c4c7cf;
+  --color-ink-200: #e2e4e9;
+  --color-ink-100: #f0f1f4;
   --color-navy: #0f3460;
+  --color-navy-700: #1a4a80;
   --color-accent: #d88d69;
   --color-accent-dark: #c4703f;
   --color-accent-soft: #f3d6c7;
+  --color-accent-deep: #9a522b;
+  --color-accent-tint: #fbefe8;
+  --color-paper: #faf7f3;
+  --color-sand: #f3ece5;
+
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-4xl: 2rem;
+
+  --shadow-card: 0 1px 2px rgba(7, 8, 13, 0.04), 0 12px 32px -16px rgba(7, 8, 13, 0.14);
+  --shadow-card-hover: 0 1px 2px rgba(7, 8, 13, 0.04), 0 24px 48px -20px rgba(7, 8, 13, 0.22);
+  --shadow-image: 0 25px 50px -12px rgba(7, 8, 13, 0.25);
+  --shadow-button: 0 10px 15px -3px rgba(216, 141, 105, 0.2), 0 4px 6px -4px rgba(216, 141, 105, 0.2);
+  --shadow-header: 0 1px 0 rgba(7, 8, 13, 0.06), 0 8px 24px -16px rgba(7, 8, 13, 0.18);
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: sb-marquee 45s linear infinite;
+  --animate-pulse-dot: sb-pulse 2.4s ease-in-out infinite;
+  --animate-fade-in: sb-fade 700ms var(--ease-out-soft) both;
+  --animate-progress: sb-progress 7s linear forwards;
+}
+
+@keyframes sb-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes sb-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(216, 141, 105, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(216, 141, 105, 0);
+  }
+}
+@keyframes sb-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sb-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+/* Mikroanimation: handgezeichnete Unterstreichung in der Hero-Headline */
+@keyframes sb-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 html {
@@ -18,8 +85,8 @@ html {
 }
 
 body {
-  background-color: var(--color-ink-950);
-  color: #fff;
+  background-color: var(--color-paper);
+  color: var(--color-ink-950);
 }
 
 ::selection {
@@ -33,25 +100,59 @@ body {
   border-radius: 4px;
 }
 
-/* Sanftes Einblenden beim Scrollen, nur wenn der Browser es unterstützt */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal {
-      animation: reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 25%;
-    }
-  }
+/* Einblenden beim Scrollen. Inhalte sind ohne JavaScript immer sichtbar
+   (die Klasse „js“ setzt ein Inline-Skript im <head>). */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance, 2rem));
+  transition:
+    opacity 700ms var(--ease-out-soft) var(--reveal-delay, 0ms),
+    transform 700ms var(--ease-out-soft) var(--reveal-delay, 0ms);
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
 }
 
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(2rem);
+.draw-underline path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: sb-draw 900ms var(--ease-out-soft) 900ms forwards;
+}
+
+/* FAQ-Akkordeon auf Basis von <details>: Inhalt steht immer im HTML */
+.faq-item > summary {
+  list-style: none;
+}
+.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item .faq-bar-v {
+  transition: rotate 300ms var(--ease-out-soft);
+}
+.faq-item[open] .faq-bar-v {
+  rotate: 0deg;
+}
+.faq-item .faq-icon {
+  transition: background-color 300ms;
+}
+.faq-item[open] .faq-icon {
+  background-color: var(--color-accent);
+  color: var(--color-ink-950);
+}
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
   }
-  to {
-    opacity: 1;
-    transform: none;
+  .faq-item::details-content {
+    height: 0;
+    overflow: clip;
+    transition:
+      height 300ms var(--ease-out-soft),
+      content-visibility 300ms allow-discrete;
+  }
+  .faq-item[open]::details-content {
+    height: auto;
   }
 }
 
@@ -59,21 +160,34 @@ body {
   html {
     scroll-behavior: auto;
   }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .draw-underline path {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* Typografie für Rechtstexte */
 .legal h2 {
-  @apply mt-12 mb-4 text-2xl font-bold text-white;
+  @apply mt-12 mb-4 text-2xl font-bold text-ink-950;
 }
 .legal h3 {
-  @apply mt-8 mb-3 text-lg font-semibold text-white;
+  @apply mt-8 mb-3 text-lg font-semibold text-ink-950;
 }
 .legal h4 {
-  @apply mt-6 mb-2 font-semibold text-white;
+  @apply mt-6 mb-2 font-semibold text-ink-950;
 }
 .legal p,
 .legal li {
-  @apply leading-relaxed text-white/75;
+  @apply leading-relaxed text-ink-600;
 }
 .legal p {
   @apply mb-4;
@@ -83,5 +197,5 @@ body {
 }
 .legal a {
   overflow-wrap: anywhere;
-  @apply text-accent underline underline-offset-2 hover:text-accent-soft;
+  @apply text-accent-deep underline underline-offset-2 hover:text-accent-dark;
 }

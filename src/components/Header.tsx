@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navigation, site } from "@/lib/site";
-import { PhoneIcon } from "./icons";
+import { ArrowIcon, PhoneIcon } from "./icons";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -27,16 +27,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        solid
-          ? "border-b border-white/10 bg-ink-950/90 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        solid ? "bg-paper/90 shadow-header backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img src="/images/logo.webp" alt="" width={36} height={36} className="size-9" />
-          <span className="text-lg font-bold tracking-tight">{site.name}</span>
+          <span className="text-lg font-bold tracking-tight text-ink-950">{site.name}</span>
         </Link>
 
         <nav aria-label="Hauptnavigation" className="hidden items-center gap-8 lg:flex">
@@ -44,17 +42,17 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-white/80 transition hover:text-white"
+              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-5 lg:flex">
           <a
             href={site.phone.href}
-            className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-soft"
+            className="flex items-center gap-2 text-sm font-semibold text-accent-deep hover:text-accent-dark"
           >
             <PhoneIcon className="size-4" />
             {site.phone.display}
@@ -63,27 +61,24 @@ export function Header() {
             href={site.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink-950 transition hover:bg-accent-soft"
+            className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink-950 shadow-button transition hover:bg-accent-dark"
           >
-            Termin buchen
+            Praxis-Check buchen
+            <ArrowIcon className="size-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
 
         <button
           type="button"
-          className="relative -mr-2 flex size-11 items-center justify-center lg:hidden"
+          className="relative -mr-2 flex size-11 items-center justify-center text-ink-950 lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           onClick={() => setOpen((v) => !v)}
         >
-          <span
-            className={`absolute h-0.5 w-6 bg-white transition ${open ? "rotate-45" : "-translate-y-2"}`}
-          />
-          <span className={`absolute h-0.5 w-6 bg-white transition ${open ? "opacity-0" : ""}`} />
-          <span
-            className={`absolute h-0.5 w-6 bg-white transition ${open ? "-rotate-45" : "translate-y-2"}`}
-          />
+          <span className={`absolute h-0.5 w-6 bg-current transition ${open ? "rotate-45" : "-translate-y-2"}`} />
+          <span className={`absolute h-0.5 w-6 bg-current transition ${open ? "opacity-0" : ""}`} />
+          <span className={`absolute h-0.5 w-6 bg-current transition ${open ? "-rotate-45" : "translate-y-2"}`} />
         </button>
       </div>
 
@@ -91,7 +86,7 @@ export function Header() {
         id="mobile-nav"
         aria-label="Mobile Navigation"
         hidden={!open}
-        className="border-t border-white/10 px-4 pt-2 pb-6 lg:hidden"
+        className="border-t border-ink-950/8 px-4 pt-2 pb-6 lg:hidden"
       >
         <ul className="flex flex-col">
           {navigation.map((item) => (
@@ -99,7 +94,7 @@ export function Header() {
               <Link
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 text-lg font-medium text-white/90"
+                className="block py-3 text-lg font-medium text-ink-700"
               >
                 {item.label}
               </Link>
@@ -111,13 +106,13 @@ export function Header() {
             href={site.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-5 py-3 text-center font-semibold text-ink-950"
+            className="rounded-full bg-accent px-5 py-3 text-center font-semibold text-ink-950 shadow-button"
           >
-            Beratungsgespräch vereinbaren
+            Praxis-Check buchen
           </a>
           <a
             href={site.phone.href}
-            className="flex items-center justify-center gap-2 rounded-full border border-white/20 px-5 py-3 font-semibold"
+            className="flex items-center justify-center gap-2 rounded-full border border-ink-950/14 px-5 py-3 font-semibold text-ink-950"
           >
             <PhoneIcon className="size-4" />
             {site.phone.display}

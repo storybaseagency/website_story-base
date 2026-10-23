@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
 import { CookieSettingsButton } from "@/components/Consent";
+import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 export default function Datenschutz() {
   return (
     <LegalPage title="Datenschutzerklärung">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema("Datenschutzerklärung", "/datenschutz/")) }}
+      />
       <h2>1. Datenschutz auf einen Blick</h2>
 
       <h3>Allgemeine Hinweise</h3>
@@ -91,9 +96,9 @@ export default function Datenschutz() {
         <br />
         vertreten durch {site.managingDirector}
         <br />
-        {site.legalAddress.street}
+        {site.address.street}
         <br />
-        {site.legalAddress.zip} {site.legalAddress.city}
+        {site.address.zip} {site.address.city}
         <br />
         Telefon: {site.phone.display}
         <br />
@@ -148,7 +153,7 @@ export default function Datenschutz() {
       <p>
         Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie
         können eine bereits erteilte Einwilligung jederzeit widerrufen – für Cookies z. B. über die{" "}
-        <CookieSettingsButton className="text-accent underline underline-offset-2 hover:text-accent-soft" />
+        <CookieSettingsButton className="cursor-pointer text-accent-deep underline underline-offset-2 hover:text-accent-dark" />
         . Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf
         unberührt.
       </p>
@@ -231,6 +236,18 @@ export default function Datenschutz() {
         Ihrem Browser, um Ihnen die erteilten Einwilligungen bzw. deren Widerruf zuordnen zu können.
         Der Einsatz erfolgt, um die gesetzlich vorgeschriebenen Einwilligungen für den Einsatz von
         Cookies einzuholen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. c DSGVO.
+      </p>
+
+      <h3>Rückrufformular</h3>
+      <p>
+        Wenn Sie uns über das Rückrufformular auf unserer Website eine Anfrage senden, verarbeiten wir
+        die von Ihnen eingegebenen Daten (Name, Praxis und Fachrichtung, Telefonnummer oder E-Mail-Adresse,
+        gewähltes Ziel) ausschließlich, um Sie zu kontaktieren und Ihre Anfrage zu bearbeiten. Die
+        Angaben werden per E-Mail an uns übermittelt und nicht in einer Datenbank auf dem Webserver
+        gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, da Ihre Anfrage der Anbahnung
+        eines Vertrags dient, im Übrigen unser berechtigtes Interesse an der Bearbeitung von Anfragen
+        (Art. 6 Abs. 1 lit. f DSGVO). Wir löschen die Daten, sobald Ihre Anfrage abschließend
+        bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
       </p>
 
       <h3>Anfrage per E-Mail oder Telefon</h3>

@@ -11,8 +11,17 @@ npm run dev     # http://localhost:3000
 npm run lint
 ```
 
-Stammdaten (Telefon, Adresse, Calendly-Link, Social Media, Cookiebot- und Analytics-ID)
-stehen zentral in `src/lib/site.ts`.
+Stammdaten (Positionierungssatz, Telefon, Adresse, Calendly-Link, Social Media, Cookiebot- und
+Analytics-ID) stehen zentral in `src/lib/site.ts`, alle Texte der Startseite (Bausteine, FAQ,
+Ablauf, Fachrichtungen …) in `src/lib/content.ts`. Von dort werden auch die strukturierten Daten
+(`src/lib/schema.ts`) und `/llms.txt` erzeugt – Texte also nur an einer Stelle ändern.
+
+**Stimmen/Testimonials:** In `content.ts` unter `testimonials` eintragen (nur echte, schriftlich
+freigegebene Zitate). Der Abschnitt erscheint automatisch, sobald ein Eintrag vorhanden ist.
+
+**Rückrufformular:** `public/kontakt.php` verschickt Anfragen per PHP-`mail()` an
+info@story-base.de (Absender website@story-base.de). Spam-Schutz über unsichtbares Honeypot-Feld
+und Mindestausfüllzeit.
 
 ## Veröffentlichen bei All-Inkl
 
@@ -49,10 +58,10 @@ Die `.htaccess` (Quelle: `public/.htaccess`) erzwingt HTTPS, leitet `www.` auf
 ## Struktur
 
 ```
-src/app/            Seiten: Start, /impressum, /datenschutz, 404, sitemap.xml, robots.txt
-src/components/     Header, Footer, Consent (Cookiebot + Google Analytics), Icons
-src/lib/site.ts     Stammdaten
-public/             Bilder (WebP), Hero-Video (MP4 + WebM), .htaccess
+src/app/            Seiten: Start, /impressum, /datenschutz, /danke, 404, sitemap.xml, robots.txt, llms.txt
+src/components/     Header, Footer, SystemTabs, ContactForm, StickyCta, Consent, UI-Bausteine
+src/lib/            site.ts (Stammdaten), content.ts (Texte), schema.ts (JSON-LD)
+public/             Bilder (WebP), kontakt.php, .htaccess
 ```
 
 ## Cookies & Analytics
