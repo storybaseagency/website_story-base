@@ -2,6 +2,7 @@
 // Google und KI-Assistenten die Agentur als eindeutige Entität erkennen.
 
 import { blocks, faq, fields } from "./content";
+import type { LandingPageData } from "./landingpages";
 import { site } from "./site";
 
 const id = (frag: string) => `${site.url}/#${frag}`;
@@ -133,6 +134,49 @@ export function breadcrumbSchema(name: string, path: string) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Startseite", item: `${site.url}/` },
       { "@type": "ListItem", position: 2, name, item: `${site.url}${path}` },
+    ],
+  };
+}
+
+export function landingSchema(page: LandingPageData) {
+  const url = `${site.url}/${page.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: page.metaTitle,
+        description: page.metaDescription,
+        inLanguage: "de-DE",
+        isPartOf: { "@id": id("website") },
+        about: { "@id": `${url}#service` },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+        mainEntity: { "@id": `${url}#faq` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: page.serviceName,
+        description: page.answer.text,
+        serviceType: "Praxismarketing",
+        provider: { "@id": id("organization") },
+        areaServed: { "@type": "Country", name: "Deutschland" },
+        audience: { "@type": "BusinessAudience", audienceType: "Arztpraxen" },
+        url,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        inLanguage: "de-DE",
+        mainEntity: [page.answer, ...page.faq.map((f) => ({ question: f.q, text: f.a }))].map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.text },
+        })),
+      },
+      { ...breadcrumbSchema(page.navLabel, `/${page.slug}/`), "@context": undefined, "@id": `${url}#breadcrumb` },
     ],
   };
 }

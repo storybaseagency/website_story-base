@@ -1,4 +1,5 @@
 import { blocks, faq, fields, profile } from "@/lib/content";
+import { landingPages } from "@/lib/landingpages";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -29,6 +30,7 @@ ${faq.map((f) => `### ${f.q}\n\n${f.a}`).join("\n\n")}
 ## Wichtige Seiten
 
 - [Startseite: Marketing für Arztpraxen](${site.url}/)
+${landingPages.map((p) => `- [${p.navLabel}](${site.url}/${p.slug}/): ${p.answer.text}`).join("\n")}
 - [Praxis-Check buchen (30 Minuten)](${site.calendlyUrl})
 - [Impressum](${site.url}/impressum/)
 - [Datenschutz](${site.url}/datenschutz/)

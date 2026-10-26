@@ -91,6 +91,7 @@ export const goals: {
   text: string;
   points: string[];
   cta: string;
+  href: string;
 }[] = [
   {
     id: "privatpatienten",
@@ -104,7 +105,8 @@ export const goals: {
       "Kampagnen in Ihrem Einzugsgebiet",
       "Anfragen direkt in Ihre Terminbuchung",
     ],
-    cta: "Praxis-Check zu Privatpatienten",
+    cta: "Mehr zu Privatpatienten",
+    href: "/privatpatienten-gewinnen/",
   },
   {
     id: "recruiting",
@@ -118,7 +120,8 @@ export const goals: {
       "Ausspielung auf Instagram, Facebook und TikTok",
       "Bewerbung in unter zwei Minuten",
     ],
-    cta: "Praxis-Check zum Recruiting",
+    cta: "Mehr zum Recruiting",
+    href: "/fachkraefte-arztpraxis/",
   },
 ];
 
