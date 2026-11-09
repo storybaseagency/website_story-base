@@ -10,7 +10,7 @@ import { kiCheckSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 // Inhalt der Landingpage – für /ki-check/, die Fachrichtungs-Varianten und
-// Kampagnen wie /jojo/ (eigener Hero-Text, Deko im Hero, Zusatzabschnitt).
+// Kampagnen wie /angebot-nachbarn/ (eigener Hero-Text, Deko im Hero, Zusatzabschnitt).
 export function KiCheckLanding({
   variant,
   campaign,

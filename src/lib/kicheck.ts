@@ -129,7 +129,7 @@ export const kiCheckVariants: KiCheckVariant[] = [
     leistungPlaceholder: "z. B. Check-up, Vorsorge, Reisemedizin",
   },
 ];
-// Kampagnen-Landingpages (z. B. /jojo/ für die Paket-Aktion in Spandau):
+// Kampagnen-Landingpages (z. B. /angebot-nachbarn/ für die Paket-Aktion in Spandau):
 // eigener Hero-Text, Ort vorausgefüllt, Anfragen mit eigenem landing_variant.
 export type KiCheckCampaign = {
   slug: string;

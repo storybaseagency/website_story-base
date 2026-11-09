@@ -6,10 +6,10 @@ import type { KiCheckCampaign } from "@/lib/kicheck";
 import { site } from "@/lib/site";
 
 // Paket-Aktion in der Nachbarschaft: Arztpraxen in Spandau bekommen ein Jojo
-// mit Karte (QR-Code bzw. Kurzadresse story-base.de/jojo). Ziel: KI-Check.
+// mit Karte (QR-Code bzw. Kurzadresse story-base.de/angebot-nachbarn). Ziel: KI-Check.
 // Nur für Empfänger des Pakets gedacht – deshalb nicht in Suchmaschinen.
 const campaign: KiCheckCampaign = {
-  slug: "jojo",
+  slug: "angebot-nachbarn",
   badge: "Ein Gruß aus der Nachbarschaft · Berlin-Spandau",
   headline: "Ein Jojo kommt immer zurück.",
   headlineAccent: "Ihre Patienten auch – wenn sie Ihre Praxis finden.",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function JojoPage() {
+export default function AngebotNachbarnPage() {
   return (
     <KiCheckLanding
       campaign={campaign}
