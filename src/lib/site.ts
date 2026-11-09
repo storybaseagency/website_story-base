@@ -44,7 +44,7 @@ export const site = {
   // Google Tag Manager (u. a. Google-Ads-Conversions), gesteuert über Consent Mode v2
   gtmId: "GTM-M3ZD27LK",
   // Termin-Link für die 20-minütige Besprechung des KI-Checks
-  kiCheckCalendlyUrl: "https://calendly.com/bruchwalski-story-base/skalierungs-call",
+  kiCheckCalendlyUrl: "https://calendly.com/bruchwalski-story-base/ki-check-besprechung",
 } as const;
 
 export const navigation = [
