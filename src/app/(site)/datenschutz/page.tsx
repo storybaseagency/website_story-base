@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
 import { CookieSettingsButton } from "@/components/Consent";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -252,7 +253,7 @@ export default function Datenschutz() {
 
       <h3>KI-Sichtbarkeits-Check</h3>
       <p>
-        Wenn Sie über unsere Seite <a href="/ki-check/">story-base.de/ki-check</a> einen
+        Wenn Sie über unsere Seite <Link href="/ki-check/">story-base.de/ki-check</Link> einen
         KI-Sichtbarkeits-Check anfordern, verarbeiten wir die Angaben zu Ihrer Praxis (Praxisname,
         Fachrichtung, Ort, wichtigste Selbstzahlerleistung, Website), Ihre Kontaktdaten (Vor- und
         Nachname, E-Mail-Adresse, optional Telefonnummer), Ihr gewähltes Ziel sowie Angaben zur Herkunft

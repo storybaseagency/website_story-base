@@ -51,10 +51,20 @@ function validateStep2(v: Values) {
   return e;
 }
 
-export function KiCheckForm({ id = "ki-check-form" }: { id?: string }) {
+export function KiCheckForm({
+  id = "ki-check-form",
+  defaultFachrichtung,
+  leistungPlaceholder = "z. B. Implantate, Faltenbehandlung, Lasik",
+  variant,
+}: {
+  id?: string;
+  defaultFachrichtung?: string;
+  leistungPlaceholder?: string;
+  variant?: string;
+}) {
   const router = useRouter();
   const [step, setStep] = useState<1 | 2>(1);
-  const [values, setValues] = useState<Values>({});
+  const [values, setValues] = useState<Values>(defaultFachrichtung ? { fachrichtung: defaultFachrichtung } : {});
   const [errors, setErrors] = useState<Values>({});
   const [status, setStatus] = useState<Status>("idle");
   const [hidden, setHidden] = useState<Values>({});
@@ -65,11 +75,11 @@ export function KiCheckForm({ id = "ki-check-form" }: { id?: string }) {
   // UTM-Parameter, Referrer und Variante aus der Einstiegs-URL übernehmen
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const h: Values = { referrer: document.referrer, landing_variant: params.get("variant") ?? "a" };
+    const h: Values = { referrer: document.referrer, landing_variant: params.get("variant") ?? variant ?? "a" };
     for (const key of TRACKING_PARAMS) h[key] = params.get(key) ?? "";
     // eslint-disable-next-line react-hooks/set-state-in-effect -- Werte existieren erst im Browser
     setHidden(h);
-  }, []);
+  }, [variant]);
 
   const set = (name: string, value: string) => {
     setValues((v) => ({ ...v, [name]: value }));
@@ -211,7 +221,7 @@ export function KiCheckForm({ id = "ki-check-form" }: { id?: string }) {
             <input
               id="leistung"
               name="leistung"
-              placeholder="z. B. Implantate, Faltenbehandlung, Lasik"
+              placeholder={leistungPlaceholder}
               value={values.leistung ?? ""}
               onChange={(e) => set("leistung", e.target.value)}
               aria-invalid={!!err("leistung")}
@@ -235,6 +245,7 @@ export function KiCheckForm({ id = "ki-check-form" }: { id?: string }) {
             />
           </Field>
           <SubmitButton>Weiter</SubmitButton>
+          <p className="text-center text-xs text-ink-500">Kostenlos und unverbindlich · Schritt 2: Wohin der Report geht</p>
         </fieldset>
       ) : (
         <fieldset className="mt-4 grid gap-4">
@@ -352,6 +363,13 @@ export function KiCheckForm({ id = "ki-check-form" }: { id?: string }) {
           <SubmitButton disabled={status === "sending"}>
             {status === "sending" ? "Wird gesendet …" : "Kostenlosen Check anfordern"}
           </SubmitButton>
+          <p className="flex items-start justify-center gap-2 text-center text-xs leading-relaxed text-ink-500">
+            <LockIcon />
+            <span>
+              Keine Weitergabe Ihrer Daten. Kein Newsletter ohne Ihre Zustimmung. Wir nutzen für den Check nur
+              öffentliche Angaben zu Ihrer Praxis.
+            </span>
+          </p>
           {status === "error" && (
             <p className="text-sm text-accent-deep" role="alert">
               Das hat leider nicht geklappt. Bitte prüfen Sie Ihre Angaben oder rufen Sie uns an unter{" "}
@@ -430,5 +448,14 @@ function SubmitButton({ disabled, children }: { disabled?: boolean; children: Re
       {children}
       <ArrowIcon className="size-5 transition-transform group-hover:translate-x-1" />
     </button>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="mt-0.5 size-3.5 shrink-0">
+      <rect x="4" y="11" width="16" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </svg>
   );
 }

@@ -69,6 +69,66 @@ export const kiCheck = {
 };
 
 export const kiCheckFachrichtungen = [...fields, "Andere"];
+
+// Varianten je Fachrichtung für Google-Ads-Anzeigengruppen: eigene URL
+// /ki-check/{slug}/, passende Überschrift, vorausgewählte Fachrichtung.
+export type KiCheckVariant = {
+  slug: string;
+  fachrichtung: (typeof fields)[number];
+  headline: string;
+  leistungPlaceholder: string;
+};
+
+export const kiCheckVariants: KiCheckVariant[] = [
+  {
+    slug: "zahnmedizin",
+    fachrichtung: "Zahnmedizin & Implantologie",
+    headline: "Ihre Patienten fragen ChatGPT nach einem Zahnarzt.",
+    leistungPlaceholder: "z. B. Implantate, Aligner, Bleaching",
+  },
+  {
+    slug: "dermatologie",
+    fachrichtung: "Dermatologie",
+    headline: "Ihre Patienten fragen ChatGPT nach einem Hautarzt.",
+    leistungPlaceholder: "z. B. Faltenbehandlung, Laser, Hautkrebs-Screening",
+  },
+  {
+    slug: "aesthetik",
+    fachrichtung: "Ästhetische Medizin",
+    headline: "Ihre Patienten fragen ChatGPT nach einer Praxis für ästhetische Behandlungen.",
+    leistungPlaceholder: "z. B. Faltenbehandlung, Hyaluron, Lasertherapie",
+  },
+  {
+    slug: "orthopaedie",
+    fachrichtung: "Orthopädie",
+    headline: "Ihre Patienten fragen ChatGPT nach einem Orthopäden.",
+    leistungPlaceholder: "z. B. Stoßwellentherapie, PRP, Sportmedizin",
+  },
+  {
+    slug: "kieferorthopaedie",
+    fachrichtung: "Kieferorthopädie",
+    headline: "Ihre Patienten fragen ChatGPT nach einem Kieferorthopäden.",
+    leistungPlaceholder: "z. B. Aligner, Erwachsenen-Kieferorthopädie",
+  },
+  {
+    slug: "plastische-chirurgie",
+    fachrichtung: "Plastische Chirurgie",
+    headline: "Ihre Patienten fragen ChatGPT nach einem plastischen Chirurgen.",
+    leistungPlaceholder: "z. B. Lidstraffung, Fettabsaugung",
+  },
+  {
+    slug: "augenheilkunde",
+    fachrichtung: "Augenheilkunde",
+    headline: "Ihre Patienten fragen ChatGPT nach einem Augenarzt.",
+    leistungPlaceholder: "z. B. Lasik, Linsen-OP, Glaukom-Vorsorge",
+  },
+  {
+    slug: "privatarzt",
+    fachrichtung: "Privatärztliche Allgemeinmedizin",
+    headline: "Ihre Patienten fragen ChatGPT nach einem Privatarzt.",
+    leistungPlaceholder: "z. B. Check-up, Vorsorge, Reisemedizin",
+  },
+];
 export const kiCheckZiele = ["Mehr Privatpatienten", "Mehr Fachkräfte", "Beides"];
 
 // Übergabe von Vorname/E-Mail an die Danke-Seite, ohne sie in die URL zu schreiben
