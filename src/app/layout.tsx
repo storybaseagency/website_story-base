@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import { Consent } from "@/components/Consent";
 import { RevealObserver } from "@/components/RevealObserver";
 import { site } from "@/lib/site";
+import { consentAndCookiebotScript, gtmScript } from "@/lib/tagging";
 import "./globals.css";
 
 // next/font lädt die Schrift beim Build herunter und liefert sie selbst aus –
@@ -64,10 +65,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="de" className={`${manrope.variable} antialiased`} suppressHydrationWarning>
       <head>
-        {/* Scroll-Animationen nur aktivieren, wenn JavaScript läuft – ohne JS bleibt alles sichtbar */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        {/* Reihenfolge siehe src/lib/tagging.ts. Das erste Skript aktiviert außerdem die
+            Scroll-Animationen (Klasse „js“) – ohne JavaScript bleibt alles sichtbar. */}
+        <script dangerouslySetInnerHTML={{ __html: consentAndCookiebotScript }} />
+        <script dangerouslySetInnerHTML={{ __html: gtmScript }} />
       </head>
       <body className="flex min-h-screen flex-col font-sans">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:font-semibold focus:text-ink-950"

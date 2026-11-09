@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { track, whenTrackingReady } from "@/lib/track";
+import { track } from "@/lib/track";
 
-// Meldet den Seitenaufruf der Landingpage, sobald Tracking erlaubt ist
+// Meldet den Seitenaufruf der Landingpage an den Tag Manager
 export function KiCheckView() {
-  useEffect(() => whenTrackingReady(() => track("ki_check_view")), []);
+  useEffect(() => track("ki_check_view"), []);
   return null;
 }

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { KI_CHECK_STORAGE_KEY } from "@/lib/kicheck";
 import { site } from "@/lib/site";
-import { track, trackAdsConversion } from "@/lib/track";
+import { track } from "@/lib/track";
 import { Button } from "./ui";
 
 type Lead = { vorname?: string; email?: string };
@@ -41,7 +41,6 @@ export function KiCheckThanks() {
     const onMessage = (e: MessageEvent) => {
       if (e.origin === "https://calendly.com" && (e.data as { event?: string })?.event === "calendly.event_scheduled") {
         track("ki_check_booking");
-        trackAdsConversion(site.googleAds.bookingLabel);
       }
     };
     window.addEventListener("message", onMessage);

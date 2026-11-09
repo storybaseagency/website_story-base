@@ -41,13 +41,8 @@ export const site = {
   },
   cookiebotId: "6654f03a-c2b5-4f72-b05f-fd727a7aede2",
   gaId: "G-SPBN9MV6KZ",
-  // Google-Ads-Conversion-Tracking: ID im Format "AW-123456789" und die Labels
-  // der Conversion-Aktionen aus dem Google-Ads-Konto eintragen. Leer = deaktiviert.
-  googleAds: {
-    id: "",
-    leadLabel: "",
-    bookingLabel: "",
-  },
+  // Google Tag Manager (u. a. Google-Ads-Conversions), gesteuert über Consent Mode v2
+  gtmId: "GTM-M3ZD27LK",
   // Termin-Link für die 20-minütige Besprechung des KI-Checks
   kiCheckCalendlyUrl: "https://calendly.com/bruchwalski-story-base/skalierungs-call",
 } as const;

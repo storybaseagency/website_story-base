@@ -330,22 +330,37 @@ export default function Datenschutz() {
         .
       </p>
 
-      {site.googleAds.id && (
-        <>
-          <h3>Google Ads und Conversion-Tracking</h3>
-          <p>
-            Wir bewerben unsere Angebote mit Google Ads. Anbieter ist die Google Ireland Limited, Gordon
-            House, Barrow Street, Dublin 4, Irland. Nur wenn Sie im Cookie-Banner der Kategorie
-            „Marketing“ zugestimmt haben, setzen wir das Conversion-Tracking von Google Ads ein. Es
-            erfasst, ob Besucher, die über eine unserer Anzeigen auf die Website gekommen sind, eine
-            Anfrage abschicken oder einen Termin buchen. So können wir den Erfolg unserer Anzeigen messen.
-            Wir erhalten dabei nur zusammengefasste Statistiken und keine Informationen, mit denen wir Sie
-            persönlich identifizieren können. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a
-            DSGVO und § 25 Abs. 1 TDDDG, die Sie jederzeit über die Cookie-Einstellungen widerrufen können.
-            Google ist nach dem EU-US Data Privacy Framework zertifiziert.
-          </p>
-        </>
-      )}
+      <h3>Google Tag Manager</h3>
+      <p>
+        Wir setzen den Google Tag Manager ein. Anbieter ist die Google Ireland Limited, Gordon House,
+        Barrow Street, Dublin 4, Irland. Der Tag Manager ist ein Werkzeug, mit dem wir Tracking- und
+        Werbe-Tools auf unserer Website einbinden. Er selbst setzt keine Cookies und wertet keine Daten aus;
+        beim Laden wird jedoch Ihre IP-Adresse an Google übertragen, die dabei auch in die USA gelangen
+        kann. Die über den Tag Manager eingebundenen Tools werden nur aktiv, wenn Sie im Cookie-Banner
+        eingewilligt haben (siehe unten). Der Einsatz erfolgt auf Grundlage unseres berechtigten
+        Interesses an einer schnellen und unkomplizierten Einbindung und Verwaltung verschiedener Tools
+        (Art. 6 Abs. 1 lit. f DSGVO). Google ist nach dem EU-US Data Privacy Framework zertifiziert.
+      </p>
+
+      <h3>Google Consent Mode</h3>
+      <p>
+        Wir nutzen den Google Consent Mode. Er sorgt dafür, dass Google-Dienste wie Google Ads und Google
+        Analytics Ihre Auswahl im Cookie-Banner berücksichtigen: Solange Sie nicht eingewilligt haben,
+        setzen diese Dienste keine Cookies für Werbe- oder Analysezwecke. Ihre Auswahl im Banner wird
+        von Cookiebot an Google übermittelt.
+      </p>
+
+      <h3>Google Ads und Conversion-Tracking</h3>
+      <p>
+        Wir bewerben unsere Angebote mit Google Ads (Anbieter: Google Ireland Limited, s. o.). Nur wenn Sie
+        im Cookie-Banner der Kategorie „Marketing“ zugestimmt haben, setzen wir das Conversion-Tracking
+        von Google Ads ein. Es erfasst, ob Besucher, die über eine unserer Anzeigen auf die Website
+        gekommen sind, eine Anfrage abschicken oder einen Termin buchen. So können wir den Erfolg unserer
+        Anzeigen messen. Wir erhalten dabei nur zusammengefasste Statistiken und keine Informationen, mit
+        denen wir Sie persönlich identifizieren können. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6
+        Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, die Sie jederzeit über die Cookie-Einstellungen
+        widerrufen können. Google ist nach dem EU-US Data Privacy Framework zertifiziert.
+      </p>
 
       <h2>6. Social Media</h2>
       <p>

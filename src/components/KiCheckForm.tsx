@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { KI_CHECK_STORAGE_KEY, kiCheckFachrichtungen, kiCheckZiele } from "@/lib/kicheck";
 import { site } from "@/lib/site";
-import { track, trackAdsConversion } from "@/lib/track";
+import { track } from "@/lib/track";
 import { ArrowIcon } from "./icons";
 
 const TRACKING_PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid"] as const;
@@ -122,7 +122,6 @@ export function KiCheckForm({ id = "ki-check-form" }: { id?: string }) {
         // Ohne sessionStorage zeigt die Danke-Seite einen neutralen Text
       }
       track("ki_check_lead", { fachrichtung: values.fachrichtung, ziel: values.ziel });
-      trackAdsConversion(site.googleAds.leadLabel);
       router.push("/ki-check/danke/");
     } catch {
       setStatus("error");
