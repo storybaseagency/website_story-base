@@ -11,8 +11,8 @@ import { site } from "@/lib/site";
 const campaign: KiCheckCampaign = {
   slug: "angebot-nachbarn",
   badge: "Ein Gruß aus der Nachbarschaft · Berlin-Spandau",
-  headline: "Ein Jojo kommt immer zurück.",
-  headlineAccent: "Ihre Patienten auch – wenn sie Ihre Praxis finden.",
+  headline: "Das Auf und Ab überlassen wir dem Jojo.",
+  headlineAccent: "Ihr Praxismarketing sollte nur eine Richtung kennen: nach oben.",
   subline:
     "Immer mehr Patienten fragen ChatGPT, welche Praxis in Spandau sie wählen sollen. Wir prüfen kostenlos, ob Ihre Praxis dabei genannt wird – persönlich ausgewertet von Ihren Nachbarn aus der Pichelsdorfer Straße.",
   defaultStadt: "Berlin-Spandau",
