@@ -250,6 +250,33 @@ export default function Datenschutz() {
         bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
       </p>
 
+      <h3>KI-Sichtbarkeits-Check</h3>
+      <p>
+        Wenn Sie über unsere Seite <a href="/ki-check/">story-base.de/ki-check</a> einen
+        KI-Sichtbarkeits-Check anfordern, verarbeiten wir die Angaben zu Ihrer Praxis (Praxisname,
+        Fachrichtung, Ort, wichtigste Selbstzahlerleistung, Website), Ihre Kontaktdaten (Vor- und
+        Nachname, E-Mail-Adresse, optional Telefonnummer), Ihr gewähltes Ziel sowie Angaben zur Herkunft
+        der Anfrage (z. B. Kampagnen-Parameter wie utm_source und die zuvor besuchte Seite). Zweck ist die
+        Erstellung und Zusendung Ihres persönlichen Reports und die Abstimmung eines optionalen
+        Besprechungstermins. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung
+        vorvertraglicher Maßnahmen auf Ihre Anfrage).
+      </p>
+      <p>
+        Ihre Angaben werden auf dem Server unseres Hosters gespeichert und per E-Mail an uns übermittelt;
+        Sie erhalten eine Bestätigung per E-Mail. Für den Check stellen wir typische Patientenfragen an
+        die KI-Assistenten ChatGPT (OpenAI), Perplexity und Gemini (Google). Dabei verwenden wir
+        ausschließlich öffentlich verfügbare Angaben zu Ihrer Praxis (Praxisname, Ort, Fachrichtung,
+        Leistung, Website) – niemals Ihren Namen, Ihre E-Mail-Adresse oder Telefonnummer. Wir löschen
+        Ihre Angaben spätestens zwölf Monate nach Zusendung des Reports, sofern keine Zusammenarbeit
+        entsteht und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+      </p>
+      <p>
+        Weitere Tipps zum Praxismarketing senden wir Ihnen nur, wenn Sie dem im Formular ausdrücklich
+        zugestimmt und Ihre E-Mail-Adresse anschließend bestätigt haben (Double-Opt-in). Rechtsgrundlage
+        ist dann Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO; Sie können sie jederzeit widerrufen,
+        z. B. über den Abmeldelink in jeder E-Mail oder eine kurze Nachricht an uns.
+      </p>
+
       <h3>Anfrage per E-Mail oder Telefon</h3>
       <p>
         Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus
@@ -274,8 +301,15 @@ export default function Datenschutz() {
         . Die von Ihnen bei der Buchung eingegebenen Daten verarbeiten wir zur Durchführung des
         Termins auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
       </p>
+      <p>
+        Auf der Bestätigungsseite des KI-Sichtbarkeits-Checks binden wir den Buchungskalender von
+        Calendly direkt ein – allerdings nur, wenn Sie im Cookie-Banner der Kategorie „Marketing“
+        zugestimmt haben (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Erst dann wird eine Verbindung
+        zu Calendly hergestellt. Ohne Einwilligung sehen Sie stattdessen einen Link. Calendly ist nach dem
+        EU-US Data Privacy Framework zertifiziert.
+      </p>
 
-      <h2>5. Analyse-Tools</h2>
+      <h2>5. Analyse- und Werbe-Tools</h2>
       <h3>Google Analytics</h3>
       <p>
         Diese Website nutzt – nur mit Ihrer Einwilligung – Funktionen des Webanalysedienstes Google
@@ -295,6 +329,23 @@ export default function Datenschutz() {
         </a>
         .
       </p>
+
+      {site.googleAds.id && (
+        <>
+          <h3>Google Ads und Conversion-Tracking</h3>
+          <p>
+            Wir bewerben unsere Angebote mit Google Ads. Anbieter ist die Google Ireland Limited, Gordon
+            House, Barrow Street, Dublin 4, Irland. Nur wenn Sie im Cookie-Banner der Kategorie
+            „Marketing“ zugestimmt haben, setzen wir das Conversion-Tracking von Google Ads ein. Es
+            erfasst, ob Besucher, die über eine unserer Anzeigen auf die Website gekommen sind, eine
+            Anfrage abschicken oder einen Termin buchen. So können wir den Erfolg unserer Anzeigen messen.
+            Wir erhalten dabei nur zusammengefasste Statistiken und keine Informationen, mit denen wir Sie
+            persönlich identifizieren können. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a
+            DSGVO und § 25 Abs. 1 TDDDG, die Sie jederzeit über die Cookie-Einstellungen widerrufen können.
+            Google ist nach dem EU-US Data Privacy Framework zertifiziert.
+          </p>
+        </>
+      )}
 
       <h2>6. Social Media</h2>
       <p>

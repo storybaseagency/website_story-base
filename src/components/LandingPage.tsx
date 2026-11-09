@@ -38,17 +38,13 @@ export function LandingPage({ page }: { page: LandingPageData }) {
               <Reveal>
                 <Eyebrow>{page.eyebrow}</Eyebrow>
               </Reveal>
-              <Reveal delay={100}>
-                <h1
-                  id="page-title"
-                  className="text-[36px] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-ink-950 sm:text-5xl lg:text-[56px]"
-                >
-                  {page.h1} <span className="text-accent-dark">{page.h1Accent}</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={200}>
-                <p className="max-w-2xl text-xl leading-[1.6] text-pretty text-ink-600">{page.lead}</p>
-              </Reveal>
+              <h1
+                id="page-title"
+                className="text-[36px] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-ink-950 sm:text-5xl lg:text-[56px]"
+              >
+                {page.h1} <span className="text-accent-dark">{page.h1Accent}</span>
+              </h1>
+              <p className="max-w-2xl text-xl leading-[1.6] text-pretty text-ink-600">{page.lead}</p>
               <Reveal delay={300}>
                 <div className="flex flex-wrap items-center gap-3">
                   <Button href={site.calendlyUrl} external>

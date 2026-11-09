@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    { url: `${site.url}/ki-check/`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/impressum/`, lastModified, changeFrequency: "yearly", priority: 0.3 },
     { url: `${site.url}/datenschutz/`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];

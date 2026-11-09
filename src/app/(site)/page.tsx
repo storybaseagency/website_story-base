@@ -41,33 +41,29 @@ function Hero() {
               Agentur für Praxismarketing · Berlin-Spandau
             </span>
           </Reveal>
-          <Reveal delay={100}>
-            <h1
-              id="hero-title"
-              className="text-[40px] leading-[1.06] font-extrabold tracking-[-0.03em] text-balance text-ink-950 sm:text-[56px] lg:text-[64px]"
-            >
-              Marketing für Arztpraxen, das{" "}
-              <span className="relative whitespace-nowrap text-accent-dark">
-                Privatpatienten
-                <svg
-                  aria-hidden
-                  viewBox="0 0 300 12"
-                  preserveAspectRatio="none"
-                  className="draw-underline absolute -bottom-1 left-0 h-3 w-full text-accent"
-                >
-                  <path d="M2 9C60 3 140 2 298 6" pathLength={1} fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                </svg>
-              </span>{" "}
-              <span className="text-accent-dark">und Fachkräfte</span> bringt.
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="max-w-[560px] text-xl leading-[1.6] text-pretty text-ink-600">
-              Videoproduktion, Social Media und Ads aus einer Hand – mit dem{" "}
-              <strong className="font-bold text-accent-deep">AI-Ready Growth System</strong>. Sie behandeln, wir
-              sorgen dafür, dass die richtigen Patienten und Bewerber Ihre Praxis finden.
-            </p>
-          </Reveal>
+          <h1
+            id="hero-title"
+            className="text-[40px] leading-[1.06] font-extrabold tracking-[-0.03em] text-balance text-ink-950 sm:text-[56px] lg:text-[64px]"
+          >
+            Marketing für Arztpraxen, das{" "}
+            <span className="relative whitespace-nowrap text-accent-dark">
+              Privatpatienten
+              <svg
+                aria-hidden
+                viewBox="0 0 300 12"
+                preserveAspectRatio="none"
+                className="draw-underline absolute -bottom-1 left-0 h-3 w-full text-accent"
+              >
+                <path d="M2 9C60 3 140 2 298 6" pathLength={1} fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </span>{" "}
+            <span className="text-accent-dark">und Fachkräfte</span> bringt.
+          </h1>
+          <p className="max-w-[560px] text-xl leading-[1.6] text-pretty text-ink-600">
+            Videoproduktion, Social Media und Ads aus einer Hand – mit dem{" "}
+            <strong className="font-bold text-accent-deep">AI-Ready Growth System</strong>. Sie behandeln, wir
+            sorgen dafür, dass die richtigen Patienten und Bewerber Ihre Praxis finden.
+          </p>
           <Reveal delay={300}>
             <div className="flex flex-wrap items-center gap-3">
               <Button href={site.calendlyUrl} external>

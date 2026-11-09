@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { site } from "@/lib/site";
+import { TRACKING_READY_EVENT } from "@/lib/track";
 
 declare global {
   interface Window {
@@ -15,11 +16,9 @@ declare global {
   }
 }
 
-// Hinweis: Durch <script id="Cookiebot"> ist window.Cookiebot schon vor dem
-// Laden das DOM-Element – daher die optionalen Zugriffe auf consent/renew.
-// Google Analytics wird erst geladen, wenn im Cookiebot-Banner der
-// Kategorie „Statistiken“ zugestimmt wurde.
-function loadAnalytics() {
+const configured = { analytics: false, ads: false };
+
+function ensureGtag(id: string) {
   if (window.gtag) return;
   window.dataLayer = window.dataLayer || [];
   window.gtag = function gtag() {
@@ -28,25 +27,43 @@ function loadAnalytics() {
     window.dataLayer!.push(arguments);
   };
   window.gtag("js", new Date());
-  window.gtag("config", site.gaId, { anonymize_ip: true });
 
   const script = document.createElement("script");
   script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${site.gaId}`;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
   document.head.appendChild(script);
+}
+
+// Hinweis: Durch <script id="Cookiebot"> ist window.Cookiebot schon vor dem
+// Laden das DOM-Element – daher die optionalen Zugriffe auf consent/renew.
+// Google Analytics lädt erst nach Einwilligung in „Statistiken“,
+// Google-Ads-Conversion-Tracking erst nach Einwilligung in „Marketing“.
+function applyConsent() {
+  const consent = window.Cookiebot?.consent;
+  if (!consent) return;
+  const ads = site.googleAds.id;
+
+  if (consent.statistics && !configured.analytics) {
+    ensureGtag(site.gaId);
+    window.gtag!("config", site.gaId, { anonymize_ip: true });
+    configured.analytics = true;
+  }
+  if (consent.marketing && ads && !configured.ads) {
+    ensureGtag(ads);
+    window.gtag!("config", ads);
+    configured.ads = true;
+  }
+  if (window.gtag) window.dispatchEvent(new Event(TRACKING_READY_EVENT));
 }
 
 export function Consent() {
   useEffect(() => {
-    const check = () => {
-      if (window.Cookiebot?.consent?.statistics) loadAnalytics();
-    };
-    check();
-    window.addEventListener("CookiebotOnConsentReady", check);
-    window.addEventListener("CookiebotOnAccept", check);
+    applyConsent();
+    window.addEventListener("CookiebotOnConsentReady", applyConsent);
+    window.addEventListener("CookiebotOnAccept", applyConsent);
     return () => {
-      window.removeEventListener("CookiebotOnConsentReady", check);
-      window.removeEventListener("CookiebotOnAccept", check);
+      window.removeEventListener("CookiebotOnConsentReady", applyConsent);
+      window.removeEventListener("CookiebotOnAccept", applyConsent);
     };
   }, []);
 

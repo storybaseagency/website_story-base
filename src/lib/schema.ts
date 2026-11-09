@@ -2,6 +2,7 @@
 // Google und KI-Assistenten die Agentur als eindeutige Entität erkennen.
 
 import { blocks, faq, fields } from "./content";
+import { kiCheck } from "./kicheck";
 import type { LandingPageData } from "./landingpages";
 import { site } from "./site";
 
@@ -177,6 +178,47 @@ export function landingSchema(page: LandingPageData) {
         })),
       },
       { ...breadcrumbSchema(page.navLabel, `/${page.slug}/`), "@context": undefined, "@id": `${url}#breadcrumb` },
+    ],
+  };
+}
+
+export function kiCheckSchema() {
+  const url = `${site.url}${kiCheck.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: kiCheck.metaTitle,
+        description: kiCheck.metaDescription,
+        inLanguage: "de-DE",
+        isPartOf: { "@id": id("website") },
+        about: { "@id": `${url}#service` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: "KI-Sichtbarkeits-Check für Arztpraxen",
+        description: kiCheck.subline,
+        serviceType: "Analyse der Sichtbarkeit in KI-Assistenten",
+        provider: { "@id": id("organization") },
+        areaServed: { "@type": "Country", name: "Deutschland" },
+        audience: { "@type": "BusinessAudience", audienceType: "Arztpraxen" },
+        offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+        url,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        inLanguage: "de-DE",
+        mainEntity: kiCheck.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
     ],
   };
 }

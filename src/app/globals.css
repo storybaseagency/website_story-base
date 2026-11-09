@@ -114,6 +114,16 @@ body {
   transform: none;
 }
 
+/* Score-Ring im Report-Beispiel füllt sich beim Laden */
+@keyframes sb-ring {
+  from {
+    stroke-dashoffset: var(--ring-length);
+  }
+}
+.score-ring {
+  animation: sb-ring 1.4s var(--ease-out-soft) 400ms both;
+}
+
 .draw-underline path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;

@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Consent } from "@/components/Consent";
 import { RevealObserver } from "@/components/RevealObserver";
 import { site } from "@/lib/site";
@@ -76,11 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Zum Inhalt springen
         </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        {children}
         <RevealObserver />
         <Consent />
       </body>
