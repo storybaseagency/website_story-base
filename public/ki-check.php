@@ -268,7 +268,7 @@ $confirmation = "Hallo {$d['vorname']} {$d['nachname']},\n\n"
     . "Ihren persönlichen Report erhalten Sie innerhalb von 2 Werktagen.\n\n"
     . "Wenn Sie den Report gleich mit mir besprechen möchten, buchen Sie hier 20 Minuten:\n" . CALENDLY_URL . "\n\n"
     . "Viele Grüße\nJan Bruchwalski\nStory Base Agency · Berlin-Spandau\n"
-    . "Telefon 0160 / 7534434 · https://story-base.de\n";
+    . "Telefon +49 30 24325402 · https://story-base.de\n";
 sendMail($d['email'], 'Ihr KI-Sichtbarkeits-Check läuft', $confirmation, SENDER_EMAIL);
 
 if (!$notified) {

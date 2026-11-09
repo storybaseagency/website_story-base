@@ -34,15 +34,15 @@ export function Header() {
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img src="/images/logo.webp" alt="" width={36} height={36} className="size-9" />
-          <span className="text-lg font-bold tracking-tight text-ink-950">{site.name}</span>
+          <span className="text-lg font-bold tracking-tight whitespace-nowrap text-ink-950">{site.name}</span>
         </Link>
 
-        <nav aria-label="Hauptnavigation" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Hauptnavigation" className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
+              className="text-sm font-medium whitespace-nowrap text-ink-600 transition-colors hover:text-ink-950"
             >
               {item.label}
             </Link>
@@ -52,16 +52,18 @@ export function Header() {
         <div className="hidden items-center gap-5 lg:flex">
           <a
             href={site.phone.href}
-            className="flex items-center gap-2 text-sm font-semibold text-accent-deep hover:text-accent-dark"
+            aria-label={`Anrufen: ${site.phone.display}`}
+            className="flex items-center gap-2 text-sm font-semibold whitespace-nowrap text-accent-deep hover:text-accent-dark"
           >
             <PhoneIcon className="size-4" />
-            {site.phone.display}
+            {/* Auf schmaleren Desktop-Breiten nur das Symbol, sonst bricht der Header um */}
+            <span className="hidden xl:inline">{site.phone.display}</span>
           </a>
           <a
             href={site.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink-950 shadow-button transition hover:bg-accent-dark"
+            className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-ink-950 shadow-button transition hover:bg-accent-dark"
           >
             Praxis-Check buchen
             <ArrowIcon className="size-4 transition-transform group-hover:translate-x-1" />

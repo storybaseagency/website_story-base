@@ -13,9 +13,9 @@ export const site = {
   description:
     "Mehr Privatpatienten und Fachkräfte für Ihre Praxis: Praxisvideos, Social Media und Ads aus einer Hand – mit dem AI-Ready Growth System. Studio in Berlin-Spandau.",
   phone: {
-    display: "0160 / 7534434",
-    international: "+49 160 7534434",
-    href: "tel:+491607534434",
+    display: "+49 30 24325402",
+    international: "+49 30 24325402",
+    href: "tel:+493024325402",
   },
   email: "info@story-base.de",
   address: {
