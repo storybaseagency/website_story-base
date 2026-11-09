@@ -305,7 +305,7 @@ export function KiCheckForm({
               className={`${inputClass} ${err("email") ? "border-accent-deep" : "border-ink-950/14"}`}
             />
           </Field>
-          <Field label="Telefon (für Rückfragen, optional)" name="telefon">
+          <Field label="Telefon (für Rückfragen und die Besprechung Ihres Reports, optional)" name="telefon">
             <input
               id="telefon"
               name="telefon"

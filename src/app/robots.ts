@@ -20,7 +20,7 @@ const aiCrawlers = [
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/kontakt.php"] },
+      { userAgent: "*", allow: "/", disallow: ["/kontakt.php", "/ki-check.php", "/ki-check-einwilligung.php"] },
       { userAgent: aiCrawlers, allow: "/" },
     ],
     sitemap: `${site.url}/sitemap.xml`,

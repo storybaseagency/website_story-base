@@ -6,25 +6,19 @@
 
 declare(strict_types=1);
 
-const NOTIFY_TO = 'info@story-base.de';
-const SENDER_EMAIL = 'info@story-base.de';
-const SENDER_NAME = 'Jan Bruchwalski';
+define('SB_KI_CHECK', true);
+require __DIR__ . '/ki-check-lib.inc.php';
+
 const CALENDLY_URL = 'https://calendly.com/bruchwalski-story-base/ki-check-besprechung';
 const MIN_SECONDS = 3;
 const MAX_PER_IP_PER_HOUR = 5;
 const DUPLICATE_DAYS = 30;
-const DATA_DIR = __DIR__ . '/.ki-check-data';
-// Datendateien enden auf .php und beginnen mit dieser Zeile: Selbst wenn der
-// Server die .htaccess-Sperre ignoriert, liefert ein Aufruf nur eine leere 404.
-const GUARD = "<?php http_response_code(404); exit; ?>\n";
 
 const FACHRICHTUNGEN = [
     'Ästhetische Medizin', 'Zahnmedizin & Implantologie', 'Dermatologie', 'Orthopädie',
     'Kieferorthopädie', 'Plastische Chirurgie', 'Augenheilkunde', 'Privatärztliche Allgemeinmedizin', 'Andere',
 ];
 const ZIELE = ['Mehr Privatpatienten', 'Mehr Fachkräfte', 'Beides'];
-
-date_default_timezone_set('Europe/Berlin');
 
 $wantsJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
 
@@ -43,13 +37,6 @@ function respond(bool $ok, int $status, bool $wantsJson, array $errors = []): ne
     exit;
 }
 
-function field(string $name, int $max = 200): string
-{
-    $value = trim((string) ($_POST[$name] ?? ''));
-    $value = preg_replace('/[\r\n\t]+/', ' ', $value) ?? '';
-    return mb_substr($value, 0, $max);
-}
-
 function normalizeWebsite(string $raw): string
 {
     if ($raw === '') {
@@ -61,37 +48,6 @@ function normalizeWebsite(string $raw): string
         return '';
     }
     return rtrim($url, '/');
-}
-
-function dataDir(): string
-{
-    if (!is_dir(DATA_DIR)) {
-        @mkdir(DATA_DIR, 0700, true);
-    }
-    $htaccess = DATA_DIR . '/.htaccess';
-    if (!is_file($htaccess)) {
-        @file_put_contents($htaccess, "Require all denied\nDeny from all\n");
-    }
-    return DATA_DIR;
-}
-
-function headerSafe(string $s): string
-{
-    return '=?UTF-8?B?' . base64_encode($s) . '?=';
-}
-
-function sendMail(string $to, string $subject, string $body, ?string $replyTo = null): bool
-{
-    $headers = [
-        'From' => headerSafe(SENDER_NAME) . ' <' . SENDER_EMAIL . '>',
-        'Content-Type' => 'text/plain; charset=UTF-8',
-        'Content-Transfer-Encoding' => '8bit',
-        'X-Mailer' => 'story-base.de',
-    ];
-    if ($replyTo !== null) {
-        $headers['Reply-To'] = $replyTo;
-    }
-    return mail($to, headerSafe($subject), $body, $headers, '-f' . SENDER_EMAIL);
 }
 
 // ---------------------------------------------------------------------------
@@ -239,7 +195,9 @@ $lines = [
     "E-Mail:        {$d['email']}",
     'Telefon:       ' . ($d['telefon'] !== '' ? $d['telefon'] : '–'),
     "Ziel:          {$d['ziel']}",
-    "Marketing-Mails: {$d['marketing_einwilligung']}" . ($d['marketing_einwilligung'] === 'ja' ? ' (Double-Opt-in noch ausstehend – vorher keine Werbe-Mails!)' : ''),
+    'Werbe-Mails:   ' . ($d['marketing_einwilligung'] === 'ja'
+        ? 'angekreuzt – Bestätigungs-Mail verschickt. Erst nach Bestätigung erlaubt, du bekommst dann eine Nachricht.'
+        : 'nein – keine Werbe-Mails'),
     '',
     'HERKUNFT',
 ];
@@ -258,6 +216,32 @@ $lines = array_merge($lines, [
     'Report-Zusage: innerhalb von 2 Werktagen. Kein Report ohne Freigabe.',
     'Eingegangen am ' . date('d.m.Y \u\m H:i') . ' Uhr',
 ]);
+// Werbe-Einwilligung: nur vormerken und Bestätigungs-Mail schicken (Double-Opt-in).
+// Gültig wird sie erst mit dem Klick auf „Einwilligung bestätigen“.
+if ($d['marketing_einwilligung'] === 'ja') {
+    $token = newToken();
+    updateConsents(function (array &$consents) use ($token, $d): void {
+        $consents[$token] = [
+            'email' => $d['email'],
+            'name' => trim($d['vorname'] . ' ' . $d['nachname']),
+            'praxis' => $d['praxisname'],
+            'angefragt_am' => date('c'),
+            'bestaetigt_am' => null,
+            'bestaetigt_ip' => null,
+            'widerrufen_am' => null,
+        ];
+    });
+    $doiMail = "Hallo {$d['vorname']} {$d['nachname']},\n\n"
+        . "Sie haben bei Ihrer Anfrage für den KI-Sichtbarkeits-Check angegeben, dass Sie weitere Tipps "
+        . "zum Praxismarketing per E-Mail erhalten möchten.\n\n"
+        . "Bitte bestätigen Sie das über diesen Link:\n" . confirmUrl($token) . "\n\n"
+        . "Ohne Ihre Bestätigung erhalten Sie von uns keine weiteren Tipps – Ihren Report bekommen Sie selbstverständlich trotzdem. "
+        . 'Der Link ist ' . DOI_VALID_DAYS . " Tage gültig. Abmelden können Sie sich jederzeit.\n\n"
+        . "Falls Sie das nicht angefordert haben, ignorieren Sie diese E-Mail einfach.\n\n"
+        . "Viele Grüße\nJan Bruchwalski\nStory Base Agency · Berlin-Spandau\n";
+    sendMail($d['email'], 'Bitte bestätigen: Tipps zum Praxismarketing', $doiMail, SENDER_EMAIL);
+}
+
 $body = implode("\n", array_filter($lines, fn ($l) => $l !== null)) . "\n";
 $notified = sendMail(NOTIFY_TO, "KI-Check: {$d['praxisname']}, {$d['stadt']}", $body, $d['email']);
 

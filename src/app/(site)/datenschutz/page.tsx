@@ -272,10 +272,15 @@ export default function Datenschutz() {
         entsteht und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
       </p>
       <p>
-        Weitere Tipps zum Praxismarketing senden wir Ihnen nur, wenn Sie dem im Formular ausdrücklich
-        zugestimmt und Ihre E-Mail-Adresse anschließend bestätigt haben (Double-Opt-in). Rechtsgrundlage
-        ist dann Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO; Sie können sie jederzeit widerrufen,
-        z. B. über den Abmeldelink in jeder E-Mail oder eine kurze Nachricht an uns.
+        Weitere Tipps und Angebote zum Praxismarketing senden wir Ihnen nur, wenn Sie dem im Formular
+        ausdrücklich zugestimmt und Ihre Einwilligung anschließend bestätigt haben (Double-Opt-in): Sie
+        erhalten dazu eine E-Mail mit einem Link, über den Sie Ihre Einwilligung mit einem Klick bestätigen.
+        Ohne Bestätigung senden wir Ihnen keine Werbe-E-Mails. Zum Nachweis Ihrer Einwilligung speichern wir
+        den Zeitpunkt der Anfrage und der Bestätigung sowie die IP-Adresse, von der aus Sie bestätigt haben
+        (Art. 6 Abs. 1 lit. c DSGVO i. V. m. Art. 7 Abs. 1 DSGVO). Rechtsgrundlage für die Werbe-E-Mails ist
+        Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Sie können sie jederzeit widerrufen – über den
+        Abmeldelink in jeder E-Mail oder eine kurze Nachricht an uns. Nach einem Widerruf bewahren wir nur
+        den Nachweis über Erteilung und Widerruf auf, solange wir ihn zur Abwehr möglicher Ansprüche benötigen.
       </p>
 
       <h3>Anfrage per E-Mail oder Telefon</h3>
