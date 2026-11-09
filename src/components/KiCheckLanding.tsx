@@ -4,12 +4,24 @@ import { KiCheckStickyCta } from "./KiCheckStickyCta";
 import { KiCheckView } from "./KiCheckView";
 import { ReportMockup } from "./ReportMockup";
 import { Button, Card, Dot, Eyebrow, IconTile, Reveal, Section, SectionHeader } from "./ui";
-import { kiCheck, type KiCheckVariant } from "@/lib/kicheck";
+import type { ReactNode } from "react";
+import { kiCheck, type KiCheckCampaign, type KiCheckVariant } from "@/lib/kicheck";
 import { kiCheckSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
-// Inhalt der Landingpage – für /ki-check/ und die Fachrichtungs-Varianten
-export function KiCheckLanding({ variant }: { variant?: KiCheckVariant }) {
+// Inhalt der Landingpage – für /ki-check/, die Fachrichtungs-Varianten und
+// Kampagnen wie /jojo/ (eigener Hero-Text, Deko im Hero, Zusatzabschnitt).
+export function KiCheckLanding({
+  variant,
+  campaign,
+  heroDecoration,
+  children,
+}: {
+  variant?: KiCheckVariant;
+  campaign?: KiCheckCampaign;
+  heroDecoration?: ReactNode;
+  children?: ReactNode;
+}) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(kiCheckSchema()) }} />
@@ -27,20 +39,22 @@ export function KiCheckLanding({ variant }: { variant?: KiCheckVariant }) {
           className="pointer-events-none absolute -bottom-65 -left-50 size-[512px] rounded-full bg-navy/8 blur-3xl"
         />
         <div className="relative mx-auto grid max-w-6xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          <div className="flex flex-col gap-6 lg:pt-8">
+          <div className={`relative flex flex-col gap-6 lg:pt-8 ${heroDecoration ? "lg:pr-24" : ""}`}>
+            {heroDecoration}
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-ink-950/14 bg-white/70 px-4 py-1.5 text-sm font-medium text-ink-700 backdrop-blur">
                 <span className="size-2 animate-pulse-dot rounded-full bg-accent" />
-                Kostenloser KI-Sichtbarkeits-Check für Arztpraxen
+                {campaign?.badge ?? "Kostenloser KI-Sichtbarkeits-Check für Arztpraxen"}
               </span>
             </Reveal>
             <h1
               id="ki-title"
               className="text-[36px] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-ink-950 sm:text-5xl lg:text-[56px]"
             >
-              {variant?.headline ?? kiCheck.headline} <span className="text-accent-dark">{kiCheck.headlineAccent}</span>
+              {campaign?.headline ?? variant?.headline ?? kiCheck.headline}{" "}
+              <span className="text-accent-dark">{campaign?.headlineAccent ?? kiCheck.headlineAccent}</span>
             </h1>
-            <p className="max-w-xl text-xl leading-[1.6] text-pretty text-ink-600">{kiCheck.subline}</p>
+            <p className="max-w-xl text-xl leading-[1.6] text-pretty text-ink-600">{campaign?.subline ?? kiCheck.subline}</p>
             <Reveal delay={300} className="lg:hidden">
               <Button href="#ki-check-form">Kostenlosen Check anfordern</Button>
             </Reveal>
@@ -59,7 +73,8 @@ export function KiCheckLanding({ variant }: { variant?: KiCheckVariant }) {
             <KiCheckForm
               defaultFachrichtung={variant?.fachrichtung}
               leistungPlaceholder={variant?.leistungPlaceholder}
-              variant={variant?.slug}
+              variant={campaign?.slug ?? variant?.slug}
+              defaultStadt={campaign?.defaultStadt}
             />
             {/* Persönlicher Absender direkt am Formular */}
             <div className="mt-5 flex items-center gap-4 px-2">
@@ -79,6 +94,8 @@ export function KiCheckLanding({ variant }: { variant?: KiCheckVariant }) {
           </Reveal>
         </div>
       </section>
+
+      {children}
 
       {/* Problem */}
       <Section bg="alt" labelledBy="problem-title">

@@ -56,15 +56,20 @@ export function KiCheckForm({
   defaultFachrichtung,
   leistungPlaceholder = "z. B. Implantate, Faltenbehandlung, Lasik",
   variant,
+  defaultStadt,
 }: {
   id?: string;
+  defaultStadt?: string;
   defaultFachrichtung?: string;
   leistungPlaceholder?: string;
   variant?: string;
 }) {
   const router = useRouter();
   const [step, setStep] = useState<1 | 2>(1);
-  const [values, setValues] = useState<Values>(defaultFachrichtung ? { fachrichtung: defaultFachrichtung } : {});
+  const [values, setValues] = useState<Values>({
+    ...(defaultFachrichtung && { fachrichtung: defaultFachrichtung }),
+    ...(defaultStadt && { stadt: defaultStadt }),
+  });
   const [errors, setErrors] = useState<Values>({});
   const [status, setStatus] = useState<Status>("idle");
   const [hidden, setHidden] = useState<Values>({});

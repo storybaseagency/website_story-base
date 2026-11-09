@@ -114,6 +114,20 @@ body {
   transform: none;
 }
 
+/* Jojo der Paket-Aktion: wippt am Faden auf und ab */
+@keyframes sb-jojo {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(70px);
+  }
+}
+.jojo-bob {
+  animation: sb-jojo 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
 /* Score-Ring im Report-Beispiel füllt sich beim Laden */
 @keyframes sb-ring {
   from {
