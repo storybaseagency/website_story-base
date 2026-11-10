@@ -1,7 +1,7 @@
 import { FaqList } from "./FaqList";
 import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
-import { KiCheckVideo } from "./KiCheckVideo";
+import { KiCheckVideo, KiCheckVideoTeaser } from "./KiCheckVideo";
 import { KiCheckView } from "./KiCheckView";
 import { ReportMockup } from "./ReportMockup";
 import { Button, Card, Dot, Eyebrow, IconTile, Reveal, Section, SectionHeader } from "./ui";
@@ -59,6 +59,11 @@ export function KiCheckLanding({
             <Reveal delay={300} className="lg:hidden">
               <Button href="#ki-check-form">Kostenlosen Check anfordern</Button>
             </Reveal>
+            {!campaign && (
+              <Reveal delay={320}>
+                <KiCheckVideoTeaser />
+              </Reveal>
+            )}
             <Reveal delay={350}>
               <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-500">
                 {kiCheck.trust.map((t) => (
