@@ -13,13 +13,29 @@ export function KiCheckVideo() {
         <Player src={kiCheckVideo.landscape} poster={kiCheckVideo.landscapePoster} aspect="aspect-video" />
       </div>
       <div className="mx-auto max-w-sm md:hidden">
-        <Player src={kiCheckVideo.portrait} poster={kiCheckVideo.portraitPoster} aspect="aspect-[9/16]" />
+        {/* Im Hochformat stehen die Untertitel in der Bildmitte – Play-Button deshalb unten */}
+        <Player
+          src={kiCheckVideo.portrait}
+          poster={kiCheckVideo.portraitPoster}
+          aspect="aspect-[9/16]"
+          buttonClass="items-end pb-[9%]"
+        />
       </div>
     </>
   );
 }
 
-function Player({ src, poster, aspect }: { src: string; poster: string; aspect: string }) {
+function Player({
+  src,
+  poster,
+  aspect,
+  buttonClass = "items-center",
+}: {
+  src: string;
+  poster: string;
+  aspect: string;
+  buttonClass?: string;
+}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
 
@@ -47,7 +63,7 @@ function Player({ src, poster, aspect }: { src: string; poster: string; aspect: 
           type="button"
           onClick={start}
           aria-label={`Video abspielen: ${kiCheckVideo.title} (${kiCheckVideo.durationLabel})`}
-          className="group absolute inset-0 flex cursor-pointer items-center justify-center bg-ink-950/15 transition hover:bg-ink-950/5"
+          className={`group absolute inset-0 flex cursor-pointer justify-center bg-ink-950/15 transition hover:bg-ink-950/5 ${buttonClass}`}
         >
           <span className="flex size-20 items-center justify-center rounded-full bg-accent text-ink-950 shadow-button ring-8 ring-white/40 transition-transform group-hover:scale-105">
             <svg viewBox="0 0 24 24" className="ml-1 size-8" fill="currentColor" aria-hidden>
