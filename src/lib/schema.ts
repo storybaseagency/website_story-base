@@ -2,7 +2,7 @@
 // Google und KI-Assistenten die Agentur als eindeutige Entität erkennen.
 
 import { blocks, faq, fields } from "./content";
-import { kiCheck } from "./kicheck";
+import { kiCheck, kiCheckVideo } from "./kicheck";
 import type { LandingPageData } from "./landingpages";
 import { site } from "./site";
 
@@ -208,6 +208,18 @@ export function kiCheckSchema() {
         audience: { "@type": "BusinessAudience", audienceType: "Arztpraxen" },
         offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
         url,
+      },
+      {
+        "@type": "VideoObject",
+        "@id": `${url}#video`,
+        name: kiCheckVideo.title,
+        description: kiCheckVideo.description,
+        thumbnailUrl: `${site.url}${kiCheckVideo.landscapePoster}`,
+        contentUrl: `${site.url}${kiCheckVideo.landscape}`,
+        uploadDate: kiCheckVideo.uploadDate,
+        duration: kiCheckVideo.duration,
+        inLanguage: "de-DE",
+        publisher: { "@id": id("organization") },
       },
       {
         "@type": "FAQPage",

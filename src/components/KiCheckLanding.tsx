@@ -1,6 +1,7 @@
 import { FaqList } from "./FaqList";
 import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
+import { KiCheckVideo } from "./KiCheckVideo";
 import { KiCheckView } from "./KiCheckView";
 import { ReportMockup } from "./ReportMockup";
 import { Button, Card, Dot, Eyebrow, IconTile, Reveal, Section, SectionHeader } from "./ui";
@@ -96,6 +97,29 @@ export function KiCheckLanding({
       </section>
 
       {children}
+
+      {/* Erklärvideo – nur auf /ki-check/ und den Fachrichtungs-Seiten, nicht in Kampagnen */}
+      {!campaign && (
+        <Section labelledBy="video-title" className="!pt-8 sm:!pt-12">
+          <Reveal>
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-8 text-center">
+                <Eyebrow>In einer Minute erklärt</Eyebrow>
+                <h2
+                  id="video-title"
+                  className="mt-3 text-[28px] leading-[1.15] font-extrabold tracking-tight text-balance sm:text-4xl"
+                >
+                  Warum KI-Assistenten über neue Patienten mitentscheiden
+                </h2>
+              </div>
+              <KiCheckVideo />
+              <div className="mt-8 flex justify-center">
+                <Button href="#ki-check-form">Kostenlosen Check anfordern</Button>
+              </div>
+            </div>
+          </Reveal>
+        </Section>
+      )}
 
       {/* Problem */}
       <Section bg="alt" labelledBy="problem-title">

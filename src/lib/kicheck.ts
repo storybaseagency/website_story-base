@@ -140,6 +140,20 @@ export type KiCheckCampaign = {
   defaultStadt?: string;
 };
 
+// Erklärvideo von Jan (selbst gehostet, keine Drittanbieter)
+export const kiCheckVideo = {
+  title: "Der KI-Sichtbarkeits-Check in einer Minute",
+  description:
+    "Jan Bruchwalski von Story Base erklärt, warum Patienten heute ChatGPT & Co. nach einer Praxis fragen und wie der kostenlose KI-Sichtbarkeits-Check zeigt, ob Ihre Praxis genannt wird.",
+  landscape: "/videos/ki-check-erklaervideo.mp4",
+  landscapePoster: "/images/ki-check-erklaervideo-poster.webp",
+  portrait: "/videos/ki-check-erklaervideo-hochkant.mp4",
+  portraitPoster: "/images/ki-check-erklaervideo-hochkant-poster.webp",
+  duration: "PT1M7S",
+  durationLabel: "1:07",
+  uploadDate: "2026-11-10",
+};
+
 export const kiCheckZiele = ["Mehr Privatpatienten", "Mehr Fachkräfte", "Beides"];
 
 // Übergabe von Vorname/E-Mail an die Danke-Seite, ohne sie in die URL zu schreiben
