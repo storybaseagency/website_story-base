@@ -25,7 +25,7 @@ export function KiCheckLanding({
 }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(kiCheckSchema()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(kiCheckSchema({ withVideo: !campaign })) }} />
       <KiCheckView />
       <KiCheckStickyCta />
 

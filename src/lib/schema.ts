@@ -182,7 +182,7 @@ export function landingSchema(page: LandingPageData) {
   };
 }
 
-export function kiCheckSchema() {
+export function kiCheckSchema({ withVideo = true }: { withVideo?: boolean } = {}) {
   const url = `${site.url}${kiCheck.path}`;
   return {
     "@context": "https://schema.org",
@@ -209,7 +209,7 @@ export function kiCheckSchema() {
         offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
         url,
       },
-      {
+      withVideo && {
         "@type": "VideoObject",
         "@id": `${url}#video`,
         name: kiCheckVideo.title,
@@ -231,6 +231,6 @@ export function kiCheckSchema() {
           acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
-    ],
+    ].filter(Boolean),
   };
 }
