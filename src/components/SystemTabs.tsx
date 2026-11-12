@@ -4,21 +4,44 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { blocks } from "@/lib/content";
 import { IconTile } from "./ui";
 
-const INTERVAL = 7000;
+// Anzeigedauer je Baustein beim automatischen Durchlaufen
+const INTERVAL = 5000;
 
 // Alle fünf Panels werden ins HTML gerendert (inaktive mit `hidden`),
 // damit Suchmaschinen und KI-Crawler jeden Baustein lesen können.
 export function SystemTabs() {
   const [active, setActive] = useState(0);
   const [auto, setAuto] = useState(true);
+  // Wie oft der Bereich ins Bild gescrollt wurde (0 = noch nie bzw. gerade nicht sichtbar).
+  // Dient als Schlüssel, damit der Fortschrittsbalken beim Wiederkommen neu startet.
+  const [visibleRound, setVisibleRound] = useState(0);
+  const [inView, setInView] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Erst durchlaufen, wenn der Bereich zu sehen ist; außerhalb des Bildes pausieren
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        setInView(e.isIntersecting);
+        if (e.isIntersecting) setVisibleRound((r) => r + 1);
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const running = auto && inView;
 
   useEffect(() => {
     // Kein automatisches Weiterschalten bei „Bewegung reduzieren“
-    if (!auto || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!running || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => setActive((a) => (a + 1) % blocks.length), INTERVAL);
     return () => clearTimeout(t);
-  }, [auto, active]);
+  }, [running, active, visibleRound]);
 
   const select = (i: number) => {
     setActive(i);
@@ -35,7 +58,7 @@ export function SystemTabs() {
   };
 
   return (
-    <div className="mt-16 grid items-start gap-6 lg:grid-cols-2">
+    <div ref={root} className="mt-16 grid items-start gap-6 lg:grid-cols-2">
       <div role="tablist" aria-label="Bausteine des AI-Ready Growth System" aria-orientation="vertical" className="flex flex-col gap-2" onKeyDown={onKeyDown}>
         {blocks.map((b, i) => {
           const sel = i === active;
@@ -65,11 +88,12 @@ export function SystemTabs() {
                 <span className="text-lg leading-[26px] font-bold">{b.title}</span>
                 <span className="text-sm text-white/60">{b.short}</span>
               </span>
-              {sel && auto && (
+              {sel && running && (
                 <span
-                  key={`progress-${active}`}
+                  key={`progress-${active}-${visibleRound}`}
                   aria-hidden
                   className="absolute bottom-0 left-0 h-0.5 w-full origin-left animate-progress bg-accent"
+                  style={{ animationDuration: `${INTERVAL}ms` }}
                 />
               )}
             </button>

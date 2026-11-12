@@ -38,8 +38,8 @@ export const blocks = [
   {
     id: "strategie",
     title: "Positionierung & Strategie",
-    short: "Wen Sie erreichen wollen – und womit",
-    tun: "Wir klären, welche Patientengruppen und Leistungen Ihre Praxis wirklich voranbringen, und entwickeln daraus Botschaften, Themen und einen Redaktionsplan – HWG-konform von Anfang an.",
+    short: "Wen Sie erreichen wollen und womit",
+    tun: "Wir klären, welche Patientengruppen und Leistungen Ihre Praxis wirklich voranbringen, und entwickeln daraus Botschaften, Themen und einen Redaktionsplan, HWG-konform von Anfang an.",
     nutzen:
       "Ein klares Profil, das Selbstzahler anspricht und sich von Praxen in Ihrer Nähe abhebt. Alle weiteren Inhalte zahlen auf dieses Ziel ein.",
     aufwand: "30-Minuten-Praxis-Check + ein Strategietermin",
@@ -48,7 +48,7 @@ export const blocks = [
     id: "video",
     title: "Videoproduktion",
     short: "Im Studio oder direkt in Ihrer Praxis",
-    tun: "Arzt-Erklärvideos, Praxis-Rundgang, Team-Porträts und Recruiting-Clips – vorbereitet mit Drehplan, gedreht an einem Tag, geschnitten für jede Plattform.",
+    tun: "Arzt-Erklärvideos, Praxis-Rundgang, Team-Porträts und Recruiting-Clips. Vorbereitet mit Drehplan, gedreht an einem Tag, geschnitten für jede Plattform.",
     nutzen:
       "Patienten und Bewerber lernen Sie kennen, bevor sie das erste Mal Ihre Praxis betreten. Vertrauen entsteht schon online.",
     aufwand: "ein halber Drehtag pro Quartal",
@@ -56,10 +56,10 @@ export const blocks = [
   {
     id: "social-media",
     title: "Social Media",
-    short: "Regelmäßig präsent, ohne Ihren Abend",
+    short: "Regelmäßig präsent, ohne Ihre Freizeit zu opfern",
     tun: "Wir planen, texten und veröffentlichen Ihre Beiträge auf Instagram, Facebook, TikTok und LinkedIn und betreuen Kommentare nach abgestimmten Regeln.",
     nutzen:
-      "Ein lebendiger, professioneller Auftritt, der Woche für Woche Ihre Expertise zeigt – ohne dass Ihr Team dafür Zeit freischaufeln muss.",
+      "Ein lebendiger, professioneller Auftritt, der Woche für Woche Ihre Expertise zeigt, ohne dass Ihr Team dafür Zeit freischaufeln muss.",
     aufwand: "Freigabe per Link, ca. 15 Minuten pro Woche",
   },
   {
@@ -68,8 +68,8 @@ export const blocks = [
     short: "Gezielt Patienten und Bewerber gewinnen",
     tun: "Wir schalten Meta- und Google-Kampagnen mit Ihren Videos, bauen passende Landingpages und leiten Anfragen direkt an Ihre Terminbuchung oder Ihr Praxisteam.",
     nutzen:
-      "Planbare Anfragen für genau die Leistungen und Stellen, die Sie besetzen wollen – statt Streuverlust und Zufall.",
-    aufwand: "keiner – Sie erhalten nur die Anfragen",
+      "Planbare Anfragen für genau die Leistungen und Stellen, die Sie besetzen wollen, statt Streuverlust und Zufall.",
+    aufwand: "keiner, Sie erhalten nur die Anfragen",
   },
   {
     id: "optimierung",

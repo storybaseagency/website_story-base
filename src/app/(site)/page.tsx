@@ -196,7 +196,7 @@ function System() {
           dark
           eyebrow="Das System"
           title="Das AI-Ready Growth System: Ihr Weg zu mehr Privatpatienten"
-          subtitle="Fünf Bausteine, die ineinandergreifen. Sie entscheiden, wir setzen um – und Sie sehen jederzeit, was es Ihrer Praxis bringt."
+          subtitle="Fünf Bausteine, die ineinandergreifen. Sie entscheiden, wir setzen um. Und Sie sehen jederzeit, was es Ihrer Praxis bringt."
         />
       </Reveal>
       <SystemTabs />
