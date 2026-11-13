@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { KI_CHECK_STORAGE_KEY, kiCheckZiele } from "@/lib/kicheck";
+import { KI_CHECK_STORAGE_KEY, kiCheckFachrichtungen, kiCheckZiele } from "@/lib/kicheck";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
 import { ArrowIcon } from "./icons";
@@ -41,6 +41,7 @@ function validateStep1(v: Values) {
 
 function validateStep2(v: Values) {
   const e: Values = {};
+  if (!v.fachrichtung) e.fachrichtung = "Bitte wählen Sie Ihre Fachrichtung.";
   if (!v.leistung?.trim()) e.leistung = "Bitte nennen Sie Ihre wichtigste Selbstzahlerleistung.";
   if (!v.vorname?.trim()) e.vorname = "Bitte geben Sie Ihren Vornamen an.";
   if (!v.nachname?.trim()) e.nachname = "Bitte geben Sie Ihren Nachnamen an.";
@@ -65,8 +66,7 @@ export function KiCheckForm({
 }) {
   const router = useRouter();
   const [step, setStep] = useState<1 | 2>(1);
-  // Die Fachrichtung fragen wir nicht ab. Ist sie durch die Seite bekannt
-  // (Fachrichtungs-Variante), geht sie trotzdem mit. Der Ort ist ggf. vorausgefüllt.
+  // Fachrichtung (Schritt 2) und Ort (Schritt 1) sind auf Varianten-Seiten vorausgefüllt.
   const [values, setValues] = useState<Values>({
     ...(defaultFachrichtung && { fachrichtung: defaultFachrichtung }),
     ...(defaultStadt && { stadt: defaultStadt }),
@@ -240,6 +240,26 @@ export function KiCheckForm({
               Zurück
             </button>
           </div>
+          <Field label="Fachrichtung" name="fachrichtung" error={err("fachrichtung")}>
+            <select
+              id="fachrichtung"
+              name="fachrichtung"
+              value={values.fachrichtung ?? ""}
+              onChange={(e) => set("fachrichtung", e.target.value)}
+              aria-invalid={!!err("fachrichtung")}
+              aria-describedby={err("fachrichtung") ? "fachrichtung-error" : undefined}
+              className={`${inputClass} ${err("fachrichtung") ? "border-accent-deep" : "border-ink-950/14"} ${values.fachrichtung ? "" : "text-ink-400"}`}
+            >
+              <option value="" disabled>
+                Bitte wählen
+              </option>
+              {kiCheckFachrichtungen.map((f) => (
+                <option key={f} value={f} className="text-ink-950">
+                  {f}
+                </option>
+              ))}
+            </select>
+          </Field>
           <Field label="Ihre wichtigste Selbstzahlerleistung" name="leistung" error={err("leistung")}>
             <input
               id="leistung"

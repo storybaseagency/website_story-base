@@ -255,8 +255,7 @@ export default function Datenschutz() {
       <p>
         Wenn Sie über unsere Seite <Link href="/ki-check/">story-base.de/ki-check</Link> einen
         KI-Sichtbarkeits-Check anfordern, verarbeiten wir die Angaben zu Ihrer Praxis (Praxisname, Ort,
-        Website, wichtigste Selbstzahlerleistung; auf Seiten für eine bestimmte Fachrichtung auch
-        diese), Ihre Kontaktdaten (Vor- und Nachname, E-Mail-Adresse), Ihr gewähltes Ziel sowie Angaben zur Herkunft
+        Website, Fachrichtung, wichtigste Selbstzahlerleistung), Ihre Kontaktdaten (Vor- und Nachname, E-Mail-Adresse), Ihr gewähltes Ziel sowie Angaben zur Herkunft
         der Anfrage (z. B. Kampagnen-Parameter wie utm_source und die zuvor besuchte Seite). Zweck ist die
         Erstellung und Zusendung Ihres persönlichen Reports und die Abstimmung eines optionalen
         Besprechungstermins. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung
@@ -267,7 +266,7 @@ export default function Datenschutz() {
         Sie erhalten eine Bestätigung per E-Mail. Für den Check stellen wir typische Patientenfragen an
         die KI-Assistenten ChatGPT (OpenAI), Perplexity und Gemini (Google). Dabei verwenden wir
         ausschließlich öffentlich verfügbare Angaben zu Ihrer Praxis (Praxisname, Ort, Fachrichtung,
-        Leistung, Website; die Fachrichtung entnehmen wir bei Bedarf Ihrer Website) – niemals Ihren
+        Leistung, Website) – niemals Ihren
         Namen oder Ihre E-Mail-Adresse. Wir löschen
         Ihre Angaben spätestens zwölf Monate nach Zusendung des Reports, sofern keine Zusammenarbeit
         entsteht und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.

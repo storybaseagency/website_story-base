@@ -36,7 +36,7 @@ export const kiCheck = {
     },
   ],
   steps: [
-    { title: "Formular ausfüllen", text: "Praxis, Ort, Website und wichtigste Leistung. Dauert eine Minute." },
+    { title: "Formular ausfüllen", text: "Praxis, Ort, Website, Fachrichtung und wichtigste Leistung. Dauert eine Minute." },
     {
       title: "Wir prüfen",
       text: "Typische Patientenfragen in ChatGPT, Perplexity und Gemini, persönlich ausgewertet.",
