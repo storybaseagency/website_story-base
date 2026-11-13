@@ -1,5 +1,6 @@
-import { janReferences, productionPhotos } from "@/lib/content";
-import { Card, Reveal, Section, SectionHeader } from "./ui";
+import { janReferences } from "@/lib/content";
+import { BackgroundVideo } from "./BackgroundVideo";
+import { Card, Reveal, SectionHeader } from "./ui";
 
 /** Die drei Kundenstimmen zu Jans Arbeit als Zitat-Karten. */
 export function JanQuotes({ className = "" }: { className?: string }) {
@@ -10,9 +11,6 @@ export function JanQuotes({ className = "" }: { className?: string }) {
           <Reveal delay={i * 120} className="h-full">
             <Card className="h-full p-7">
               <figure className="flex h-full flex-col gap-4">
-                <p className="text-xs font-semibold tracking-widest text-accent-deep uppercase">
-                  Zusammenarbeit: {r.topic}
-                </p>
                 <span aria-hidden className="h-5 text-5xl leading-[0.6] font-extrabold text-accent">
                   “
                 </span>
@@ -41,45 +39,38 @@ export function PracticeBenefit({ className = "" }: { className?: string }) {
   );
 }
 
-/** Referenz-Abschnitt der Startseite: Stimmen zu Jans Arbeit plus Fotos aus Produktionen. */
+export const janReferencesTitle = {
+  eyebrow: "Referenzen aus 20 Jahren Bewegtbild",
+  title: "Die Erfahrung hinter Ihren Praxisvideos",
+};
+
+/** Referenz-Abschnitt der Startseite: Stimmen zu Jans Arbeit vor bewegtem Hintergrund. */
 export function JanReferences() {
   return (
-    <Section id="referenzen" labelledBy="referenzen-title">
-      <Reveal>
-        <SectionHeader
-          id="referenzen-title"
-          eyebrow="Referenzen aus 20 Jahren Bewegtbild"
-          title="Die Erfahrung hinter Ihren Praxisvideos"
-          subtitle="Bevor Story Base sich auf Arztpraxen spezialisiert hat, hat Jan Bruchwalski für Agenturen, Unternehmen und Live-Produktionen gedreht, geschnitten und Regie geführt, unter anderem bei Livestreams aus den Ministergärten in Berlin. So beschreiben Auftraggeber die Zusammenarbeit:"
+    <section
+      id="referenzen"
+      aria-labelledby="referenzen-title"
+      className="relative overflow-hidden bg-navy py-24 text-white sm:py-32"
+    >
+      <div aria-hidden className="absolute inset-0">
+        <BackgroundVideo
+          src="/videos/eindruecke.mp4"
+          mobileSrc="/videos/eindruecke-mobil.mp4"
+          poster="/images/eindruecke-poster.webp"
+          className="object-[50%_30%]"
         />
-      </Reveal>
-      <JanQuotes className="mt-12" />
-      <Reveal>
-        <PracticeBenefit className="mt-8" />
-      </Reveal>
-
-      <Reveal>
-        <h3 className="mt-20 text-xl font-bold">Eindrücke aus Produktionen</h3>
-      </Reveal>
-      <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
-        {productionPhotos.map((p, i) => (
-          <li key={p.src}>
-            <Reveal delay={(i % 3) * 100}>
-              <figure>
-                <img
-                  src={p.src}
-                  alt={p.alt}
-                  width={p.w}
-                  height={p.h}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card"
-                />
-                <figcaption className="mt-2 text-sm text-ink-500">{p.alt}</figcaption>
-              </figure>
-            </Reveal>
-          </li>
-        ))}
-      </ul>
-    </Section>
+        <div className="absolute inset-0 bg-linear-to-b from-ink-950/75 via-navy/65 to-ink-950/85" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <Reveal>
+          <SectionHeader id="referenzen-title" dark {...janReferencesTitle} />
+        </Reveal>
+        <JanQuotes className="mt-12" />
+        <Reveal>
+          <PracticeBenefit className="mt-8" />
+        </Reveal>
+        <p className="mt-6 text-xs text-white/45">Hintergrund: Beispielaufnahmen</p>
+      </div>
+    </section>
   );
 }

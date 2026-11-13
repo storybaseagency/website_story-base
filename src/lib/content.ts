@@ -125,71 +125,29 @@ export const goals: {
   },
 ];
 
-// Format-Teaser im Story-Base-Look (Hochformat, 10 s, ohne Ton). Mit Stockmaterial
-// produziert – auf der Website deshalb als Beispiele für Formate gekennzeichnet.
-export const formatClips = [
-  {
-    slug: "kongress-fachvortrag",
-    tag: "Kongress & Fachvortrag",
-    title: "Ihr Wissen. Perfekt in Szene.",
-    text: "Vortrag, Interview und Highlight-Film von Kongressen und Fachveranstaltungen.",
-    src: "/videos/format-kongress-fachvortrag.mp4",
-    poster: "/images/format-kongress-fachvortrag-poster.webp",
-  },
-  {
-    slug: "social-media-reels",
-    tag: "Social Media für Praxen",
-    title: "Reels, die Vertrauen schaffen.",
-    text: "Kurze Videos für Instagram, TikTok und Ihre Website, in denen Patienten Sie kennenlernen.",
-    src: "/videos/format-social-media-reels.mp4",
-    poster: "/images/format-social-media-reels-poster.webp",
-    href: "/videomarketing-arztpraxis/",
-  },
-  {
-    slug: "forschung-medizin",
-    tag: "Marketing für Medizin",
-    title: "Ihre Forschung. Endlich sichtbar.",
-    text: "Labor, Team und Arbeitsalltag zeigen, auch um Fachkräfte zu finden.",
-    src: "/videos/format-forschung-medizin.mp4",
-    poster: "/images/format-forschung-medizin-poster.webp",
-    href: "/fachkraefte-arztpraxis/",
-  },
-];
 
 // Referenzen zu Jans Arbeit als Kameramann und Bildregisseur (übernommen von
 // medienproduktionbruchwalski.de). Bewusst als Stimmen über Jan gekennzeichnet,
 // nicht als Stimmen von Arztpraxen.
+// Gekürzte Fassungen der freigegebenen Stimmen (nur Auslassungen, keine neuen Formulierungen)
 export const janReferences = [
   {
-    topic: "Livestreams & Bildregie",
     quote:
-      "Ich kenne Jan Bruchwalski schon länger und habe ihn öfters für verschiedene Livestreams gebucht. Häufig in den Ministergärten in Berlin, wo es neben der guten Arbeit auch auf professionelles Auftreten ankommt. Ich danke Jan für die tolle Zusammenarbeit.",
+      "Ich kenne Jan Bruchwalski schon länger und habe ihn öfters gebucht. Ich danke Jan für die tolle Zusammenarbeit.",
     name: "Martin Kautzsch",
     role: "Geschäftsführer",
   },
   {
-    topic: "Kamera & Schnitt",
     quote:
-      "Wir hatten Jan Bruchwalski für unsere Agentur öfters beauftragt, für Kamera- und Schnittarbeiten. Wir waren allzeit zufrieden, sowohl mit der Zusammenarbeit, als auch mit den Endprodukten.",
+      "Wir hatten Jan Bruchwalski für unsere Agentur öfters beauftragt. Wir waren allzeit zufrieden, sowohl mit der Zusammenarbeit, als auch mit den Endprodukten.",
     name: "Lea Schermer",
     role: "Geschäftsführerin",
   },
   {
-    topic: "Live-Produktionen",
-    quote:
-      "Ich habe mit Jan Bruchwalski verschiedene Live-Produktionen erlebt und finde die Kommunikation klar und die Ergebnisse sind klasse.",
+    quote: "Ich finde die Kommunikation klar und die Ergebnisse sind klasse.",
     name: "Christian Grodau",
     role: "Kameramann",
   },
-];
-
-export const productionPhotos = [
-  { src: "/images/referenz-liveregie-ministergaerten.webp", alt: "Live-Regie bei einer Konferenz in den Ministergärten Berlin", w: 900, h: 900 },
-  { src: "/images/referenz-setup-ministergaerten.webp", alt: "Kamera- und Streaming-Setup in einem Konferenzsaal", w: 900, h: 675 },
-  { src: "/images/referenz-regie.webp", alt: "Jan Bruchwalski in der Regie einer Live-Produktion", w: 900, h: 1200 },
-  { src: "/images/referenz-kameraarbeit-see.webp", alt: "Kameraarbeit auf See", w: 900, h: 675 },
-  { src: "/images/referenz-dreharbeiten-hafen.webp", alt: "Dreharbeiten am Hafen", w: 900, h: 900 },
-  { src: "/images/referenz-kamera-talk.webp", alt: "Kamera bei einer Talk-Aufzeichnung", w: 900, h: 1600 },
 ];
 
 // Nur echte, schriftlich freigegebene Stimmen eintragen – der Abschnitt
