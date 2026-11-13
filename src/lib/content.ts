@@ -129,6 +129,18 @@ export const goals: {
 // Referenzen zu Jans Arbeit als Kameramann und Bildregisseur (übernommen von
 // medienproduktionbruchwalski.de). Bewusst als Stimmen über Jan gekennzeichnet,
 // nicht als Stimmen von Arztpraxen.
+// Beispiel-Reels im Story-Base-Look, umgesetzt mit Stockmaterial (keine Kundenprojekte)
+export const beispielReels = [
+  { slug: "social-media-reels", label: "Social Media", title: "Reels, die Vertrauen schaffen" },
+  { slug: "kongress-fachvortrag", label: "Fachvortrag", title: "Ihr Wissen. Perfekt in Szene." },
+  { slug: "forschung-medizin", label: "Forschung", title: "Ihre Forschung. Endlich sichtbar." },
+].map((r) => ({
+  ...r,
+  src: `/videos/reel-${r.slug}.mp4`,
+  poster: `/images/reel-${r.slug}-poster.webp`,
+  thumb: `/images/reel-${r.slug}-thumb.webp`,
+}));
+
 // Gekürzte Fassungen der freigegebenen Stimmen (nur Auslassungen, keine neuen Formulierungen)
 export const janReferences = [
   {
@@ -150,9 +162,23 @@ export const janReferences = [
   },
 ];
 
-// Nur echte, schriftlich freigegebene Stimmen eintragen – der Abschnitt
-// „Stimmen“ erscheint automatisch, sobald hier mindestens ein Eintrag steht.
-export const testimonials: { quote: string; name: string; role: string; avatar?: string }[] = [];
+// Nur echte Stimmen eintragen: öffentliche Google-Rezensionen wörtlich übernehmen,
+// andere nur mit schriftlicher Freigabe. Der Abschnitt „Stimmen“ erscheint
+// automatisch, sobald hier mindestens ein Eintrag steht.
+export const testimonials: { quote: string; name: string; role: string; avatar?: string }[] = [
+  {
+    quote:
+      "Wir haben mit der Story Base Agency zusammengearbeitet und waren mit den Ergebnissen sehr zufrieden. Besonders die produzierten Reels haben unsere Sichtbarkeit in den sozialen Medien deutlich verbessert und für mehr Reichweite bei unserem Online-Shop gesorgt. Auch bei der Vorbereitung und Umsetzung von Special Sales war die Zusammenarbeit sehr hilfreich und professionell. Die Creatives waren stets hochwertig, kreativ und genau auf unsere Zielgruppe abgestimmt. Insgesamt eine sehr angenehme und zuverlässige Zusammenarbeit. Absolut empfehlenswert!",
+    name: "buerostuehle-4u WolfgangS",
+    role: "Google-Rezension",
+  },
+  {
+    quote:
+      "Top Agentur für Videoschnitt! Schnelle Umsetzung, kreatives Gespür und immer zuverlässig. Wir arbeiten schon eine Weile mit dem Team zusammen und sind jedes Mal voll zufrieden. Der Schnitt ist sauber, die Kommunikation unkompliziert und Feedback wird schnell umgesetzt. Empfehlung!",
+    name: "Tomasz Pierog",
+    role: "Google-Rezension",
+  },
+];
 
 export const steps = [
   {

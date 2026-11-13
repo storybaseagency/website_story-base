@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContactSection } from "@/components/ContactSection";
 import { FaqList } from "@/components/FaqList";
+import { StoryReels } from "@/components/StoryReels";
 import { JanReferences } from "@/components/JanReferences";
 import { StickyCta } from "@/components/StickyCta";
 import { SystemTabs } from "@/components/SystemTabs";
@@ -88,6 +89,9 @@ function Hero() {
               </li>
             </ul>
           </Reveal>
+          <Reveal delay={500} className="lg:hidden">
+            <StoryReels quelle="startseite_hero" />
+          </Reveal>
         </div>
 
         <Reveal delay={250} distance={48}>
@@ -105,6 +109,10 @@ function Hero() {
               <div className="absolute top-5 right-5 flex items-center gap-2.5 rounded-full bg-ink-950/45 px-3.5 py-2 text-white backdrop-blur">
                 <span aria-hidden className="size-2.5 animate-pulse-dot rounded-full bg-accent" />
                 <span className="text-[13px] font-semibold tracking-[0.02em] sm:text-sm">Eigenes Video- und Podcast-Studio</span>
+              </div>
+              {/* Auf großen Bildschirmen direkt auf dem Foto, damit es ohne Scrollen sichtbar ist */}
+              <div className="absolute bottom-28 left-5 hidden animate-fade-in [animation-delay:1100ms] lg:block">
+                <StoryReels quelle="startseite_hero_bild" />
               </div>
             </div>
             <div className="absolute top-0 left-0 flex animate-fade-in items-center gap-2.5 rounded-full border border-ink-950/8 bg-white/90 py-2.5 pr-4 pl-2.5 shadow-card backdrop-blur [animation-delay:700ms]">
@@ -268,7 +276,11 @@ function Testimonials() {
   return (
     <Section id="stimmen" bg="alt" labelledBy="stimmen-title" className="!py-24">
       <Reveal>
-        <SectionHeader id="stimmen-title" eyebrow="Stimmen" title="Was Ärztinnen und Ärzte über die Zusammenarbeit sagen" />
+        <SectionHeader
+          id="stimmen-title"
+          eyebrow="Bewertungen auf Google"
+          title="Was Kunden über die Zusammenarbeit sagen"
+        />
       </Reveal>
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {testimonials.map((t, i) => (
