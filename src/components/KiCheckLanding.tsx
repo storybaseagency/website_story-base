@@ -1,4 +1,5 @@
 import { FaqList } from "./FaqList";
+import { JanQuotes } from "./JanReferences";
 import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
 import { KiCheckVideo, KiCheckVideoTeaser } from "./KiCheckVideo";
@@ -217,11 +218,16 @@ export function KiCheckLanding({
             <p className="mt-5 font-semibold text-ink-950">
               {site.managingDirector}, Geschäftsführer
               <span className="block text-sm font-normal text-ink-500">
-                {site.address.street}, {site.address.zip} {site.address.city}-{site.address.district}
+                Mediengestalter mit 20 Jahren Erfahrung in Kamera, Bildregie und Videoproduktion
               </span>
             </p>
           </Reveal>
         </div>
+        <Reveal>
+          <h3 className="mt-16 text-xl font-bold">Was Kunden über Jans Arbeit sagen</h3>
+          <p className="mt-2 text-ink-600">Stimmen aus Jans Arbeit als Kameramann und Bildregisseur für Agenturen und Live-Produktionen.</p>
+        </Reveal>
+        <JanQuotes className="mt-8" />
       </Section>
 
       {/* FAQ */}

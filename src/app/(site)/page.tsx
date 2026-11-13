@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContactSection } from "@/components/ContactSection";
 import { FaqList } from "@/components/FaqList";
+import { JanReferences } from "@/components/JanReferences";
 import { StickyCta } from "@/components/StickyCta";
 import { SystemTabs } from "@/components/SystemTabs";
 import { Button, Card, Dot, Eyebrow, Icon, IconTile, Reveal, Section, SectionHeader } from "@/components/ui";
@@ -20,6 +21,7 @@ export default function Home() {
       {testimonials.length > 0 && <Testimonials />}
       <Process />
       <About />
+      <JanReferences />
       <Faq />
       <ContactSection />
       <StickyCta />

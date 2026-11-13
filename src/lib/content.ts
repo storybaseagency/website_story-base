@@ -125,6 +125,42 @@ export const goals: {
   },
 ];
 
+// Referenzen zu Jans Arbeit als Kameramann und Bildregisseur (übernommen von
+// medienproduktionbruchwalski.de). Bewusst als Stimmen über Jan gekennzeichnet,
+// nicht als Stimmen von Arztpraxen.
+export const janReferences = [
+  {
+    topic: "Technik & Bildregie",
+    quote:
+      "Ich kenne Jan Bruchwalski schon länger und habe ihn öfters für verschiedene Livestreams gebucht. Häufig in den Ministergärten in Berlin, wo es neben der guten Arbeit auch auf professionelles Auftreten ankommt. Ich danke Jan für die tolle Zusammenarbeit.",
+    name: "Martin Kautzsch",
+    role: "Geschäftsführer",
+  },
+  {
+    topic: "Kamera & Schnitt",
+    quote:
+      "Wir hatten Jan Bruchwalski für unsere Agentur öfters beauftragt, für Kamera- und Schnittarbeiten. Wir waren allzeit zufrieden, sowohl mit der Zusammenarbeit, als auch mit den Endprodukten.",
+    name: "Lea Schermer",
+    role: "Geschäftsführerin",
+  },
+  {
+    topic: "Bildmischer & Regie",
+    quote:
+      "Ich habe mit Jan Bruchwalski verschiedene Live-Produktionen erlebt und finde die Kommunikation klar und die Ergebnisse sind klasse.",
+    name: "Christian Grodau",
+    role: "Kameramann",
+  },
+];
+
+export const productionPhotos = [
+  { src: "/images/referenz-liveregie-ministergaerten.webp", alt: "Live-Regie bei einer Konferenz in den Ministergärten Berlin", w: 900, h: 900 },
+  { src: "/images/referenz-setup-ministergaerten.webp", alt: "Kamera- und Streaming-Setup in einem Konferenzsaal", w: 900, h: 675 },
+  { src: "/images/referenz-regie.webp", alt: "Jan Bruchwalski in der Regie einer Live-Produktion", w: 900, h: 1200 },
+  { src: "/images/referenz-kameraarbeit-see.webp", alt: "Kameraarbeit auf See", w: 900, h: 675 },
+  { src: "/images/referenz-dreharbeiten-hafen.webp", alt: "Dreharbeiten am Hafen", w: 900, h: 900 },
+  { src: "/images/referenz-kamera-talk.webp", alt: "Kamera bei einer Talk-Aufzeichnung", w: 900, h: 1600 },
+];
+
 // Nur echte, schriftlich freigegebene Stimmen eintragen – der Abschnitt
 // „Stimmen“ erscheint automatisch, sobald hier mindestens ein Eintrag steht.
 export const testimonials: { quote: string; name: string; role: string; avatar?: string }[] = [];
@@ -147,7 +183,12 @@ export const steps = [
   },
 ];
 
-export const facts = ["Eigenes Video- & Podcast-Studio", "HWG-konforme Inhalte", "Persönlicher Ansprechpartner"];
+export const facts = [
+  "20 Jahre Erfahrung im Bewegtbild",
+  "Eigenes Video- & Podcast-Studio",
+  "HWG-konforme Inhalte",
+  "Persönlicher Ansprechpartner",
+];
 
 // Zitierfähiger Steckbrief – kurze, faktische Aussagen für Google und KI-Assistenten
 export const profile: { term: string; detail: string }[] = [
@@ -165,7 +206,7 @@ export const profile: { term: string; detail: string }[] = [
     term: "Standort",
     detail: `Eigenes Video- und Podcast-Studio, ${site.address.street}, ${site.address.zip} ${site.address.city}-${site.address.district}`,
   },
-  { term: "Ansprechpartner", detail: `${site.managingDirector}, Geschäftsführer` },
+  { term: "Ansprechpartner", detail: `${site.managingDirector}, Geschäftsführer, Mediengestalter mit 20 Jahren Erfahrung in Kamera, Bildregie und Videoproduktion` },
 ];
 
 export const faq = [
