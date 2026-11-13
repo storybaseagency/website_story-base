@@ -66,6 +66,24 @@ export function KiCheckLanding({
                 </>
               )}
             </p>
+            {/* Kostenlos und unverbindlich – groß und gleich unter dem Einstiegstext */}
+            <Reveal delay={250}>
+              <ul className="flex flex-wrap gap-3">
+                {["Kostenlos", "Unverbindlich"].map((t) => (
+                  <li
+                    key={t}
+                    className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-white py-2 pr-5 pl-2 text-lg font-bold text-ink-950 shadow-card"
+                  >
+                    <span className="flex size-7 items-center justify-center rounded-full bg-accent text-ink-950">
+                      <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M5 12.5l4.5 4.5L19 7.5" />
+                  </svg>
+                    </span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
             <Reveal delay={300} className="lg:hidden">
               <Button href="#ki-check-form">Kostenlosen Check anfordern</Button>
             </Reveal>
@@ -202,48 +220,11 @@ export function KiCheckLanding({
         </ol>
       </Section>
 
-      {/* Was nach dem Check möglich ist – mit den Story-Base-Spots */}
-      <Section labelledBy="after-title">
-        <div className="grid items-center gap-14 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_340px] lg:gap-24">
-          <Reveal>
-            <Eyebrow>Umsetzung</Eyebrow>
-            <h2
-              id="after-title"
-              className="mt-3 text-[30px] leading-[1.15] font-extrabold tracking-tight text-balance sm:text-4xl"
-            >
-              Nach dem Report setzen wir um, was Sie ändern wollen
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-600">
-              Der Report zeigt, wo Ihre Praxis heute steht. Wenn Sie danach mehr Sichtbarkeit wollen, drehen wir
-              Videos, betreuen Ihre Social-Media-Kanäle und schalten Anzeigen. Die Spots im Handy haben wir für Story Base
-              selbst gemacht.
-            </p>
-            <div className="mt-8">
-              <Button href="#ki-check-form">Erst einmal den Check anfordern</Button>
-            </div>
-          </Reveal>
-          <Reveal delay={150}>
-            <div className="relative mx-auto w-full max-w-[290px] md:max-w-none">
-              <PhoneSpots />
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
       {/* Über Story Base */}
       <Section bg="alt" labelledBy="about-title">
-        <div className="grid items-center gap-12 md:grid-cols-[280px_1fr]">
+        {/* Vorstellung mit den Story-Base-Spots als Arbeitsprobe */}
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_320px] lg:gap-20">
           <Reveal>
-            <img
-              src="/images/jan-bruchwalski-praxismarketing-berlin.webp"
-              alt="Jan Bruchwalski, Geschäftsführer der Story Base Agency"
-              width={400}
-              height={400}
-              loading="lazy"
-              className="mx-auto aspect-square w-56 rounded-3xl object-cover shadow-image md:w-full"
-            />
-          </Reveal>
-          <Reveal delay={120}>
             <Eyebrow>Über Story Base</Eyebrow>
             <h2
               id="about-title"
@@ -252,12 +233,30 @@ export function KiCheckLanding({
               Persönlich ausgewertet, nicht von einem Automaten
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-600">{kiCheck.about}</p>
-            <p className="mt-5 font-semibold text-ink-950">
-              {site.managingDirector}, Geschäftsführer
-              <span className="block text-sm font-normal text-ink-500">
-                Mediengestalter mit 20 Jahren Erfahrung in Kamera, Bildregie und Videoproduktion
-              </span>
-            </p>
+            <div className="mt-8 flex items-center gap-4">
+              <img
+                src="/images/jan-bruchwalski-praxismarketing-berlin.webp"
+                alt="Jan Bruchwalski, Geschäftsführer der Story Base Agency"
+                width={400}
+                height={400}
+                loading="lazy"
+                className="size-20 shrink-0 rounded-full object-cover shadow-card ring-4 ring-white"
+              />
+              <p className="font-semibold text-ink-950">
+                {site.managingDirector}, Geschäftsführer
+                <span className="block text-sm font-normal text-ink-500">
+                  Mediengestalter mit 20 Jahren Erfahrung in Kamera, Bildregie und Videoproduktion
+                </span>
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={150}>
+            <figure className="mx-auto w-full max-w-[270px] lg:max-w-none">
+              <div className="relative">
+                <PhoneSpots />
+              </div>
+              <figcaption className="mt-5 text-center text-sm text-ink-500">Eigene Spots von Story Base</figcaption>
+            </figure>
           </Reveal>
         </div>
         <Reveal>
@@ -296,7 +295,7 @@ export function KiCheckLanding({
             >
               {kiCheck.closingTitle}
             </h2>
-            <p className="relative mx-auto mt-4 max-w-xl text-lg text-white/75">
+            <p className="relative mx-auto mt-5 max-w-xl text-xl font-semibold text-white sm:text-2xl">
               Kostenlos, unverbindlich und in einer Minute angefragt.
             </p>
             <div className="relative mt-8 flex flex-wrap justify-center gap-3">

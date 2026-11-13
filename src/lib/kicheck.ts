@@ -14,7 +14,7 @@ export const kiCheck = {
   subline:
     "Der KI-Sichtbarkeits-Check zeigt Ihnen in 2 Werktagen, ob ChatGPT, Perplexity und Gemini Ihre Praxis empfehlen oder Ihre Konkurrenz.",
   // Nur echte Zahlen: Stand 13.11.2026 waren es 28 geprüfte Praxen
-  trust: ["Kostenlos", "Über 20 Praxen geprüft", "1 Minute Aufwand", "Persönlich ausgewertet von Story Base, Berlin-Spandau"],
+  trust: ["Über 20 Praxen geprüft", "1 Minute Aufwand", "Report in 2 Werktagen", "Persönlich ausgewertet von Story Base, Berlin-Spandau"],
   problem: {
     title: "Google ist nicht mehr der einzige Weg zu Ihrer Praxis",
     text: "Immer mehr Patienten fragen KI-Assistenten, welche Praxis sie für eine Behandlung wählen sollen. Die Antwort nennt meist zwei oder drei Praxen. Die anderen tauchen für diesen Patienten gar nicht auf. Ob Ihre Praxis dabei ist, hat wenig mit Ihrer medizinischen Qualität zu tun. Es hängt davon ab, wie Ihre Praxis im Netz beschrieben ist.",
