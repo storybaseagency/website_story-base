@@ -11,6 +11,30 @@ const pages = [1, 2, 3, 4].map((n) => ({
   alt: `Beispiel-Report, Seite ${n} von 4 (anonymisiert)`,
 }));
 
+/** Kleiner Hinweis im Hero: springt zum echten Beispiel-Report weiter unten. */
+export function ReportTeaser() {
+  return (
+    <a
+      href="#report"
+      className="group flex w-fit items-center gap-4 rounded-2xl border border-ink-950/8 bg-white/80 p-2 pr-5 text-left shadow-card backdrop-blur transition hover:border-accent/40 hover:shadow-card-hover"
+    >
+      <span className="h-14 w-11 shrink-0 overflow-hidden rounded-lg bg-white ring-1 ring-ink-950/10">
+        <img
+          src="/images/beispiel-report-1-klein.webp"
+          alt=""
+          width={44}
+          height={62}
+          className="w-full transition-transform duration-300 group-hover:scale-105"
+        />
+      </span>
+      <span className="leading-tight">
+        <span className="block font-semibold text-ink-950">So sieht Ihr Report aus</span>
+        <span className="text-sm text-ink-500">Echtes Beispiel ansehen</span>
+      </span>
+    </a>
+  );
+}
+
 export function ReportPreview() {
   const dialog = useRef<HTMLDialogElement>(null);
 

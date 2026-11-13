@@ -5,7 +5,7 @@ import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
 import { KiCheckVideo, KiCheckVideoTeaser } from "./KiCheckVideo";
 import { KiCheckView } from "./KiCheckView";
-import { ReportPreview } from "./ReportPreview";
+import { ReportPreview, ReportTeaser } from "./ReportPreview";
 import { Button, Card, Dot, Eyebrow, IconTile, Reveal, Section, SectionHeader } from "./ui";
 import type { ReactNode } from "react";
 import { kiCheck, type KiCheckCampaign, type KiCheckVariant } from "@/lib/kicheck";
@@ -62,7 +62,7 @@ export function KiCheckLanding({
                 campaign.subline
               ) : (
                 <>
-                  <strong className="font-semibold text-ink-950">{kiCheck.sublineLead}</strong> {kiCheck.subline}
+                  <strong className="font-semibold text-ink-950">{kiCheck.sublineLead}</strong>
                 </>
               )}
             </p>
@@ -87,11 +87,12 @@ export function KiCheckLanding({
             <Reveal delay={300} className="lg:hidden">
               <Button href="#ki-check-form">Kostenlosen Check anfordern</Button>
             </Reveal>
-            {!campaign && (
-              <Reveal delay={320}>
-                <KiCheckVideoTeaser />
-              </Reveal>
-            )}
+            <Reveal delay={320}>
+              <div className="flex flex-wrap gap-3">
+                <ReportTeaser />
+                {!campaign && <KiCheckVideoTeaser />}
+              </div>
+            </Reveal>
             <Reveal delay={350}>
               <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-500">
                 {kiCheck.trust.map((t) => (
@@ -131,6 +132,44 @@ export function KiCheckLanding({
 
       {children}
 
+      {/* Was Sie bekommen */}
+      <Section id="report" labelledBy="benefits-title" className="scroll-mt-20">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div>
+            <Reveal>
+              <SectionHeader
+                id="benefits-title"
+                eyebrow="Ihr Report"
+                title="Was Sie bekommen"
+                subtitle="Ein persönlicher Report mit Datum, drei bis vier Seiten lang."
+              />
+            </Reveal>
+            {/* Am Handy den echten Report gleich unter der Überschrift zeigen */}
+            <Reveal className="mt-10 lg:hidden">
+              <ReportPreview />
+            </Reveal>
+            <ul className="mt-10 grid gap-4">
+              {kiCheck.benefits.map((b, i) => (
+                <li key={b.title}>
+                  <Reveal delay={i * 100}>
+                    <Card className="flex items-start gap-5 p-6">
+                      <IconTile name={b.icon} />
+                      <div>
+                        <h3 className="text-lg leading-7 font-bold">{b.title}</h3>
+                        <p className="mt-1 leading-relaxed text-ink-600">{b.text}</p>
+                      </div>
+                    </Card>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Reveal delay={150} className="hidden pb-10 lg:block">
+            <ReportPreview />
+          </Reveal>
+        </div>
+      </Section>
+
       {/* Erklärvideo – nur auf /ki-check/ und den Fachrichtungs-Seiten, nicht in Kampagnen */}
       {!campaign && (
         <Section labelledBy="video-title" className="!pt-8 sm:!pt-12">
@@ -154,52 +193,6 @@ export function KiCheckLanding({
         </Section>
       )}
 
-      {/* Problem */}
-      <Section bg="alt" labelledBy="problem-title">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
-          <Reveal>
-            <SectionHeader id="problem-title" eyebrow="Warum das wichtig ist" title={kiCheck.problem.title} />
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="text-xl leading-relaxed text-ink-600">{kiCheck.problem.text}</p>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* Was Sie bekommen */}
-      <Section labelledBy="benefits-title">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          <div>
-            <Reveal>
-              <SectionHeader
-                id="benefits-title"
-                eyebrow="Ihr Report"
-                title="Was Sie bekommen"
-                subtitle="Ein persönlicher Report mit Datum, drei bis vier Seiten lang."
-              />
-            </Reveal>
-            <ul className="mt-10 grid gap-4">
-              {kiCheck.benefits.map((b, i) => (
-                <li key={b.title}>
-                  <Reveal delay={i * 100}>
-                    <Card className="flex items-start gap-5 p-6">
-                      <IconTile name={b.icon} />
-                      <div>
-                        <h3 className="text-lg leading-7 font-bold">{b.title}</h3>
-                        <p className="mt-1 leading-relaxed text-ink-600">{b.text}</p>
-                      </div>
-                    </Card>
-                  </Reveal>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <Reveal delay={150} className="pb-10">
-            <ReportPreview />
-          </Reveal>
-        </div>
-      </Section>
-
       {/* So funktioniert es */}
       <Section bg="inverse" glow labelledBy="steps-title">
         <Reveal>
@@ -218,6 +211,18 @@ export function KiCheckLanding({
             </li>
           ))}
         </ol>
+      </Section>
+
+      {/* Problem */}
+      <Section labelledBy="problem-title">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+          <Reveal>
+            <SectionHeader id="problem-title" eyebrow="Warum das wichtig ist" title={kiCheck.problem.title} />
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-xl leading-relaxed text-ink-600">{kiCheck.problem.text}</p>
+          </Reveal>
+        </div>
       </Section>
 
       {/* Über Story Base */}
