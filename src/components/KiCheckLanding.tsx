@@ -1,5 +1,5 @@
 import { FaqList } from "./FaqList";
-import { JanQuotes } from "./JanReferences";
+import { JanQuotes, PracticeBenefit } from "./JanReferences";
 import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
 import { KiCheckVideo, KiCheckVideoTeaser } from "./KiCheckVideo";
@@ -224,10 +224,16 @@ export function KiCheckLanding({
           </Reveal>
         </div>
         <Reveal>
-          <h3 className="mt-16 text-xl font-bold">Was Kunden über Jans Arbeit sagen</h3>
-          <p className="mt-2 text-ink-600">Stimmen aus Jans Arbeit als Kameramann und Bildregisseur für Agenturen und Live-Produktionen.</p>
+          <h3 className="mt-16 text-xl font-bold">So beschreiben Auftraggeber die Zusammenarbeit mit Jan</h3>
+          <p className="mt-2 text-ink-600">
+            Aus 20 Jahren Video- und Live-Produktion für Agenturen und Unternehmen, bevor Story Base sich auf Arztpraxen
+            spezialisiert hat.
+          </p>
         </Reveal>
         <JanQuotes className="mt-8" />
+        <Reveal>
+          <PracticeBenefit className="mt-6" />
+        </Reveal>
       </Section>
 
       {/* FAQ */}

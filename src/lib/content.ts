@@ -130,7 +130,7 @@ export const goals: {
 // nicht als Stimmen von Arztpraxen.
 export const janReferences = [
   {
-    topic: "Technik & Bildregie",
+    topic: "Livestreams & Bildregie",
     quote:
       "Ich kenne Jan Bruchwalski schon länger und habe ihn öfters für verschiedene Livestreams gebucht. Häufig in den Ministergärten in Berlin, wo es neben der guten Arbeit auch auf professionelles Auftreten ankommt. Ich danke Jan für die tolle Zusammenarbeit.",
     name: "Martin Kautzsch",
@@ -144,7 +144,7 @@ export const janReferences = [
     role: "Geschäftsführerin",
   },
   {
-    topic: "Bildmischer & Regie",
+    topic: "Live-Produktionen",
     quote:
       "Ich habe mit Jan Bruchwalski verschiedene Live-Produktionen erlebt und finde die Kommunikation klar und die Ergebnisse sind klasse.",
     name: "Christian Grodau",
