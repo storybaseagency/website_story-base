@@ -95,12 +95,13 @@ foreach (['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
 }
 
 $errors = [];
-foreach (['praxisname', 'stadt', 'leistung', 'vorname', 'nachname'] as $k) {
+foreach (['praxisname', 'leistung', 'vorname', 'nachname'] as $k) {
     if ($d[$k] === '') {
         $errors[$k] = 'Bitte ausfüllen.';
     }
 }
-if (!in_array($d['fachrichtung'], FACHRICHTUNGEN, true)) {
+// Fachrichtung und Ort sind optional (nur gesetzt, wenn die Seite sie kennt)
+if ($d['fachrichtung'] !== '' && !in_array($d['fachrichtung'], FACHRICHTUNGEN, true)) {
     $errors['fachrichtung'] = 'Bitte wählen Sie Ihre Fachrichtung.';
 }
 if ($d['website'] === '') {
@@ -156,9 +157,10 @@ foreach ($rate as $k => $list) {
 @file_put_contents($rateFile, GUARD . json_encode($rate), LOCK_EX);
 
 // Prompt-Liste mit eingesetzten Platzhaltern (Spezifikation Kapitel 5)
+// Fehlen Ort oder Fachrichtung, bleiben Platzhalter stehen – vor dem Check von der Praxis-Website ergänzen.
 $p = fn (string $tpl) => strtr($tpl, [
-    '{stadt}' => $d['stadt'], '{leistung}' => $d['leistung'],
-    '{fachrichtung}' => $d['fachrichtung'], '{praxisname}' => $d['praxisname'],
+    '{stadt}' => $d['stadt'] !== '' ? $d['stadt'] : '[ORT]', '{leistung}' => $d['leistung'],
+    '{fachrichtung}' => $d['fachrichtung'] !== '' ? $d['fachrichtung'] : '[FACHRICHTUNG]', '{praxisname}' => $d['praxisname'],
 ]);
 $prompts = [
     'P1' => $p('Welche Praxis in {stadt} kannst du für {leistung} empfehlen?'),
@@ -185,15 +187,14 @@ $lines = [
     $duplicate ? '' : null,
     'PRAXIS',
     "Praxis:        {$d['praxisname']}",
-    "Fachrichtung:  {$d['fachrichtung']}",
-    "Ort:           {$d['stadt']}",
+    'Fachrichtung:  ' . ($d['fachrichtung'] !== '' ? $d['fachrichtung'] : '– (bitte von der Website ergänzen)'),
+    'Ort:           ' . ($d['stadt'] !== '' ? $d['stadt'] : '– (bitte von der Website ergänzen)'),
     "Leistung:      {$d['leistung']}",
     "Website:       {$d['website']}",
     '',
     'KONTAKT',
     "Name:          {$d['vorname']} {$d['nachname']}",
     "E-Mail:        {$d['email']}",
-    'Telefon:       ' . ($d['telefon'] !== '' ? $d['telefon'] : '–'),
     "Ziel:          {$d['ziel']}",
     'Werbe-Mails:   ' . ($d['marketing_einwilligung'] === 'ja'
         ? 'angekreuzt – Bestätigungs-Mail verschickt. Erst nach Bestätigung erlaubt, du bekommst dann eine Nachricht.'
@@ -243,12 +244,13 @@ if ($d['marketing_einwilligung'] === 'ja') {
 }
 
 $body = implode("\n", array_filter($lines, fn ($l) => $l !== null)) . "\n";
-$notified = sendMail(NOTIFY_TO, "KI-Check: {$d['praxisname']}, {$d['stadt']}", $body, $d['email']);
+$subject = 'KI-Check: ' . $d['praxisname'] . ($d['stadt'] !== '' ? ", {$d['stadt']}" : '');
+$notified = sendMail(NOTIFY_TO, $subject, $body, $d['email']);
 
 // Bestätigung an die Praxis (Erfüllung der Anfrage, keine Werbung)
 $confirmation = "Hallo {$d['vorname']} {$d['nachname']},\n\n"
     . "danke für Ihre Anfrage. Wir prüfen jetzt, was ChatGPT, Perplexity und Gemini über {$d['praxisname']} sagen, "
-    . "wenn Patienten nach {$d['leistung']} in {$d['stadt']} fragen.\n\n"
+    . "wenn Patienten nach {$d['leistung']} " . ($d['stadt'] !== '' ? "in {$d['stadt']}" : 'in Ihrer Region') . " fragen.\n\n"
     . "Ihren persönlichen Report erhalten Sie innerhalb von 2 Werktagen.\n\n"
     . "Wenn Sie den Report gleich mit mir besprechen möchten, buchen Sie hier 20 Minuten:\n" . CALENDLY_URL . "\n\n"
     . "Viele Grüße\nJan Bruchwalski\nStory Base Agency · Berlin-Spandau\n"

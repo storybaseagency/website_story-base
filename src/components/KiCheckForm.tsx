@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { KI_CHECK_STORAGE_KEY, kiCheckFachrichtungen, kiCheckZiele } from "@/lib/kicheck";
+import { KI_CHECK_STORAGE_KEY, kiCheckZiele } from "@/lib/kicheck";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
 import { ArrowIcon } from "./icons";
@@ -34,15 +34,14 @@ const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 function validateStep1(v: Values) {
   const e: Values = {};
   if (!v.praxisname?.trim()) e.praxisname = "Bitte geben Sie den Namen Ihrer Praxis an.";
-  if (!v.fachrichtung) e.fachrichtung = "Bitte wählen Sie Ihre Fachrichtung.";
   if (!v.stadt?.trim()) e.stadt = "Bitte geben Sie Ort oder Stadtteil an.";
-  if (!v.leistung?.trim()) e.leistung = "Bitte nennen Sie Ihre wichtigste Selbstzahlerleistung.";
   if (!normalizeWebsite(v.website ?? "")) e.website = "Bitte geben Sie eine gültige Website an, z. B. praxis-muster.de.";
   return e;
 }
 
 function validateStep2(v: Values) {
   const e: Values = {};
+  if (!v.leistung?.trim()) e.leistung = "Bitte nennen Sie Ihre wichtigste Selbstzahlerleistung.";
   if (!v.vorname?.trim()) e.vorname = "Bitte geben Sie Ihren Vornamen an.";
   if (!v.nachname?.trim()) e.nachname = "Bitte geben Sie Ihren Nachnamen an.";
   if (!isEmail(v.email ?? "")) e.email = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
@@ -66,6 +65,8 @@ export function KiCheckForm({
 }) {
   const router = useRouter();
   const [step, setStep] = useState<1 | 2>(1);
+  // Die Fachrichtung fragen wir nicht ab. Ist sie durch die Seite bekannt
+  // (Fachrichtungs-Variante), geht sie trotzdem mit. Der Ort ist ggf. vorausgefüllt.
   const [values, setValues] = useState<Values>({
     ...(defaultFachrichtung && { fachrichtung: defaultFachrichtung }),
     ...(defaultStadt && { stadt: defaultStadt }),
@@ -189,26 +190,6 @@ export function KiCheckForm({
               className={`${inputClass} ${err("praxisname") ? "border-accent-deep" : "border-ink-950/14"}`}
             />
           </Field>
-          <Field label="Fachrichtung" name="fachrichtung" error={err("fachrichtung")}>
-            <select
-              id="fachrichtung"
-              name="fachrichtung"
-              value={values.fachrichtung ?? ""}
-              onChange={(e) => set("fachrichtung", e.target.value)}
-              aria-invalid={!!err("fachrichtung")}
-              aria-describedby={err("fachrichtung") ? "fachrichtung-error" : undefined}
-              className={`${inputClass} ${err("fachrichtung") ? "border-accent-deep" : "border-ink-950/14"} ${values.fachrichtung ? "" : "text-ink-400"}`}
-            >
-              <option value="" disabled>
-                Bitte wählen
-              </option>
-              {kiCheckFachrichtungen.map((f) => (
-                <option key={f} value={f} className="text-ink-950">
-                  {f}
-                </option>
-              ))}
-            </select>
-          </Field>
           <Field label="Ort oder Stadtteil" name="stadt" error={err("stadt")}>
             <input
               id="stadt"
@@ -220,18 +201,6 @@ export function KiCheckForm({
               aria-invalid={!!err("stadt")}
               aria-describedby={err("stadt") ? "stadt-error" : undefined}
               className={`${inputClass} ${err("stadt") ? "border-accent-deep" : "border-ink-950/14"}`}
-            />
-          </Field>
-          <Field label="Ihre wichtigste Selbstzahlerleistung" name="leistung" error={err("leistung")}>
-            <input
-              id="leistung"
-              name="leistung"
-              placeholder={leistungPlaceholder}
-              value={values.leistung ?? ""}
-              onChange={(e) => set("leistung", e.target.value)}
-              aria-invalid={!!err("leistung")}
-              aria-describedby={err("leistung") ? "leistung-error" : undefined}
-              className={`${inputClass} ${err("leistung") ? "border-accent-deep" : "border-ink-950/14"}`}
             />
           </Field>
           <Field label="Website der Praxis" name="website" error={err("website")}>
@@ -250,7 +219,7 @@ export function KiCheckForm({
             />
           </Field>
           <SubmitButton>Weiter</SubmitButton>
-          <p className="text-center text-xs text-ink-500">Kostenlos und unverbindlich · Schritt 2: Wohin der Report geht</p>
+          <p className="text-center text-xs text-ink-500">Kostenlos und unverbindlich · Schritt 2: ein paar kurze Fragen</p>
         </fieldset>
       ) : (
         <fieldset className="mt-4 grid gap-4">
@@ -261,7 +230,7 @@ export function KiCheckForm({
               tabIndex={-1}
               className="text-[22px] leading-tight font-extrabold tracking-tight text-ink-950 focus:outline-none"
             >
-              Wohin dürfen wir den Report schicken?
+              Fast geschafft: Wohin geht Ihr Report?
             </h3>
             <button
               type="button"
@@ -271,6 +240,18 @@ export function KiCheckForm({
               Zurück
             </button>
           </div>
+          <Field label="Ihre wichtigste Selbstzahlerleistung" name="leistung" error={err("leistung")}>
+            <input
+              id="leistung"
+              name="leistung"
+              placeholder={leistungPlaceholder}
+              value={values.leistung ?? ""}
+              onChange={(e) => set("leistung", e.target.value)}
+              aria-invalid={!!err("leistung")}
+              aria-describedby={err("leistung") ? "leistung-error" : undefined}
+              className={`${inputClass} ${err("leistung") ? "border-accent-deep" : "border-ink-950/14"}`}
+            />
+          </Field>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Vorname" name="vorname" error={err("vorname")}>
               <input
@@ -308,17 +289,6 @@ export function KiCheckForm({
               aria-invalid={!!err("email")}
               aria-describedby={err("email") ? "email-error" : undefined}
               className={`${inputClass} ${err("email") ? "border-accent-deep" : "border-ink-950/14"}`}
-            />
-          </Field>
-          <Field label="Telefon (für Rückfragen und die Besprechung Ihres Reports, optional)" name="telefon">
-            <input
-              id="telefon"
-              name="telefon"
-              type="tel"
-              autoComplete="tel"
-              value={values.telefon ?? ""}
-              onChange={(e) => set("telefon", e.target.value)}
-              className={`${inputClass} border-ink-950/14`}
             />
           </Field>
           <fieldset aria-describedby={err("ziel") ? "ziel-error" : undefined}>

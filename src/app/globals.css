@@ -223,3 +223,9 @@ body {
   overflow-wrap: anywhere;
   @apply text-accent-deep underline underline-offset-2 hover:text-accent-dark;
 }
+
+/* Schwebenden Cookiebot-Button ausblenden – er verdeckte am Handy das Formular.
+   Die Einstellungen bleiben über „Cookie-Einstellungen“ im Footer jeder Seite erreichbar. */
+#CookiebotWidget {
+  display: none !important;
+}

@@ -9,8 +9,10 @@ export const kiCheck = {
     "Empfehlen ChatGPT, Perplexity und Gemini Ihre Praxis – oder Ihre Konkurrenz? Kostenloser KI-Sichtbarkeits-Check mit Score, Konkurrenzvergleich und drei Maßnahmen. Report in 2 Werktagen.",
   headline: "Ihre Patienten fragen ChatGPT nach einem Arzt.",
   headlineAccent: "Wird Ihre Praxis genannt?",
+  // Holt auch Suchende ab, die eigentlich eine Agentur suchen („Praxismarketing“)
+  sublineLead: "Der erste Schritt zu mehr Privatpatienten: Wir zeigen Ihnen kostenlos, wo Ihre Praxis heute steht.",
   subline:
-    "Der kostenlose KI-Sichtbarkeits-Check zeigt Ihnen in 2 Werktagen, ob ChatGPT, Perplexity und Gemini Ihre Praxis empfehlen – oder Ihre Konkurrenz.",
+    "Der KI-Sichtbarkeits-Check zeigt Ihnen in 2 Werktagen, ob ChatGPT, Perplexity und Gemini Ihre Praxis empfehlen oder Ihre Konkurrenz.",
   trust: ["Kostenlos", "1 Minute Aufwand", "Persönlich ausgewertet von Story Base, Berlin-Spandau"],
   problem: {
     title: "Google ist nicht mehr der einzige Weg zu Ihrer Praxis",
@@ -34,7 +36,7 @@ export const kiCheck = {
     },
   ],
   steps: [
-    { title: "Formular ausfüllen", text: "Praxis, Stadt, wichtigste Leistung. Dauert eine Minute." },
+    { title: "Formular ausfüllen", text: "Praxis, Ort, Website und wichtigste Leistung. Dauert eine Minute." },
     {
       title: "Wir prüfen",
       text: "Typische Patientenfragen in ChatGPT, Perplexity und Gemini, persönlich ausgewertet.",

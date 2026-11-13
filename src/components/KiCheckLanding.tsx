@@ -56,7 +56,15 @@ export function KiCheckLanding({
               {campaign?.headline ?? variant?.headline ?? kiCheck.headline}{" "}
               <span className="text-accent-dark">{campaign?.headlineAccent ?? kiCheck.headlineAccent}</span>
             </h1>
-            <p className="max-w-xl text-xl leading-[1.6] text-pretty text-ink-600">{campaign?.subline ?? kiCheck.subline}</p>
+            <p className="max-w-xl text-xl leading-[1.6] text-pretty text-ink-600">
+              {campaign ? (
+                campaign.subline
+              ) : (
+                <>
+                  <strong className="font-semibold text-ink-950">{kiCheck.sublineLead}</strong> {kiCheck.subline}
+                </>
+              )}
+            </p>
             <Reveal delay={300} className="lg:hidden">
               <Button href="#ki-check-form">Kostenlosen Check anfordern</Button>
             </Reveal>
