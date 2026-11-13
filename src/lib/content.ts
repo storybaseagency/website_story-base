@@ -129,16 +129,10 @@ export const goals: {
 // Referenzen zu Jans Arbeit als Kameramann und Bildregisseur (übernommen von
 // medienproduktionbruchwalski.de). Bewusst als Stimmen über Jan gekennzeichnet,
 // nicht als Stimmen von Arztpraxen.
-// Beispiel-Reels im Story-Base-Look, umgesetzt mit Stockmaterial (keine Kundenprojekte)
-export const beispielReels = [
-  { slug: "social-media-reels", label: "Social Media", title: "Reels, die Vertrauen schaffen" },
-  { slug: "kongress-fachvortrag", label: "Fachvortrag", title: "Ihr Wissen. Perfekt in Szene." },
-  { slug: "forschung-medizin", label: "Forschung", title: "Ihre Forschung. Endlich sichtbar." },
-].map((r) => ({
-  ...r,
-  src: `/videos/reel-${r.slug}.mp4`,
-  poster: `/images/reel-${r.slug}-poster.webp`,
-  thumb: `/images/reel-${r.slug}-thumb.webp`,
+// Story-Base-Spots für den Hero der Startseite (umgesetzt mit Stockmaterial)
+export const heroSpots = ["social-media-reels", "kongress-fachvortrag", "forschung-medizin"].map((slug) => ({
+  src: `/videos/reel-${slug}.mp4`,
+  poster: `/images/reel-${slug}-poster.webp`,
 }));
 
 // Gekürzte Fassungen der freigegebenen Stimmen (nur Auslassungen, keine neuen Formulierungen)

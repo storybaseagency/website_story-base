@@ -7,7 +7,6 @@ import { ContactSection } from "./ContactSection";
 import { FaqList } from "./FaqList";
 import { ArrowIcon } from "./icons";
 import { StickyCta } from "./StickyCta";
-import { StoryReels } from "./StoryReels";
 import { Button, Card, Dot, Eyebrow, Icon, IconTile, Reveal, Section, SectionHeader } from "./ui";
 
 export function LandingPage({ page }: { page: LandingPageData }) {
@@ -56,11 +55,6 @@ export function LandingPage({ page }: { page: LandingPageData }) {
                   </Button>
                 </div>
               </Reveal>
-              {page.slug === "videomarketing-arztpraxis" && (
-                <Reveal delay={400}>
-                  <StoryReels quelle={page.slug} />
-                </Reveal>
-              )}
             </div>
 
             {/* Direkte Antwort – der Absatz, den Google und KI-Assistenten zitieren */}

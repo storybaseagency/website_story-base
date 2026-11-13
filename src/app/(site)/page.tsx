@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ContactSection } from "@/components/ContactSection";
 import { FaqList } from "@/components/FaqList";
-import { StoryReels } from "@/components/StoryReels";
+import { HeroVideo } from "@/components/HeroVideo";
 import { JanReferences } from "@/components/JanReferences";
 import { StickyCta } from "@/components/StickyCta";
 import { SystemTabs } from "@/components/SystemTabs";
@@ -89,40 +89,19 @@ function Hero() {
               </li>
             </ul>
           </Reveal>
-          <Reveal delay={500} className="lg:hidden">
-            <StoryReels quelle="startseite_hero" />
-          </Reveal>
         </div>
 
         <Reveal delay={250} distance={48}>
-          <div className="relative pt-6 pb-10 pl-6">
-            <div className="relative aspect-[4/4.4] overflow-hidden rounded-3xl bg-ink-800 shadow-image">
-              <img
-                src="/images/videodreh-arztpraxis-studio-berlin.webp"
-                alt="Kamera beim Videodreh im Story Base Studio in Berlin-Spandau"
-                width={1280}
-                height={720}
-                fetchPriority="high"
-                className="size-full object-cover"
-              />
-              <div aria-hidden className="absolute inset-0 bg-linear-to-b from-ink-950/30 via-ink-950/0 via-30% to-ink-950/0" />
-              <div className="absolute top-5 right-5 flex items-center gap-2.5 rounded-full bg-ink-950/45 px-3.5 py-2 text-white backdrop-blur">
-                <span aria-hidden className="size-2.5 animate-pulse-dot rounded-full bg-accent" />
-                <span className="text-[13px] font-semibold tracking-[0.02em] sm:text-sm">Eigenes Video- und Podcast-Studio</span>
-              </div>
-              {/* Auf großen Bildschirmen direkt auf dem Foto, damit es ohne Scrollen sichtbar ist */}
-              <div className="absolute bottom-28 left-5 hidden animate-fade-in [animation-delay:1100ms] lg:block">
-                <StoryReels quelle="startseite_hero_bild" />
-              </div>
-            </div>
+          <div className="relative mx-auto w-full max-w-[320px] pt-6 pb-10 pl-6 sm:max-w-[400px]">
+            <HeroVideo className="aspect-[9/16] w-full rounded-3xl shadow-image" />
             <div className="absolute top-0 left-0 flex animate-fade-in items-center gap-2.5 rounded-full border border-ink-950/8 bg-white/90 py-2.5 pr-4 pl-2.5 shadow-card backdrop-blur [animation-delay:700ms]">
               <IconTile name="pin" small />
               <span className="text-sm leading-[18px]">
-                <span className="block text-ink-500">Studio &amp; Büro</span>
+                <span className="block text-ink-500">Eigenes Studio</span>
                 <strong className="text-ink-950">Berlin-Spandau</strong>
               </span>
             </div>
-            <div className="absolute -right-2 bottom-0 max-w-[260px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms]">
+            <div className="absolute -right-2 bottom-0 max-w-[240px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms] sm:-right-10">
               <p className="text-xs font-semibold tracking-widest text-accent-deep uppercase">Aus einer Hand</p>
               <p className="mt-2 leading-[1.45] font-bold text-ink-950">Video + Social Media + Ads = planbar mehr Anfragen</p>
             </div>
