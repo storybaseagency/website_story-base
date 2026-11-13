@@ -79,7 +79,7 @@ export function KiCheckThanks() {
         ) : (
           " per E-Mail"
         )}
-        . Wenn Sie den Report direkt mit uns besprechen möchten, wählen Sie hier schon einen Termin – 20 Minuten,
+        . Wenn Sie den Report direkt mit uns besprechen möchten, wählen Sie hier schon einen Termin: 20 Minuten,
         telefonisch oder per Video.
       </p>
 

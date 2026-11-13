@@ -42,7 +42,7 @@ export function ContactForm() {
     return (
       <div className="flex animate-fade-in flex-col gap-4 py-6" role="status">
         <IconTile name="calendar" />
-        <h3 className="text-[26px] leading-tight font-extrabold tracking-tight">Danke – wir melden uns.</h3>
+        <h3 className="text-[26px] leading-tight font-extrabold tracking-tight">Danke, wir melden uns.</h3>
         <p className="leading-relaxed text-ink-600">
           Ihre Anfrage ist bei uns angekommen. Wenn es schneller gehen soll, buchen Sie Ihren Praxis-Check direkt
           online.

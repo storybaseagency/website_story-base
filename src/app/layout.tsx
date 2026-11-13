@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.title,
     description: site.description,
-    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Story Base – Marketing für Arztpraxen" }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Story Base, Marketing für Arztpraxen" }],
   },
   twitter: {
     card: "summary_large_image",

@@ -8,10 +8,10 @@ export const site = {
   url: "https://story-base.de",
   // Positionierungssatz – überall identisch verwenden (Website, Google-Profil, LinkedIn, Instagram)
   positioning:
-    "Story Base ist die Video- und Ads-Agentur für Privat- und Selbstzahlerpraxen – mit dem AI-Ready Growth System gewinnen Praxen planbar Privatpatienten und Fachkräfte.",
+    "Story Base ist die Video- und Ads-Agentur für Privat- und Selbstzahlerpraxen. Mit dem AI-Ready Growth System gewinnen Praxen planbar Privatpatienten und Fachkräfte.",
   title: "Marketing für Arztpraxen | Video & Ads | Story Base Berlin",
   description:
-    "Mehr Privatpatienten und Fachkräfte für Ihre Praxis: Praxisvideos, Social Media und Ads aus einer Hand – mit dem AI-Ready Growth System. Studio in Berlin-Spandau.",
+    "Mehr Privatpatienten und Fachkräfte für Ihre Praxis: Praxisvideos, Social Media und Ads aus einer Hand, mit dem AI-Ready Growth System. Studio in Berlin-Spandau.",
   phone: {
     display: "+49 30 24325402",
     international: "+49 30 24325402",

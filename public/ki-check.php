@@ -236,7 +236,7 @@ if ($d['marketing_einwilligung'] === 'ja') {
         . "Sie haben bei Ihrer Anfrage für den KI-Sichtbarkeits-Check angegeben, dass Sie weitere Tipps "
         . "zum Praxismarketing per E-Mail erhalten möchten.\n\n"
         . "Bitte bestätigen Sie das über diesen Link:\n" . confirmUrl($token) . "\n\n"
-        . "Ohne Ihre Bestätigung erhalten Sie von uns keine weiteren Tipps – Ihren Report bekommen Sie selbstverständlich trotzdem. "
+        . "Ohne Ihre Bestätigung erhalten Sie von uns keine weiteren Tipps. Ihren Report bekommen Sie natürlich trotzdem. "
         . 'Der Link ist ' . DOI_VALID_DAYS . " Tage gültig. Abmelden können Sie sich jederzeit.\n\n"
         . "Falls Sie das nicht angefordert haben, ignorieren Sie diese E-Mail einfach.\n\n"
         . "Viele Grüße\nJan Bruchwalski\nStory Base Agency · Berlin-Spandau\n";

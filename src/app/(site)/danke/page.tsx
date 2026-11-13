@@ -12,7 +12,7 @@ export default function Danke() {
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center px-4 pt-24 text-center">
       <p className="text-sm font-semibold tracking-widest text-accent-deep uppercase">Anfrage gesendet</p>
-      <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink-950">Danke – wir melden uns.</h1>
+      <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink-950">Danke, wir melden uns.</h1>
       <p className="mt-4 text-ink-600">
         Ihre Anfrage ist bei uns angekommen. Wenn es schneller gehen soll, buchen Sie Ihren Praxis-Check direkt online.
       </p>

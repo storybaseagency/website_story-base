@@ -200,7 +200,7 @@ export function LandingPage({ page }: { page: LandingPageData }) {
               href="/#system"
               eyebrow="Überblick"
               title="Das AI-Ready Growth System"
-              text="Positionierung, Video, Social Media, Ads und KI-gestützte Optimierung – alle fünf Bausteine im Überblick."
+              text="Positionierung, Video, Social Media, Ads und KI-gestützte Optimierung: alle fünf Bausteine im Überblick."
             />
           </li>
         </ul>

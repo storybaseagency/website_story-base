@@ -14,7 +14,7 @@ const campaign: KiCheckCampaign = {
   headline: "Das Auf und Ab überlassen wir dem Jojo.",
   headlineAccent: "Ihr Praxismarketing sollte nur eine Richtung kennen: nach oben.",
   subline:
-    "Immer mehr Patienten fragen ChatGPT, welche Praxis in Spandau sie wählen sollen. Wir prüfen kostenlos, ob Ihre Praxis dabei genannt wird – persönlich ausgewertet von Ihren Nachbarn aus der Pichelsdorfer Straße.",
+    "Immer mehr Patienten fragen ChatGPT, welche Praxis in Spandau sie wählen sollen. Wir prüfen kostenlos, ob Ihre Praxis dabei genannt wird. Persönlich ausgewertet von Ihren Nachbarn aus der Pichelsdorfer Straße.",
   defaultStadt: "Berlin-Spandau",
 };
 
@@ -56,7 +56,7 @@ export default function AngebotNachbarnPage() {
             <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-600">
               <p>
                 Das Jojo kam von uns: Story Base, die Agentur für Praxismarketing mit eigenem Video- und
-                Podcast-Studio – ganz in Ihrer Nähe in Spandau.
+                Podcast-Studio, ganz in Ihrer Nähe in Spandau.
               </p>
               <p>
                 Statt einer Werbebroschüre schenken wir Ihnen einen Blick von außen: Wir schauen nach, ob ChatGPT,

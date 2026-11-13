@@ -1,4 +1,5 @@
 import { FaqList } from "./FaqList";
+import { PhoneSpots } from "./HeroVideo";
 import { JanQuotes, janReferencesTitle, PracticeBenefit } from "./JanReferences";
 import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
@@ -156,7 +157,7 @@ export function KiCheckLanding({
                 id="benefits-title"
                 eyebrow="Ihr Report"
                 title="Was Sie bekommen"
-                subtitle="Ein persönlicher Report mit Datum – kompakt auf drei bis vier Seiten."
+                subtitle="Ein persönlicher Report mit Datum, drei bis vier Seiten lang."
               />
             </Reveal>
             <ul className="mt-10 grid gap-4">
@@ -201,6 +202,34 @@ export function KiCheckLanding({
         </ol>
       </Section>
 
+      {/* Was nach dem Check möglich ist – mit den Story-Base-Spots */}
+      <Section labelledBy="after-title">
+        <div className="grid items-center gap-14 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_340px] lg:gap-24">
+          <Reveal>
+            <Eyebrow>Umsetzung</Eyebrow>
+            <h2
+              id="after-title"
+              className="mt-3 text-[30px] leading-[1.15] font-extrabold tracking-tight text-balance sm:text-4xl"
+            >
+              Nach dem Report setzen wir um, was Sie ändern wollen
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink-600">
+              Der Report zeigt, wo Ihre Praxis heute steht. Wenn Sie danach mehr Sichtbarkeit wollen, drehen wir
+              Videos, betreuen Ihre Social-Media-Kanäle und schalten Anzeigen. Die Spots im Handy haben wir für Story Base
+              selbst gemacht.
+            </p>
+            <div className="mt-8">
+              <Button href="#ki-check-form">Erst einmal den Check anfordern</Button>
+            </div>
+          </Reveal>
+          <Reveal delay={150}>
+            <div className="relative mx-auto w-full max-w-[290px] md:max-w-none">
+              <PhoneSpots />
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
       {/* Über Story Base */}
       <Section bg="alt" labelledBy="about-title">
         <div className="grid items-center gap-12 md:grid-cols-[280px_1fr]">
@@ -220,7 +249,7 @@ export function KiCheckLanding({
               id="about-title"
               className="mt-3 text-[30px] leading-[1.15] font-extrabold tracking-tight text-balance sm:text-4xl"
             >
-              Persönlich ausgewertet – nicht von einem Automaten
+              Persönlich ausgewertet, nicht von einem Automaten
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-600">{kiCheck.about}</p>
             <p className="mt-5 font-semibold text-ink-950">
@@ -233,7 +262,7 @@ export function KiCheckLanding({
         </div>
         <Reveal>
           <Eyebrow className="mt-16">{janReferencesTitle.eyebrow}</Eyebrow>
-          <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">{janReferencesTitle.title}</h3>
+          <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">Die Erfahrung dahinter</h3>
         </Reveal>
         <JanQuotes className="mt-8" />
         <Reveal>

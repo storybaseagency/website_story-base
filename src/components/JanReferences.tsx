@@ -32,9 +32,8 @@ export function JanQuotes({ className = "" }: { className?: string }) {
 export function PracticeBenefit({ className = "" }: { className?: string }) {
   return (
     <p className={`rounded-2xl bg-accent-tint px-6 py-5 leading-relaxed text-ink-700 ${className}`}>
-      <strong className="text-ink-950">Was das für Ihre Praxis heißt:</strong> Drehs, die ruhig und professionell
-      ablaufen, auch wenn nebenan Sprechstunde ist. Klare Absprachen vorher. Und Videos, die am Ende einfach
-      funktionieren.
+      <strong className="text-ink-950">Was das für Ihre Praxis heißt:</strong> Drehs, die ruhig ablaufen, auch wenn
+      nebenan Sprechstunde ist, und Absprachen, auf die Sie sich verlassen können.
     </p>
   );
 }

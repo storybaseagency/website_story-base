@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ContactSection } from "@/components/ContactSection";
 import { FaqList } from "@/components/FaqList";
-import { HeroVideo } from "@/components/HeroVideo";
+import { PhoneSpots } from "@/components/HeroVideo";
 import { JanReferences } from "@/components/JanReferences";
 import { StickyCta } from "@/components/StickyCta";
 import { SystemTabs } from "@/components/SystemTabs";
@@ -63,7 +63,7 @@ function Hero() {
             <span className="text-accent-dark">und Fachkräfte</span> bringt.
           </h1>
           <p className="max-w-[560px] text-xl leading-[1.6] text-pretty text-ink-600">
-            Videoproduktion, Social Media und Ads aus einer Hand – mit dem{" "}
+            Videoproduktion, Social Media und Ads aus einer Hand, mit dem{" "}
             <strong className="font-bold text-accent-deep">AI-Ready Growth System</strong>. Sie behandeln, wir
             sorgen dafür, dass die richtigen Patienten und Bewerber Ihre Praxis finden.
           </p>
@@ -93,15 +93,7 @@ function Hero() {
 
         <Reveal delay={250} distance={48}>
           <div className="relative mx-auto w-full max-w-[290px] sm:max-w-[340px]">
-            {/* Handy-Rahmen um die Spots */}
-            <div aria-hidden className="pointer-events-none absolute inset-10 rounded-full bg-accent/35 blur-3xl" />
-            <div className="relative rounded-[2.75rem] bg-ink-950 p-[9px] shadow-image ring-1 ring-ink-950/10">
-              <span aria-hidden className="absolute top-28 -left-[3px] h-9 w-[3px] rounded-l bg-ink-800" />
-              <span aria-hidden className="absolute top-40 -left-[3px] h-14 w-[3px] rounded-l bg-ink-800" />
-              <span aria-hidden className="absolute top-36 -right-[3px] h-20 w-[3px] rounded-r bg-ink-800" />
-              <HeroVideo className="aspect-[9/16] w-full rounded-[2.2rem]" />
-              <span aria-hidden className="absolute top-[18px] left-1/2 h-[22px] w-[84px] -translate-x-1/2 rounded-full bg-ink-950" />
-            </div>
+            <PhoneSpots priority />
             <div className="absolute bottom-24 -right-24 hidden max-w-[220px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms] lg:block xl:-right-28">
               <p className="text-xs font-semibold tracking-widest text-accent-deep uppercase">Aus einer Hand</p>
               <p className="mt-2 leading-[1.45] font-bold text-ink-950">Video + Social Media + Ads = planbar mehr Anfragen</p>
@@ -147,8 +139,8 @@ function Problem() {
         <SectionHeader
           id="problem-title"
           eyebrow="Die Ausgangslage"
-          title="Volle Wartezimmer, aber die falschen Patienten?"
-          subtitle="Viele Praxen sind ausgelastet – und wachsen trotzdem nicht in die Richtung, die sie sich wünschen. Drei Gründe hören wir in fast jedem Praxis-Check."
+          title="Volle Wartezimmer, aber oft die falschen Patienten"
+          subtitle="Viele Praxen sind ausgelastet und wachsen trotzdem nicht in die Richtung, die sie sich wünschen. Diese Gründe hören wir in fast jedem Praxis-Check."
         />
       </Reveal>
       <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -185,7 +177,7 @@ function System() {
           id="system-title"
           dark
           eyebrow="Das System"
-          title="Das AI-Ready Growth System: Ihr Weg zu mehr Privatpatienten"
+          title="Mit dem AI-Ready Growth System zu mehr Privatpatienten"
           subtitle="Fünf Bausteine, die ineinandergreifen. Sie entscheiden, wir setzen um. Und Sie sehen jederzeit, was es Ihrer Praxis bringt."
         />
       </Reveal>
@@ -193,8 +185,8 @@ function System() {
       <Reveal>
         <p className="mt-10 max-w-3xl text-[15px] leading-relaxed text-white/60">
           <strong className="text-white/85">Warum „AI-Ready“?</strong> Immer mehr Patienten fragen ChatGPT, Gemini
-          oder Perplexity nach einer passenden Praxis. Wir bereiten Ihre Inhalte so auf, dass nicht nur Google, sondern
-          auch KI-Assistenten Ihre Praxis verstehen, zitieren und empfehlen können. Mehr zur Videoproduktion lesen
+          oder Perplexity nach einer passenden Praxis. Wir bereiten Ihre Inhalte so auf, dass Google und
+          KI-Assistenten Ihre Praxis verstehen und empfehlen können. Mehr zur Videoproduktion lesen
           Sie auf unserer Seite zum{" "}
           <Link href="/videomarketing-arztpraxis/" className="font-semibold text-accent underline underline-offset-2 hover:text-accent-soft">
             Videomarketing für Arztpraxen
@@ -214,7 +206,7 @@ function Goals() {
           id="ziele-title"
           eyebrow="Ihr Ziel"
           title="Zwei Richtungen, ein System"
-          subtitle="Ob Sie mehr Selbstzahler gewinnen oder Ihr Team verstärken wollen – die Bausteine bleiben gleich, die Geschichte ändert sich."
+          subtitle="Die Bausteine sind dieselben, egal ob Sie mehr Selbstzahler gewinnen oder Ihr Team verstärken wollen. Was sich ändert, ist die Geschichte, die Ihre Videos erzählen."
         />
       </Reveal>
       <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -355,13 +347,13 @@ function About() {
               Warum wir uns auf Arztpraxen spezialisiert haben
             </h2>
             <p className="text-lg leading-relaxed text-ink-600">
-              Ich bin {site.managingDirector}, Geschäftsführer von Story Base. Wir haben mit vielen Branchen gearbeitet –
-              und gemerkt: Nirgends entscheidet Vertrauen so sehr wie bei der Wahl einer Ärztin oder eines Arztes. Genau
-              das lässt sich mit Video zeigen, bevor der erste Termin stattfindet.
+              Ich bin {site.managingDirector}, Geschäftsführer von Story Base. Wir haben mit vielen Branchen gearbeitet
+              und dabei gemerkt: Nirgends entscheidet Vertrauen so sehr wie bei der Wahl einer Ärztin oder eines Arztes.
+              Das lässt sich mit Video zeigen, bevor der erste Termin stattfindet.
             </p>
             <p className="text-lg leading-relaxed text-ink-600">
               Deshalb kennen wir die Regeln des Heilmittelwerbegesetzes, sprechen die Sprache von Praxisteams und drehen
-              in unserem eigenen Studio in der Pichelsdorfer Straße – oder direkt bei Ihnen in der Praxis.
+              in unserem eigenen Studio in der Pichelsdorfer Straße oder direkt bei Ihnen in der Praxis.
             </p>
             <ul className="mt-2 flex flex-wrap gap-3">
               {facts.map((f) => (
@@ -401,7 +393,7 @@ function Faq() {
             id="faq-title"
             eyebrow="FAQ"
             title="Häufige Fragen zum Praxismarketing"
-            subtitle="Ihre Frage ist nicht dabei? Fragen Sie uns direkt – im Praxis-Check ist dafür Zeit."
+            subtitle="Ihre Frage ist nicht dabei? Fragen Sie uns direkt, im Praxis-Check ist dafür Zeit."
           />
           <div>
             <Button href={site.phone.href} variant="outline" icon="phone">

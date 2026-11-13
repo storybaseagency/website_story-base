@@ -30,11 +30,11 @@ export const landingPages: LandingPageData[] = [
     serviceName: "Marketing zur Gewinnung von Privatpatienten und Selbstzahlern",
     metaTitle: "Privatpatienten gewinnen: Marketing für Praxen | Story Base",
     metaDescription:
-      "Mehr Privatpatienten und Selbstzahler für Ihre Praxis: Erklärvideos, Social Media und Ads in Ihrem Einzugsgebiet – HWG-konform geplant. Praxis-Check in 30 Minuten.",
+      "Mehr Privatpatienten und Selbstzahler für Ihre Praxis: Erklärvideos, Social Media und Ads in Ihrem Einzugsgebiet, HWG-konform geplant. Praxis-Check in 30 Minuten.",
     eyebrow: "Patientengewinnung",
-    h1: "Privatpatienten und Selbstzahler gewinnen –",
+    h1: "Privatpatienten und Selbstzahler gewinnen",
     h1Accent: "mit Videos und gezielten Ads",
-    lead: "Ihre Privat- und IGeL-Leistungen sind gut. Wir sorgen dafür, dass genau die Menschen davon erfahren, die dafür bereit sind – in Ihrem Einzugsgebiet, verständlich erklärt und rechtlich sauber.",
+    lead: "Ihre Privat- und IGeL-Leistungen sind gut. Wir sorgen dafür, dass Menschen in Ihrem Einzugsgebiet davon erfahren, die bereit sind, dafür zu zahlen. Verständlich erklärt und rechtlich sauber.",
     answer: {
       question: "Wie gewinnt eine Arztpraxis mehr Privatpatienten?",
       text: "Privatpatienten und Selbstzahler entscheiden sich für die Praxis, der sie schon vor dem ersten Termin vertrauen. Am wirksamsten ist deshalb eine Kombination aus Erklärvideos zu Ihren Leistungen, einem klaren Profil in Social Media und gezielten Anzeigen in Ihrem Einzugsgebiet, die Interessierte direkt zur Terminbuchung führen.",
@@ -42,20 +42,20 @@ export const landingPages: LandingPageData[] = [
     intro: {
       title: "Warum gute Leistungen allein nicht reichen",
       paragraphs: [
-        "Viele Praxen bieten Leistungen an, die Patienten selbst bezahlen würden – von ästhetischen Behandlungen über Vorsorgeuntersuchungen bis zu hochwertiger Zahnmedizin. Doch die Entscheidung dafür fällt heute selten im Wartezimmer. Sie fällt vorher: bei der Suche auf Google, beim Scrollen durch Instagram oder bei der Frage an einen KI-Assistenten.",
-        "Wer dort nicht sichtbar ist oder nur eine Leistungsliste zeigt, verliert gegen die Praxis mit dem überzeugenderen Auftritt – auch wenn die eigene Behandlung besser ist. Selbstzahler wägen besonders sorgfältig ab, denn sie investieren eigenes Geld. Sie wollen verstehen, was sie erwartet, und sie wollen wissen, wer sie behandelt.",
-        "Genau hier setzt Video an: Ein kurzes Erklärvideo, in dem Sie eine Leistung sachlich erläutern, beantwortet die wichtigsten Fragen und zeigt gleichzeitig Sie als Ärztin oder Arzt. Über gezielte Ads erreicht dieses Video Menschen in Ihrer Umgebung, die sich bereits für das Thema interessieren.",
+        "Viele Praxen bieten Leistungen an, die Patienten selbst bezahlen würden, von ästhetischen Behandlungen über Vorsorgeuntersuchungen bis zu hochwertiger Zahnmedizin. Die Entscheidung dafür fällt selten im Wartezimmer. Sie fällt vorher, bei der Suche auf Google, beim Scrollen durch Instagram oder bei der Frage an ChatGPT.",
+        "Wer dort nicht sichtbar ist oder nur eine Leistungsliste zeigt, verliert gegen die Praxis mit dem überzeugenderen Auftritt, auch wenn die eigene Behandlung besser ist. Selbstzahler wägen besonders sorgfältig ab, denn sie investieren eigenes Geld. Sie wollen verstehen, was sie erwartet, und sie wollen wissen, wer sie behandelt.",
+        "Ein kurzes Erklärvideo, in dem Sie eine Leistung sachlich erläutern, beantwortet die häufigsten Fragen und zeigt Sie als Ärztin oder Arzt. Über Anzeigen erreicht es Menschen in Ihrer Umgebung, die sich schon für das Thema interessieren.",
       ],
     },
     points: {
       eyebrow: "Unser Ansatz",
-      title: "Drei Hebel für mehr Selbstzahler",
-      subtitle: "Wir verbinden Inhalte, Reichweite und einen einfachen Weg zum Termin – damit aus Interesse eine Buchung wird.",
+      title: "So kommen mehr Selbstzahler in Ihre Praxis",
+      subtitle: "Gute Inhalte bringen wenig, wenn sie niemand sieht oder der Weg zum Termin zu lang ist. Deshalb kümmern wir uns um alles bis zur Buchung.",
       items: [
         {
           icon: "target",
           title: "Leistungen verständlich erklären",
-          text: "Erklärvideos und Beiträge zu Ihren Privat- und IGeL-Leistungen: Was ist das, für wen eignet es sich, wie läuft es ab? Sachlich, ohne Heilversprechen – und genau deshalb glaubwürdig.",
+          text: "Erklärvideos und Beiträge zu Ihren Privat- und IGeL-Leistungen: Was ist das, für wen eignet es sich, wie läuft es ab? Sachlich und ohne Heilversprechen. Das wirkt glaubwürdiger als jede Werbeaussage.",
         },
         {
           icon: "pin",
@@ -80,7 +80,7 @@ export const landingPages: LandingPageData[] = [
         },
         {
           title: "Botschaften und Drehplan",
-          text: "Wir entwickeln Themen und Skripte für Ihre Erklärvideos und planen die Kampagnen – HWG-konform von Anfang an. Sie geben frei.",
+          text: "Wir entwickeln Themen und Skripte für Ihre Erklärvideos und planen die Kampagnen, von Anfang an HWG-konform. Sie geben frei.",
           time: "eine Freigabe",
         },
         {
@@ -102,10 +102,10 @@ export const landingPages: LandingPageData[] = [
       ],
     },
     rules: {
-      title: "Werben für Selbstzahlerleistungen – aber rechtssicher",
+      title: "Selbstzahlerleistungen rechtssicher bewerben",
       paragraphs: [
         "Ärztliche Werbung ist in Deutschland durch die Berufsordnungen der Landesärztekammern und das Heilmittelwerbegesetz (HWG) geregelt. Sachliche Information über Ihre Leistungen ist erlaubt; anpreisende, irreführende oder vergleichende Werbung ist es nicht. Heilversprechen sind tabu, und für operative plastisch-chirurgische Eingriffe ohne medizinische Notwendigkeit dürfen keine Vorher-nachher-Bilder gezeigt werden.",
-        "Wir planen alle Inhalte von Anfang an innerhalb dieser Grenzen: Wir erklären, statt zu versprechen, und zeigen Sie und Ihr Team statt austauschbarer Werbebilder. Bei Grenzfällen empfehlen wir eine kurze Prüfung durch eine Fachanwältin oder einen Fachanwalt für Medizinrecht – unsere Inhalte ersetzen keine Rechtsberatung.",
+        "Wir planen alle Inhalte von Anfang an innerhalb dieser Grenzen: Wir erklären, statt zu versprechen, und zeigen Sie und Ihr Team statt austauschbarer Werbebilder. Bei Grenzfällen empfehlen wir eine kurze Prüfung durch eine Fachanwältin oder einen Fachanwalt für Medizinrecht. Unsere Inhalte ersetzen keine Rechtsberatung.",
       ],
     },
     faq: [
@@ -115,7 +115,7 @@ export const landingPages: LandingPageData[] = [
       },
       {
         q: "Darf ich IGeL-Leistungen bewerben?",
-        a: "Ja, über IGeL-Leistungen dürfen Sie sachlich informieren. Nicht erlaubt sind nach Berufsordnung und Heilmittelwerbegesetz unter anderem anpreisende oder irreführende Aussagen und Heilversprechen. Wir gestalten Ihre Inhalte informativ und zurückhaltend – das wirkt bei Selbstzahlern ohnehin glaubwürdiger.",
+        a: "Ja, über IGeL-Leistungen dürfen Sie sachlich informieren. Nicht erlaubt sind nach Berufsordnung und Heilmittelwerbegesetz unter anderem anpreisende oder irreführende Aussagen und Heilversprechen. Wir gestalten Ihre Inhalte informativ und zurückhaltend. Das wirkt bei Selbstzahlern ohnehin glaubwürdiger.",
       },
       {
         q: "Lohnen sich Google Ads für Selbstzahlerleistungen?",
@@ -127,7 +127,7 @@ export const landingPages: LandingPageData[] = [
       },
       {
         q: "Wann kommen die ersten Anfragen?",
-        a: "Anzeigen können schon wenige Wochen nach dem Dreh erste Anfragen bringen. Wie schnell und wie viele, hängt von Leistung, Standort und Budget ab. Im Praxis-Check geben wir Ihnen eine ehrliche Einschätzung – ohne Versprechen, die wir nicht halten können.",
+        a: "Anzeigen können schon wenige Wochen nach dem Dreh erste Anfragen bringen. Wie schnell und wie viele, hängt von Leistung, Standort und Budget ab. Im Praxis-Check sagen wir Ihnen ehrlich, was in Ihrem Fall realistisch ist.",
       },
     ],
     ctaTitle: "Mehr Selbstzahler für Ihre Praxis?",
@@ -140,35 +140,35 @@ export const landingPages: LandingPageData[] = [
     metaDescription:
       "Offene MFA- und Arztstellen besetzen: Recruiting-Videos mit Ihrem echten Team, Kampagnen auf Instagram, Facebook und TikTok und eine Bewerbung in unter zwei Minuten.",
     eyebrow: "Recruiting",
-    h1: "MFA und Fachkräfte für Ihre Praxis finden –",
+    h1: "MFA und Fachkräfte für Ihre Praxis finden",
     h1Accent: "mit Ihrem echten Team im Video",
-    lead: "Gute Medizinische Fachangestellte wechseln dorthin, wo sie das Team schon vorher kennenlernen. Wir zeigen, warum es sich lohnt, genau bei Ihnen zu arbeiten – und bringen die Stelle zu den Menschen, die nicht aktiv suchen.",
+    lead: "Gute Medizinische Fachangestellte wechseln dorthin, wo sie das Team schon vorher kennenlernen. Wir zeigen, warum es sich lohnt, bei Ihnen zu arbeiten, und bringen die Stelle zu Menschen, die gerade nicht aktiv suchen.",
     answer: {
       question: "Wie findet eine Arztpraxis MFA und Fachkräfte?",
-      text: "Arztpraxen finden MFA und Fachkräfte heute vor allem über Social Media statt über klassische Stellenportale. Wirksam sind kurze Recruiting-Videos mit dem echten Praxisteam, gezielte Anzeigen auf Instagram, Facebook und TikTok in der Region und eine Bewerbung, die nur wenige Minuten dauert.",
+      text: "Viele MFA suchen nicht aktiv in Stellenportalen, sind aber offen für einen Wechsel. Sie erreichen sie mit kurzen Recruiting-Videos mit dem echten Praxisteam, Anzeigen auf Instagram, Facebook und TikTok in Ihrer Region und einer Bewerbung, die nur wenige Minuten dauert.",
     },
     intro: {
       title: "Warum Stellenanzeigen allein nicht mehr funktionieren",
       paragraphs: [
-        "Der Fachkräftemangel trifft Arztpraxen besonders: Medizinische Fachangestellte werden überall gesucht, und wer gut ist, hat die Wahl. Viele von ihnen schauen gar nicht aktiv in Stellenportale – sie sind grundsätzlich zufrieden, aber offen für einen Wechsel, wenn das Angebot passt.",
-        "Diese Menschen erreichen Sie dort, wo sie ohnehin unterwegs sind: auf Instagram, Facebook und TikTok. Eine Stellenanzeige als Textblock geht dort unter. Was funktioniert, ist ein ehrlicher Einblick: Wie ist das Team? Wie sieht ein normaler Tag aus? Was ist bei Ihnen anders als in der Praxis nebenan?",
-        "Recruiting-Videos mit Ihrem echten Team beantworten genau diese Fragen. Kombiniert mit regional ausgespielten Anzeigen und einer Bewerbung ohne Anschreiben senken Sie die Hürde für einen Wechsel deutlich.",
+        "Medizinische Fachangestellte werden überall gesucht, und wer gut ist, hat die Wahl. Viele schauen gar nicht in Stellenportale. Sie sind zufrieden, aber offen für einen Wechsel, wenn das Angebot passt.",
+        "Diese Menschen erreichen Sie dort, wo sie ohnehin unterwegs sind: auf Instagram, Facebook und TikTok. Eine Stellenanzeige als Textblock geht dort unter. Was funktioniert, ist ein ehrlicher Einblick in Ihr Team und einen ganz normalen Arbeitstag.",
+        "Recruiting-Videos mit Ihrem echten Team zeigen genau das. Kombiniert mit regional ausgespielten Anzeigen und einer Bewerbung ohne Anschreiben senken Sie die Hürde für einen Wechsel deutlich.",
       ],
     },
     points: {
       eyebrow: "Unser Ansatz",
       title: "So wird Ihre Praxis zum Wunscharbeitgeber",
-      subtitle: "Arbeitgebermarke, Reichweite und ein einfacher Bewerbungsweg – aus einer Hand.",
+      subtitle: "Wir kümmern uns um die Videos, die Anzeigen und einen einfachen Bewerbungsweg.",
       items: [
         {
           icon: "rocket",
           title: "Recruiting-Videos mit Ihrem Team",
-          text: "Kolleginnen und Kollegen erzählen selbst, was die Arbeit bei Ihnen ausmacht. Authentisch statt Hochglanz – denn Bewerberinnen merken sofort, ob ein Video echt ist.",
+          text: "Kolleginnen und Kollegen erzählen selbst, was die Arbeit bei Ihnen ausmacht. Ohne Hochglanz, denn Bewerberinnen merken sofort, ob ein Video gestellt ist.",
         },
         {
           icon: "target",
           title: "Kampagnen in Ihrer Region",
-          text: "Wir spielen die Videos auf Instagram, Facebook und TikTok gezielt an Fachkräfte im Umkreis Ihrer Praxis aus – auch an diejenigen, die gerade nicht aktiv suchen.",
+          text: "Wir spielen die Videos auf Instagram, Facebook und TikTok gezielt an Fachkräfte im Umkreis Ihrer Praxis aus, auch an alle, die gerade nicht aktiv suchen.",
         },
         {
           icon: "clock",
@@ -179,7 +179,7 @@ export const landingPages: LandingPageData[] = [
     },
     process: {
       title: "So gehen wir vor",
-      subtitle: "Ihr Praxisbetrieb läuft weiter – der Dreh passt in einen halben Tag.",
+      subtitle: "Ihr Praxisbetrieb läuft weiter. Der Dreh passt in einen halben Tag.",
       steps: [
         {
           title: "Stellen und Stärken klären",
@@ -213,13 +213,13 @@ export const landingPages: LandingPageData[] = [
       title: "Fair und rechtlich sauber ausschreiben",
       paragraphs: [
         "Auch für Stellenanzeigen gelten Regeln: Ausschreibungen müssen nach dem Allgemeinen Gleichbehandlungsgesetz (AGG) neutral formuliert sein, etwa geschlechtsneutral oder ohne Altersvorgaben. Wir formulieren Anzeigen und Videotexte entsprechend.",
-        "Für Mitarbeitende, die im Video zu sehen sind, holen wir vorab eine schriftliche Einwilligung ein. Patientinnen und Patienten zeigen wir in Recruiting-Videos grundsätzlich nicht – es geht um Ihr Team und den Arbeitsalltag.",
+        "Für Mitarbeitende, die im Video zu sehen sind, holen wir vorab eine schriftliche Einwilligung ein. Patientinnen und Patienten zeigen wir in Recruiting-Videos grundsätzlich nicht. Es geht um Ihr Team und den Arbeitsalltag.",
       ],
     },
     faq: [
       {
         q: "Welche Plattform eignet sich, um MFA zu finden?",
-        a: "Für MFA eignen sich vor allem Instagram und Facebook, für jüngere Zielgruppen und Auszubildende zunehmend auch TikTok. Entscheidend ist weniger die einzelne Plattform als ein authentisches Video und eine regionale Ausspielung. Wir empfehlen die Mischung passend zu Ihrer Stelle und Ihrem Standort.",
+        a: "Für MFA eignen sich vor allem Instagram und Facebook, für jüngere Zielgruppen und Auszubildende zunehmend auch TikTok. Wichtiger als die Plattform sind ein echtes Video und eine regionale Ausspielung. Wir empfehlen die Mischung passend zu Ihrer Stelle und Ihrem Standort.",
       },
       {
         q: "Wie schnell kommen Bewerbungen?",
@@ -246,11 +246,11 @@ export const landingPages: LandingPageData[] = [
     serviceName: "Videoproduktion und Videomarketing für Arztpraxen",
     metaTitle: "Videomarketing für Arztpraxen | Praxisvideos | Story Base",
     metaDescription:
-      "Praxisvideos, die Vertrauen schaffen: Arzt-Erklärvideos, Praxis-Rundgang und Team-Porträts – gedreht in Ihrer Praxis oder in unserem Studio in Berlin-Spandau.",
+      "Praxisvideos, die Vertrauen schaffen: Arzt-Erklärvideos, Praxis-Rundgang und Team-Porträts, gedreht in Ihrer Praxis oder in unserem Studio in Berlin-Spandau.",
     eyebrow: "Videomarketing",
-    h1: "Videomarketing für Arztpraxen:",
-    h1Accent: "Vertrauen, bevor der erste Termin stattfindet",
-    lead: "Patienten und Bewerber wollen wissen, wer sie erwartet. Mit Praxisvideos lernen sie Sie kennen, bevor sie Ihre Praxis betreten – gedreht an einem Tag, bei Ihnen vor Ort oder in unserem eigenen Studio.",
+    h1: "Videomarketing für Arztpraxen",
+    h1Accent: "schafft Vertrauen vor dem ersten Termin",
+    lead: "Patienten und Bewerber wollen wissen, wer sie erwartet. Mit Praxisvideos lernen sie Sie kennen, bevor sie Ihre Praxis betreten. Gedreht an einem halben Tag, bei Ihnen vor Ort oder in unserem eigenen Studio.",
     answer: {
       question: "Was bringt Videomarketing einer Arztpraxis?",
       text: "Videomarketing zeigt Ärztin oder Arzt, Team und Praxis, bevor Patienten oder Bewerber zum ersten Mal kommen. Das baut Vertrauen auf, beantwortet häufige Fragen vorab und hebt die Praxis von Wettbewerbern ab. Ausgespielt über Website, Social Media und Anzeigen erreichen Praxisvideos gezielt neue Patienten und Fachkräfte.",
@@ -258,20 +258,20 @@ export const landingPages: LandingPageData[] = [
     intro: {
       title: "Warum Video für Praxen so gut funktioniert",
       paragraphs: [
-        "Die Wahl einer Ärztin oder eines Arztes ist eine Vertrauensfrage. Fotos und Texte können Leistungen beschreiben – aber erst im Video sehen Menschen, wie Sie sprechen, wie Sie erklären und wie Ihr Team miteinander umgeht. Diese Eindrücke entscheiden oft darüber, wo jemand einen Termin bucht.",
-        "Gleichzeitig ist Video das Format, das auf Instagram, Facebook, TikTok und YouTube die meiste Aufmerksamkeit bekommt. Ein gut gemachtes Praxisvideo lässt sich mehrfach nutzen: auf der Website, in Social Media, in Anzeigen und sogar im Wartezimmer.",
-        "Der größte Einwand ist meist die Zeit. Deshalb planen wir jeden Dreh so vor, dass er in einen halben Tag passt – mit Drehplan, vorbereiteten Fragen und einem Team, das weiß, wie Praxisalltag funktioniert.",
+        "Die Wahl einer Ärztin oder eines Arztes ist eine Vertrauensfrage. Fotos und Texte beschreiben Leistungen. Erst im Video sehen Menschen, wie Sie sprechen und wie Ihr Team miteinander umgeht. Diese Eindrücke entscheiden oft darüber, wo jemand einen Termin bucht.",
+        "Ein gut gemachtes Praxisvideo lässt sich mehrfach nutzen: auf der Website, in Social Media, in Anzeigen und sogar im Wartezimmer.",
+        "Der größte Einwand ist meist die Zeit. Deshalb planen wir jeden Dreh so vor, dass er in einen halben Tag passt. Dafür gibt es einen Drehplan, vorbereitete Fragen und ein Team, das Praxisalltag kennt.",
       ],
     },
     points: {
       eyebrow: "Formate",
       title: "Praxisvideos, die wir produzieren",
-      subtitle: "Vom kurzen Clip für Social Media bis zum Imagefilm – immer passend zu Ihrem Ziel.",
+      subtitle: "Vom kurzen Clip für Social Media bis zum Imagefilm.",
       items: [
         {
           icon: "target",
           title: "Arzt-Erklärvideos",
-          text: "Sie erklären eine Leistung, eine Untersuchung oder ein häufiges Beschwerdebild – sachlich, verständlich und in Ihren eigenen Worten.",
+          text: "Sie erklären eine Leistung, eine Untersuchung oder ein häufiges Beschwerdebild. Sachlich und in Ihren eigenen Worten.",
         },
         {
           icon: "pin",
@@ -281,13 +281,13 @@ export const landingPages: LandingPageData[] = [
         {
           icon: "rocket",
           title: "Team-Porträts & Recruiting-Clips",
-          text: "Ihr Team stellt sich vor – für Patienten, die wissen wollen, wer sie betreut, und für Fachkräfte, die einen neuen Arbeitsplatz suchen.",
+          text: "Ihr Team stellt sich vor. Für Patienten, die wissen wollen, wer sie betreut, und für Fachkräfte, die einen neuen Arbeitsplatz suchen.",
         },
       ],
     },
     process: {
       title: "Vom Drehplan zum fertigen Video",
-      subtitle: "Gut vorbereitet, an einem Tag gedreht, für jede Plattform geschnitten.",
+      subtitle: "Ein halber Drehtag reicht, wenn die Vorbereitung stimmt.",
       steps: [
         {
           title: "Ziele und Themen",
@@ -296,12 +296,12 @@ export const landingPages: LandingPageData[] = [
         },
         {
           title: "Drehplan und Vorbereitung",
-          text: "Wir schreiben Fragen und Abläufe, planen Szenen und Drehort – in Ihrer Praxis oder in unserem Studio in Berlin-Spandau. Sie geben frei.",
+          text: "Wir schreiben Fragen und Abläufe, planen Szenen und Drehort, in Ihrer Praxis oder in unserem Studio in Berlin-Spandau. Sie geben frei.",
           time: "eine Freigabe",
         },
         {
           title: "Dreh, Schnitt, Ausspielung",
-          text: "Wir drehen, schneiden für Website, Social Media und Ads und veröffentlichen auf Wunsch direkt – inklusive Untertiteln.",
+          text: "Wir drehen, schneiden für Website, Social Media und Ads und veröffentlichen auf Wunsch direkt, mit Untertiteln.",
           time: "ein halber Drehtag pro Quartal",
         },
       ],
@@ -312,7 +312,7 @@ export const landingPages: LandingPageData[] = [
         "Konzept, Themen und Drehplan für Ihre Videos",
         "Dreh in Ihrer Praxis oder in unserem Video- und Podcast-Studio in Berlin-Spandau",
         "Schnitt in allen nötigen Formaten: quer für Website und YouTube, hoch für Reels, Stories und TikTok",
-        "Untertitel – wichtig, weil viele Videos ohne Ton angesehen werden",
+        "Untertitel, weil viele Videos ohne Ton laufen",
         "Auf Wunsch Veröffentlichung, Social-Media-Betreuung und Anzeigen",
         "Die fertigen Videos zur Nutzung auf allen Kanälen",
       ],
@@ -342,7 +342,7 @@ export const landingPages: LandingPageData[] = [
         a: "Beides ist möglich. In Ihrer Praxis wirken Rundgänge und Team-Szenen am authentischsten; Erklärvideos und Interviews lassen sich auch in unserem Studio in Berlin-Spandau drehen. Praxen außerhalb Berlins besuchen wir für den Dreh vor Ort.",
       },
       {
-        q: "Ich bin nicht gern vor der Kamera – geht das trotzdem?",
+        q: "Ich bin nicht gern vor der Kamera. Geht das trotzdem?",
         a: "Ja, das geht den meisten Ärztinnen und Ärzten so. Wir bereiten Fragen vor, drehen im Gesprächsformat statt mit auswendig gelernten Texten und nehmen uns Zeit. Nach den ersten Minuten fühlt es sich für die meisten ganz normal an.",
       },
     ],

@@ -15,9 +15,9 @@ ${profile.map((p) => `- ${p.term}: ${p.detail}`).join("\n")}
 - E-Mail: ${site.email}
 - Website: ${site.url}/
 
-## AI-Ready Growth System – die fünf Bausteine
+## AI-Ready Growth System: die fünf Bausteine
 
-${blocks.map((b, i) => `${i + 1}. **${b.title}** – ${b.tun} Aufwand für die Praxis: ${b.aufwand}.`).join("\n")}
+${blocks.map((b, i) => `${i + 1}. **${b.title}**: ${b.tun} Aufwand für die Praxis: ${b.aufwand}.`).join("\n")}
 
 ## Fachrichtungen
 

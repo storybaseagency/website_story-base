@@ -61,7 +61,7 @@ export function MarketingConsentAction({ action }: { action: keyof typeof texts 
 
 const results: Record<string, { title: string; text: string }> = {
   bestaetigt: {
-    title: "Danke – Ihre Einwilligung ist bestätigt.",
+    title: "Danke, Ihre Einwilligung ist bestätigt.",
     text: "Wir schicken Ihnen ab und zu Tipps zum Praxismarketing. In jeder E-Mail finden Sie einen Link, mit dem Sie sich jederzeit abmelden können.",
   },
   abgemeldet: {

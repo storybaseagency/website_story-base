@@ -20,7 +20,7 @@ export const problems: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "target",
     title: "Zu wenige Privat- und Selbstzahler",
-    text: "Ihre IGeL- und Privatleistungen sind gut – aber online kaum sichtbar. Wer sucht, landet bei der Praxis mit dem überzeugenderen Auftritt.",
+    text: "Ihre IGeL- und Privatleistungen sind gut, aber online kaum sichtbar. Wer sucht, landet bei der Praxis mit dem überzeugenderen Auftritt.",
   },
   {
     icon: "calendar",
@@ -30,7 +30,7 @@ export const problems: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "clock",
     title: "Keine Zeit für Social Media",
-    text: "Zwischen Sprechstunde, Abrechnung und Team bleibt kein Abend für Reels, Texte und Ads – und halbherzige Posts schaden mehr, als sie nützen.",
+    text: "Zwischen Sprechstunde, Abrechnung und Team bleibt kein Abend für Reels, Texte und Anzeigen. Halbherzige Posts schaden dann mehr, als sie nützen.",
   },
 ];
 
@@ -41,14 +41,14 @@ export const blocks = [
     short: "Wen Sie erreichen wollen und womit",
     tun: "Wir klären, welche Patientengruppen und Leistungen Ihre Praxis wirklich voranbringen, und entwickeln daraus Botschaften, Themen und einen Redaktionsplan, HWG-konform von Anfang an.",
     nutzen:
-      "Ein klares Profil, das Selbstzahler anspricht und sich von Praxen in Ihrer Nähe abhebt. Alle weiteren Inhalte zahlen auf dieses Ziel ein.",
+      "Ein klares Profil, das Selbstzahler anspricht und sich von Praxen in Ihrer Nähe abhebt. Alle weiteren Inhalte bauen darauf auf.",
     aufwand: "30-Minuten-Praxis-Check + ein Strategietermin",
   },
   {
     id: "video",
     title: "Videoproduktion",
     short: "Im Studio oder direkt in Ihrer Praxis",
-    tun: "Arzt-Erklärvideos, Praxis-Rundgang, Team-Porträts und Recruiting-Clips. Vorbereitet mit Drehplan, gedreht an einem Tag, geschnitten für jede Plattform.",
+    tun: "Arzt-Erklärvideos, Praxis-Rundgang, Team-Porträts und Recruiting-Clips. Mit Drehplan vorbereitet und an einem halben Tag gedreht.",
     nutzen:
       "Patienten und Bewerber lernen Sie kennen, bevor sie das erste Mal Ihre Praxis betreten. Vertrauen entsteht schon online.",
     aufwand: "ein halber Drehtag pro Quartal",
@@ -59,7 +59,7 @@ export const blocks = [
     short: "Regelmäßig präsent, ohne Ihre Freizeit zu opfern",
     tun: "Wir planen, texten und veröffentlichen Ihre Beiträge auf Instagram, Facebook, TikTok und LinkedIn und betreuen Kommentare nach abgestimmten Regeln.",
     nutzen:
-      "Ein lebendiger, professioneller Auftritt, der Woche für Woche Ihre Expertise zeigt, ohne dass Ihr Team dafür Zeit freischaufeln muss.",
+      "Jede Woche neue Beiträge, die Ihre Expertise zeigen, ohne dass Ihr Team dafür Zeit freischaufeln muss.",
     aufwand: "Freigabe per Link, ca. 15 Minuten pro Woche",
   },
   {
@@ -77,7 +77,7 @@ export const blocks = [
     short: "Daten, die jeden Monat besser machen",
     tun: "Wir werten Reichweite, Anfragen und Kosten aus, testen neue Varianten und strukturieren Ihre Inhalte so, dass Google und KI-Assistenten wie ChatGPT Ihre Praxis finden und empfehlen.",
     nutzen:
-      "Ihr Marketing wird mit jedem Monat effizienter. Sie sehen klar, welcher Euro wie viele Anfragen bringt.",
+      "Sie sehen jeden Monat, welcher Euro wie viele Anfragen bringt. Das Budget fließt dorthin, wo es wirkt.",
     aufwand: "ein 20-minütiger Monatsreport",
   },
 ];
@@ -182,7 +182,7 @@ export const steps = [
   },
   {
     title: "Strategie & Drehplan",
-    text: "Wir entwickeln Botschaften, Themen und einen konkreten Drehplan. Sie geben frei – alles Weitere bereiten wir vor.",
+    text: "Wir entwickeln Botschaften, Themen und einen konkreten Drehplan. Sie geben frei, alles Weitere bereiten wir vor.",
     time: "eine Freigabe",
   },
   {
@@ -199,7 +199,7 @@ export const facts = [
   "Persönlicher Ansprechpartner",
 ];
 
-// Zitierfähiger Steckbrief – kurze, faktische Aussagen für Google und KI-Assistenten
+// Zitierfähiger Steckbrief: kurze, faktische Aussagen für Google und KI-Assistenten
 export const profile: { term: string; detail: string }[] = [
   { term: "Wer", detail: `${site.legalName}, Agentur für Praxismarketing` },
   {
@@ -221,15 +221,15 @@ export const profile: { term: string; detail: string }[] = [
 export const faq = [
   {
     q: "Was ist das AI-Ready Growth System?",
-    a: "Das AI-Ready Growth System ist unser Komplettsystem für Praxismarketing: Wir entwickeln Ihre Positionierung, produzieren Videos, spielen sie über Social Media und Ads aus und optimieren alles laufend datenbasiert. „AI-Ready“ heißt, dass Ihre Inhalte so aufgebaut sind, dass auch Google und KI-Assistenten Ihre Praxis verstehen und empfehlen können.",
+    a: "Das AI-Ready Growth System ist unser Komplettsystem für Praxismarketing: Wir entwickeln Ihre Positionierung, produzieren Videos, spielen sie über Social Media und Ads aus und werten jeden Monat aus, was Anfragen bringt. „AI-Ready“ heißt, dass Ihre Inhalte so aufgebaut sind, dass auch Google und KI-Assistenten Ihre Praxis verstehen und empfehlen können.",
   },
   {
     q: "Für welche Praxen eignet sich Story Base?",
-    a: "Story Base eignet sich für Privat- und Selbstzahlerpraxen sowie gemischte Praxen, die gezielt mehr Privatpatienten oder Fachkräfte gewinnen wollen – zum Beispiel in Ästhetik, Zahnmedizin, Dermatologie, Orthopädie oder Kieferorthopädie. Entscheidend ist nicht die Fachrichtung, sondern ein klares Wachstumsziel.",
+    a: "Story Base eignet sich für Privat- und Selbstzahlerpraxen sowie gemischte Praxen, die gezielt mehr Privatpatienten oder Fachkräfte gewinnen wollen, zum Beispiel in Ästhetik, Zahnmedizin, Dermatologie, Orthopädie oder Kieferorthopädie. Die Fachrichtung ist dabei zweitrangig. Wichtig ist ein klares Ziel.",
   },
   {
     q: "Wie gewinnt man mit Videos mehr Privatpatienten?",
-    a: "Videos zeigen Arzt, Team und Praxis, bevor der Patient da ist. Das schafft Vertrauen – und Vertrauen gibt bei Selbstzahlerleistungen den Ausschlag. Über gezielte Ads erreichen diese Videos Menschen in Ihrem Einzugsgebiet, die sich bereits für Ihre Leistungen interessieren.",
+    a: "Videos zeigen Arzt, Team und Praxis, bevor der Patient da ist. Bei Selbstzahlerleistungen gibt Vertrauen den Ausschlag. Über gezielte Ads erreichen diese Videos Menschen in Ihrem Einzugsgebiet, die sich bereits für Ihre Leistungen interessieren.",
   },
   {
     q: "Wie hilft Videomarketing bei der Suche nach MFA und Fachkräften?",
@@ -237,19 +237,19 @@ export const faq = [
   },
   {
     q: "Wie viel Zeit muss ich als Arzt investieren?",
-    a: "In der Regel ein Strategiegespräch von 30 Minuten und einen halben Drehtag pro Quartal. Planung, Schnitt, Texte, Posting und Ads übernehmen wir. Freigaben erledigen Sie bequem per Link – meist in wenigen Minuten pro Woche.",
+    a: "In der Regel ein Strategiegespräch von 30 Minuten und einen halben Drehtag pro Quartal. Planung, Schnitt, Texte, Posting und Ads übernehmen wir. Freigaben erledigen Sie per Link, meist in wenigen Minuten pro Woche.",
   },
   {
     q: "Was darf eine Arztpraxis auf Social Media werben?",
-    a: "Ärztliche Werbung ist durch das Heilmittelwerbegesetz (HWG) und die Berufsordnung geregelt – etwa bei Vorher-nachher-Bildern oder Heilversprechen. Wir kennen diese Regeln und planen alle Inhalte von Anfang an so, dass sie sachlich informieren und rechtlich sicher bleiben.",
+    a: "Ärztliche Werbung ist durch das Heilmittelwerbegesetz (HWG) und die Berufsordnung geregelt, etwa bei Vorher-nachher-Bildern oder Heilversprechen. Wir kennen diese Regeln und planen alle Inhalte von Anfang an so, dass sie sachlich informieren und rechtlich sicher bleiben.",
   },
   {
     q: "Wann sehe ich erste Ergebnisse?",
-    a: "Ads können schon wenige Wochen nach dem Dreh erste Anfragen bringen. Organische Reichweite und Rankings bei Google bauen sich über mehrere Monate auf. Im Praxis-Check besprechen wir, was in Ihrer Situation realistisch ist – ohne Versprechen, die wir nicht halten können.",
+    a: "Ads können schon wenige Wochen nach dem Dreh erste Anfragen bringen. Organische Reichweite und Rankings bei Google bauen sich über mehrere Monate auf. Im Praxis-Check besprechen wir, was in Ihrer Situation realistisch ist.",
   },
   {
     q: "Wem gehören die Videos?",
-    a: "Die Videos gehören Ihnen. Sie erhalten die fertigen Videos zur Nutzung auf Ihrer Website, in Social Media und in der Praxis. Die genauen Nutzungsrechte halten wir im Vertrag transparent fest.",
+    a: "Die Videos gehören Ihnen. Sie erhalten die fertigen Videos zur Nutzung auf Ihrer Website, in Social Media und in der Praxis. Die genauen Nutzungsrechte halten wir im Vertrag fest.",
   },
   {
     q: "Arbeiten Sie nur mit Praxen in Berlin?",

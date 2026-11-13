@@ -84,4 +84,4 @@ $sent = mail(RECIPIENT, $subject, $body, $headers, '-f' . SENDER);
 if (!$sent) {
     respond(false, 500, 'Die Anfrage konnte nicht gesendet werden.', $wantsJson);
 }
-respond(true, 200, 'Danke – wir melden uns.', $wantsJson);
+respond(true, 200, 'Danke, wir melden uns.', $wantsJson);

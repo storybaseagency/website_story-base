@@ -16,7 +16,7 @@ export function ContactSection({ title = "Bereit für mehr Privatpatienten?" }: 
                 {title}
               </h2>
               <p className="text-lg leading-relaxed text-white/75">
-                Im 30-minütigen Praxis-Check schauen wir gemeinsam auf Ihre Ziele und Ihren Auftritt – und Sie gehen mit
+                Im 30-minütigen Praxis-Check schauen wir gemeinsam auf Ihre Ziele und Ihren Auftritt. Sie gehen mit
                 drei konkreten nächsten Schritten raus. Auch wenn wir danach nicht zusammenarbeiten.
               </p>
               <div>

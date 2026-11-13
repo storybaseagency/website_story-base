@@ -6,7 +6,7 @@ export const kiCheck = {
   path: "/ki-check/",
   metaTitle: "Kostenloser KI-Sichtbarkeits-Check für Arztpraxen | Story Base",
   metaDescription:
-    "Empfehlen ChatGPT, Perplexity und Gemini Ihre Praxis – oder Ihre Konkurrenz? Kostenloser KI-Sichtbarkeits-Check mit Score, Konkurrenzvergleich und drei Maßnahmen. Report in 2 Werktagen.",
+    "Empfehlen ChatGPT, Perplexity und Gemini Ihre Praxis oder Ihre Konkurrenz? Kostenloser KI-Sichtbarkeits-Check mit Score, Konkurrenzvergleich und drei Maßnahmen. Report in 2 Werktagen.",
   headline: "Ihre Patienten fragen ChatGPT nach einem Arzt.",
   headlineAccent: "Wird Ihre Praxis genannt?",
   // Holt auch Suchende ab, die eigentlich eine Agentur suchen („Praxismarketing“)
@@ -16,7 +16,7 @@ export const kiCheck = {
   trust: ["Kostenlos", "1 Minute Aufwand", "Persönlich ausgewertet von Story Base, Berlin-Spandau"],
   problem: {
     title: "Google ist nicht mehr der einzige Weg zu Ihrer Praxis",
-    text: "Immer mehr Patienten fragen KI-Assistenten, welche Praxis sie für eine Behandlung wählen sollen. Die KI nennt dann meist zwei, drei Praxen – und die anderen existieren für diesen Patienten nicht. Ob Ihre Praxis dabei ist, hängt nicht von Ihrer medizinischen Qualität ab, sondern davon, wie Ihre Praxis im Netz beschrieben ist.",
+    text: "Immer mehr Patienten fragen KI-Assistenten, welche Praxis sie für eine Behandlung wählen sollen. Die Antwort nennt meist zwei oder drei Praxen. Die anderen tauchen für diesen Patienten gar nicht auf. Ob Ihre Praxis dabei ist, hat wenig mit Ihrer medizinischen Qualität zu tun. Es hängt davon ab, wie Ihre Praxis im Netz beschrieben ist.",
   },
   benefits: [
     {
@@ -47,7 +47,7 @@ export const kiCheck = {
     },
   ],
   about:
-    "Story Base ist die Video- und Ads-Agentur für Privat- und Selbstzahlerpraxen, mit eigenem Studio in Berlin-Spandau. Mit dem AI-Ready Growth System sorgen wir dafür, dass Patienten und Fachkräfte Ihre Praxis finden – bei Google und bei KI-Assistenten.",
+    "Story Base ist die Video- und Ads-Agentur für Privat- und Selbstzahlerpraxen, mit eigenem Studio in Berlin-Spandau. Mit dem AI-Ready Growth System sorgen wir dafür, dass Patienten und Fachkräfte Ihre Praxis finden, bei Google und bei KI-Assistenten.",
   faq: [
     { q: "Was kostet der Check?", a: "Nichts. Sie gehen keine Verpflichtung ein." },
     {
@@ -56,7 +56,7 @@ export const kiCheck = {
     },
     {
       q: "Wie genau ist das Ergebnis?",
-      a: "KI-Antworten ändern sich laufend. Der Report ist eine Stichprobe mit Datum, die zeigt, wie KI Ihre Praxis heute sieht. Genau deshalb prüfen wir mehrere Fragen und mehrere Assistenten.",
+      a: "KI-Antworten ändern sich laufend. Der Report ist eine Stichprobe mit Datum, die zeigt, wie KI Ihre Praxis heute sieht. Deshalb prüfen wir mehrere Fragen und mehrere Assistenten.",
     },
     {
       q: "Brauchen Sie Patientendaten?",
