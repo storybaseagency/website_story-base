@@ -94,7 +94,7 @@ function Hero() {
         <Reveal delay={250} distance={48}>
           <div className="relative mx-auto w-full max-w-[290px] sm:max-w-[340px]">
             <PhoneSpots priority />
-            <div className="absolute top-full -mt-3 -right-16 hidden max-w-[220px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms] lg:block xl:-right-24">
+            <div className="absolute bottom-2 -right-16 hidden max-w-[220px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms] xl:block xl:-right-36">
               <p className="text-xs font-semibold tracking-widest text-accent-deep uppercase">Aus einer Hand</p>
               <p className="mt-2 leading-[1.45] font-bold text-ink-950">Video + Social Media + Ads = planbar mehr Anfragen</p>
             </div>
