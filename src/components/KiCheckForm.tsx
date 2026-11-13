@@ -219,7 +219,7 @@ export function KiCheckForm({
             />
           </Field>
           <SubmitButton>Weiter</SubmitButton>
-          <p className="text-center text-xs text-ink-500">Kostenlos und unverbindlich · Schritt 2: ein paar kurze Fragen</p>
+          <p className="text-center text-xs text-ink-500">Kostenlos und unverbindlich · Über 20 Praxen geprüft</p>
         </fieldset>
       ) : (
         <fieldset className="mt-4 grid gap-4">

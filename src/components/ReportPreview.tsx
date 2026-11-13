@@ -61,7 +61,7 @@ export function ReportPreview() {
         </span>
       </button>
       <figcaption className="mt-4 text-center text-sm text-ink-500">
-        Echter Report einer Schönheitspraxis in Berlin, November 2026. Namen und Adressen sind geschwärzt.
+        Echter Report einer Schönheitspraxis in Berlin, November 2026, einer von über 20 bisher. Namen und Adressen sind geschwärzt.
       </figcaption>
 
       <dialog
