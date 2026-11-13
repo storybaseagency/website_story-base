@@ -92,16 +92,17 @@ function Hero() {
         </div>
 
         <Reveal delay={250} distance={48}>
-          <div className="relative mx-auto w-full max-w-[320px] pt-6 pb-10 pl-6 sm:max-w-[400px]">
-            <HeroVideo className="aspect-[9/16] w-full rounded-3xl shadow-image" />
-            <div className="absolute top-0 left-0 flex animate-fade-in items-center gap-2.5 rounded-full border border-ink-950/8 bg-white/90 py-2.5 pr-4 pl-2.5 shadow-card backdrop-blur [animation-delay:700ms]">
-              <IconTile name="pin" small />
-              <span className="text-sm leading-[18px]">
-                <span className="block text-ink-500">Eigenes Studio</span>
-                <strong className="text-ink-950">Berlin-Spandau</strong>
-              </span>
+          <div className="relative mx-auto w-full max-w-[290px] sm:max-w-[340px]">
+            {/* Handy-Rahmen um die Spots */}
+            <div aria-hidden className="pointer-events-none absolute inset-10 rounded-full bg-accent/35 blur-3xl" />
+            <div className="relative rounded-[2.75rem] bg-ink-950 p-[9px] shadow-image ring-1 ring-ink-950/10">
+              <span aria-hidden className="absolute top-28 -left-[3px] h-9 w-[3px] rounded-l bg-ink-800" />
+              <span aria-hidden className="absolute top-40 -left-[3px] h-14 w-[3px] rounded-l bg-ink-800" />
+              <span aria-hidden className="absolute top-36 -right-[3px] h-20 w-[3px] rounded-r bg-ink-800" />
+              <HeroVideo className="aspect-[9/16] w-full rounded-[2.2rem]" />
+              <span aria-hidden className="absolute top-[18px] left-1/2 h-[22px] w-[84px] -translate-x-1/2 rounded-full bg-ink-950" />
             </div>
-            <div className="absolute -right-2 bottom-0 max-w-[240px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms] sm:-right-10">
+            <div className="absolute bottom-24 -right-24 hidden max-w-[220px] animate-fade-in rounded-3xl border border-ink-950/8 bg-white/92 p-5 shadow-card-hover backdrop-blur [animation-delay:950ms] lg:block xl:-right-28">
               <p className="text-xs font-semibold tracking-widest text-accent-deep uppercase">Aus einer Hand</p>
               <p className="mt-2 leading-[1.45] font-bold text-ink-950">Video + Social Media + Ads = planbar mehr Anfragen</p>
             </div>
