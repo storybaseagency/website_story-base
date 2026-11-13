@@ -5,7 +5,7 @@ import { KiCheckForm } from "./KiCheckForm";
 import { KiCheckStickyCta } from "./KiCheckStickyCta";
 import { KiCheckVideo, KiCheckVideoTeaser } from "./KiCheckVideo";
 import { KiCheckView } from "./KiCheckView";
-import { ReportMockup } from "./ReportMockup";
+import { ReportPreview } from "./ReportPreview";
 import { Button, Card, Dot, Eyebrow, IconTile, Reveal, Section, SectionHeader } from "./ui";
 import type { ReactNode } from "react";
 import { kiCheck, type KiCheckCampaign, type KiCheckVariant } from "@/lib/kicheck";
@@ -177,7 +177,7 @@ export function KiCheckLanding({
             </ul>
           </div>
           <Reveal delay={150} className="pb-10">
-            <ReportMockup />
+            <ReportPreview />
           </Reveal>
         </div>
       </Section>
