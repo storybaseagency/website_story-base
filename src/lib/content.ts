@@ -125,6 +125,37 @@ export const goals: {
   },
 ];
 
+// Format-Teaser im Story-Base-Look (Hochformat, 10 s, ohne Ton). Mit Stockmaterial
+// produziert – auf der Website deshalb als Beispiele für Formate gekennzeichnet.
+export const formatClips = [
+  {
+    slug: "kongress-fachvortrag",
+    tag: "Kongress & Fachvortrag",
+    title: "Ihr Wissen. Perfekt in Szene.",
+    text: "Vortrag, Interview und Highlight-Film von Kongressen und Fachveranstaltungen.",
+    src: "/videos/format-kongress-fachvortrag.mp4",
+    poster: "/images/format-kongress-fachvortrag-poster.webp",
+  },
+  {
+    slug: "social-media-reels",
+    tag: "Social Media für Praxen",
+    title: "Reels, die Vertrauen schaffen.",
+    text: "Kurze Videos für Instagram, TikTok und Ihre Website, in denen Patienten Sie kennenlernen.",
+    src: "/videos/format-social-media-reels.mp4",
+    poster: "/images/format-social-media-reels-poster.webp",
+    href: "/videomarketing-arztpraxis/",
+  },
+  {
+    slug: "forschung-medizin",
+    tag: "Marketing für Medizin",
+    title: "Ihre Forschung. Endlich sichtbar.",
+    text: "Labor, Team und Arbeitsalltag zeigen, auch um Fachkräfte zu finden.",
+    src: "/videos/format-forschung-medizin.mp4",
+    poster: "/images/format-forschung-medizin-poster.webp",
+    href: "/fachkraefte-arztpraxis/",
+  },
+];
+
 // Referenzen zu Jans Arbeit als Kameramann und Bildregisseur (übernommen von
 // medienproduktionbruchwalski.de). Bewusst als Stimmen über Jan gekennzeichnet,
 // nicht als Stimmen von Arztpraxen.

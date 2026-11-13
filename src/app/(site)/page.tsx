@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContactSection } from "@/components/ContactSection";
 import { FaqList } from "@/components/FaqList";
+import { FormatShowcase } from "@/components/FormatShowcase";
 import { JanReferences } from "@/components/JanReferences";
 import { StickyCta } from "@/components/StickyCta";
 import { SystemTabs } from "@/components/SystemTabs";
@@ -17,6 +18,7 @@ export default function Home() {
       <FieldsTicker />
       <Problem />
       <System />
+      <FormatShowcase />
       <Goals />
       {testimonials.length > 0 && <Testimonials />}
       <Process />
